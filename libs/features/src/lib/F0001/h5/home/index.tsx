@@ -1,17 +1,17 @@
-import { Fragment, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { includes } from 'lodash-es'
-import { useRouter } from 'next/router'
-import classNames from 'classnames'
 import { Header, JackPot, useAppDownload } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { useHome } from '@nx-next-app/features/F0001/providers'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+import classNames from 'classnames'
+import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { Fragment, useCallback } from 'react'
 import Menu from './menu'
 
 interface IHomeProps {
@@ -61,6 +61,10 @@ const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
 const PartnerBlock = dynamic(() => import('./PartnerBlock'))
 
 const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
+	ssr: false,
+})
+
+const NewYearEvent = dynamic(() => import('../common/NewYearEvent'), {
 	ssr: false,
 })
 
@@ -129,6 +133,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 			<EuroCupEntry />
 		) : null,
 		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[MobileHomeComponentsEnum.NewYearEvent]: <NewYearEvent />,
 		[MobileHomeComponentsEnum.Retention]: <Retention />,
 
 		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,

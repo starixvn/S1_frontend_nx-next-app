@@ -167,3 +167,33 @@ export interface IPromotionPredictScoreArgs {
 	homeTeamScore: number
 	awayTeamScore: number
 }
+
+export interface ICheckPromotionMissionData {
+	newYearMission2024: IMissionData[]
+	eggTicket: number
+}
+
+export interface IMissionData {
+	type: number
+	missionDate: string
+	missionName: string
+	missionNo: number
+	tpCategoryId: number
+	goalAmount: number
+	progressAmount: number
+	eggCount: number
+	isCompleted: boolean
+}
+
+export interface IDrawPrizeData {
+	jackpot: number
+	prizeId: number
+	prizeName: null | string
+	ticketCount: number
+	drawPrizeType: number
+}
+
+export interface IGetCustBlessingsStickerData {
+	isClaimedBigPrize: boolean
+	stickers: number
+}

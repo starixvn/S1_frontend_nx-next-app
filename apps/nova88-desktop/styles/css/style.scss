@@ -576,7 +576,7 @@ header {
                 &.List-npc {
                   margin-bottom: 20px;
                 }
-                
+
               }
 
               >span {
@@ -867,13 +867,13 @@ header {
           }
         }
 
-        // prediction-list 
+        // prediction-list
         .prediction-list {
           a,
           button {
             img {
               margin-bottom: 20px;
-              
+
               &:hover {
                 margin-left: 10px;
               }
@@ -882,7 +882,7 @@ header {
 
           }
         }
-        
+
       }
     }
 
@@ -12395,7 +12395,7 @@ nav {
 //         font-weight: bold;
 //       }
 //     }
-//     tr{    
+//     tr{
 //       background: white;
 //       td{
 //         border: 1px solid #866c55;
@@ -12410,7 +12410,7 @@ nav {
 //           margin: auto;
 //           text-align: right;
 //         }
-//       }            
+//       }
 //       &:first-child{
 //         background: #F5C346;
 //         td{
@@ -18927,7 +18927,7 @@ nav {
     //   content: "";
     //   height: 0px;
     //   left: 15px;
-    //   position: absolute;        
+    //   position: absolute;
     //   width: 0px;
     //   transform: translateY(-100%);
     // }
@@ -25463,13 +25463,13 @@ input[type=number] {
     &:first-child{
       position: relative;
       z-index: 3;
-    } 
+    }
 
     >div{
       display: flex;
       align-items: center;
-    } 
-    .inputBox-blue{ 
+    }
+    .inputBox-blue{
       padding: 0 20px 0 20px;
       margin-right: 10px;
       border-radius: 10px !important;
@@ -25522,7 +25522,7 @@ input[type=number] {
         opacity: 0;
         cursor: pointer;
         margin: 0;
-      
+
       }
 
       input[type="checkbox"]:disabled {
@@ -25541,8 +25541,8 @@ input[type=number] {
       input[type="checkbox"]:disabled + .checkbox-icon + span {
         color: #B5C0D1;
       }
-      
-      
+
+
       // 樣式化checkbox
       .checkbox-icon{
         box-sizing: border-box;
@@ -25580,7 +25580,7 @@ input[type=number] {
           opacity: 0;
         }
       }
-      
+
     }
     label{
       &:nth-child(2){
@@ -25678,7 +25678,7 @@ input[type=number] {
   .changepassword-content{
     display: flex;
     align-items: flex-start;
-    
+
     .resetPassWord{
 
       .inputBox-blue{
@@ -25789,13 +25789,13 @@ main {
           bottom: calc(25% - 58px);
         }
         //banner-logo
-        &-logo { 
+        &-logo {
           margin-bottom: 54px;
           img {
             max-width: 360px;
           }
         }
-        //banner-cpation 
+        //banner-cpation
         &-caption {
           .title {
             font-size: 48px;
@@ -25820,7 +25820,7 @@ main {
             }
           }
         }
-      } 
+      }
 
       @media screen and (max-width: 1440px) {
         .banner {
@@ -25905,7 +25905,7 @@ main {
                 margin-top: 20px;
                 display: flex;
                 align-items: center;
-                justify-content: center; 
+                justify-content: center;
                 .swiper-pagination-bullet {
                   background: #D9D9D9;
                   width: 10px;
@@ -25953,14 +25953,14 @@ main {
                 }
               }
             }
-            // card-swiper hover 
+            // card-swiper hover
             &:hover {
               .swiper-button-next,
               .swiper-button-prev {
                 display: flex;
               }
             }
-            
+
             // Match-Card
             .match-card {
               display: flex;
@@ -26017,8 +26017,8 @@ main {
                     margin-bottom: 12px;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2; 
-                    overflow: hidden; 
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                     text-overflow: ellipsis;
                   }
                   //time
@@ -26031,8 +26031,8 @@ main {
                       text-align: center;
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 2; 
-                      overflow: hidden; 
+                      -webkit-line-clamp: 2;
+                      overflow: hidden;
                       text-overflow: ellipsis;
                       &:last-child {
                         margin-left: 8px;
@@ -26112,8 +26112,8 @@ main {
                       text-align: center;
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 1; 
-                      overflow: hidden; 
+                      -webkit-line-clamp: 1;
+                      overflow: hidden;
                       text-overflow: ellipsis;
                     }
                   }
@@ -26247,7 +26247,7 @@ main {
                     &.amount {
                       font-size: 40px;
                       font-weight: 600;
-                      color: #ff7600; 
+                      color: #ff7600;
                     }
                   }
                 }
@@ -26294,7 +26294,7 @@ main {
                 }
               }
             }
-            
+
           }
         }
       }
@@ -26311,7 +26311,7 @@ main {
   }
 }
 
-// ====== prediction-result-popup 預測比分彈窗 ====== 
+// ====== prediction-result-popup 預測比分彈窗 ======
 #popup {
   .pop {
     .result-pop {
@@ -26344,8 +26344,8 @@ main {
         max-height: 275px;
         overflow-y: auto;
         &::-webkit-scrollbar-thumb {
-          background: #ff7600; 
-          border-radius: 20px; 
+          background: #ff7600;
+          border-radius: 20px;
         }
         ul {
           padding-left: 15px;
@@ -26390,3 +26390,1291 @@ main {
   }
 }
 
+//2024 新年活動-dragonegg-活動頁面
+.dragonegg {
+  &-event {
+      background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-en.jpg) no-repeat top 165px center / cover;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &.en {
+          background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-en.jpg) no-repeat top 165px center / cover;
+      }
+
+      &.my {
+          background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-my.jpg) no-repeat top 165px center / cover;
+      }
+
+      &.cs {
+          background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-cs.jpg) no-repeat top 165px center / cover;
+      }
+
+      &.id {
+          background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-id.jpg) no-repeat top 165px center / cover;
+      }
+
+      &.th {
+          background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-th.jpg) no-repeat top 165px center / cover;
+      }
+
+      &.vn {
+          background: #B1000B url(https://banner.0814media.net/desktop/img/event/dragonegg/banner-vn.jpg) no-repeat top 165px center / cover;
+      }
+
+      .event {
+          &-main {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              margin-top: 630px;
+              width: 100%;
+              border-radius: 60px 60px 0 0;
+              background: linear-gradient(180deg, rgba(255, 191, 117, 0.90) 25.39%, rgba(255, 191, 117, 0.00) 83.69%);
+
+              &-title {
+                  padding: 10px 0;
+                  background: linear-gradient(358deg, #FFB800 -14.83%, #FD3D00 69.39%);
+                  border-radius: 25px 25px 0 0;
+                  border: 5px solid #FFBF75;
+                  box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.25);
+                  text-transform: uppercase;
+                  font-weight: 900;
+                  font-size: 33px;
+                  text-align: center;
+                  position: relative;
+                  top: -3.5px;
+                  margin: 0 120px 24px;
+                  display: flex;
+                  justify-content: center;
+
+                  &::before {
+                      content: "";
+                      display: inline-block;
+                      width: 28px;
+                      height: 40px;
+                      background: url(https://banner.0814media.net/desktop/img/event/dragonegg/title-egg.png) no-repeat center / cover;
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%) rotate(-14deg);
+                      left: 20px;
+                      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.25));
+                  }
+
+                  &::after {
+                      content: "";
+                      display: inline-block;
+                      width: 28px;
+                      height: 40px;
+                      background: url(https://banner.0814media.net/desktop/img/event/dragonegg/title-egg.png) no-repeat center / cover;
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%) rotate(14deg);
+                      right: 20px;
+                      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.25));
+                  }
+              }
+          }
+
+          //今日任務
+          &-task {
+              padding: 0;
+              border-radius: 60px 60px 0 0;
+              position: relative;
+              margin-top: -20px;
+
+              &-item {
+                  width: 760px;
+                  border-radius: 22px;
+                  background: white;
+                  border: 3.8px solid #F57200;
+                  height: 105px;
+                  display: flex;
+                  margin-bottom: 8px;
+                  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+              }
+
+              &-info {
+                  padding-left: 20px;
+                  width: 80%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  height: 100%;
+
+                  .text {
+                      color: #00286B;
+                      font-weight: 500;
+                      margin-top: 10px;
+                      line-height: 1.3;
+                      padding-right: 20px;
+                      font-size: 15px;
+                  }
+
+                  .progress {
+                      background: #D7D7D7;
+                      margin: 10px 30px 0 0;
+                      box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2) inset;
+                      height: 15px;
+                      border-radius: 15px;
+                      position: relative;
+
+                      &-bar {
+                          background: linear-gradient(0deg, #007365 -8.98%, #00C1AA 44.19%, #6BFEEC 96.83%);
+                          height: 15px;
+                          border-radius: 15px;
+                      }
+
+                      &-info {
+                          color: #949494;
+                          font-weight: 500;
+                          text-align: right;
+                          padding-right: 36px;
+                          margin-top: 5px;
+
+                          span {
+                              color: #FF7600;
+                          }
+                      }
+
+                  }
+              }
+
+              &-inner {
+                  width: 20%;
+                  background: linear-gradient(0deg, #FD0400 -4.99%, #FF7600 48.32%, #FFA95F 100.97%), linear-gradient(0deg, #FD0400 -4.99%, #FF7600 48.32%, #FFA95F 100.97%);
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 0 19px 19px 0;
+                  cursor: pointer;
+
+                  &:hover {
+                      background: linear-gradient(0deg, #FFA95F -4.99%, #FF7600 48.32%, #FD0400 100.97%), linear-gradient(0deg, #FD0400 -4.99%, #FF7600 48.32%, #FFA95F 100.97%);
+                      ;
+                      transition: .3s;
+                  }
+
+                  &.active {
+                      cursor: inherit;
+                      background: #E9E9E9;
+                  }
+              }
+
+              &-one {
+                  width: 50px;
+              }
+
+              &-two {
+                  width: 90px;
+              }
+
+              &-btn {
+                  font-size: 16px;
+                  font-weight: 700;
+                  letter-spacing: 0.5px;
+                  color: #fff;
+
+                  &.active {
+                      color: #949494;
+                      cursor: inherit;
+                  }
+              }
+          }
+
+          //抽蛋
+          &-draw {
+              margin-top: 70px;
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-content: center;
+              width: 100%;
+
+              &-img {
+                  width: 100%;
+              }
+
+              &-egg {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-direction: column;
+              }
+
+              &-value {
+                  width: 276px;
+                  border-radius: 30px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 22px;
+                  color: #113158;
+                  font-weight: 900;
+                  background: #fff;
+                  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.30) inset;
+
+                  span {
+                      margin-left: 10px;
+                      font-size: 32px;
+                      color: transparent;
+                      background: linear-gradient(0deg, #FD0000 18.34%, #FF7600 75.64%);
+                      background-clip: text;
+                  }
+              }
+
+              &-btn {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  position: absolute;
+                  bottom: 24px;
+
+                  a,
+                  button {
+                      font-weight: 800;
+                      font-size: 25px;
+                      border-radius: 50px;
+                      padding: 12px 50px;
+                      margin: 0 0 12px;
+                      text-align: center;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: #fff;
+                      // width: 300px;
+                  }
+
+                  .draw {
+                      &-single {
+                          border: 2.5px solid #fff;
+                          text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.40);
+                          background: linear-gradient(180deg, #E9E9E9 14.58%, #BCBCBC 78.12%);
+                          box-shadow: 0px 0px 11px 1px rgba(107, 107, 107, 0.65);
+                          cursor: inherit;
+
+                          &.active {
+                              background: linear-gradient(0deg, #FD0000 -1.53%, #FF7600 39.53%, #FE9A5E 68.18%, #FFBC82 108.16%);
+                              box-shadow: 0px 0px 16px 2px #FF6B00;
+                              cursor: pointer;
+
+                              &:hover {
+                                  background: linear-gradient(0deg, #FFBC82 -1.53%, #FE9A5E 39.53%, #FF7600 68.18%, #FD0000 108.16%);
+                                  box-shadow: 0px 0px 25px 2px #FFDA7C;
+                                  transition: .2s;
+                              }
+                          }
+                      }
+
+                      &-ten {
+                          background: linear-gradient(180deg, #E9E9E9 14.58%, #BCBCBC 78.12%);
+                          font-size: 18px;
+                          box-shadow: 0px 0px 11px 1px rgba(107, 107, 107, 0.65);
+                          cursor: inherit;
+
+                          &.active {
+                              background: linear-gradient(0deg, #FD0000 18.34%, #FF7600 75.64%);
+                              box-shadow: 0px 0px 14px 2px #FFDA7C;
+                              cursor: pointer;
+
+                              &:hover {
+                                  background: linear-gradient(0deg, #FF7600 18.34%, #FD0000 75.64%);
+                                  box-shadow: 0px 0px 20px 2px #FFDA7C;
+                                  outline: 1px solid #fff;
+                                  transition: .2s;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+
+          //集五福
+          &-collection {
+              width: 760px;
+              border-radius: 60px;
+              border: 3px solid #FFBF75;
+              background: #B1000B;
+              margin: 60px 0 0;
+              padding: 0 10px;
+              text-align: center;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+
+              a,
+              button {
+                  text-align: center;
+                  padding: 16px 50px;
+                  font-weight: 800;
+                  font-size: 24px;
+                  margin: 0 0 40px;
+                  border-radius: 50px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  // width: 260px;
+              }
+
+              .event-main-title {
+                  top: -20px;
+                  width: 73%;
+                  margin: 0;
+              }
+
+              &-text {
+                  text-align: center;
+                  font-size: 16px;
+              }
+
+              &-get {
+                  width: 90px;
+                  height: 90px;
+                  border: 3px solid #FF7600;
+                  border-radius: 50%;
+                  position: relative;
+
+                  img {
+                      width: 110px;
+                      position: absolute;
+                      bottom: 5px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                  }
+              }
+
+              &-noget {
+                  width: 90px;
+                  height: 90px;
+
+                  img {
+                      width: 90px;
+                  }
+              }
+
+              &-btn {
+                  background: linear-gradient(180deg, #E9E9E9 14.58%, #BCBCBC 78.12%);
+                  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.40);
+                  color: #fff;
+                  cursor: inherit;
+
+                  &.active {
+                      cursor: pointer;
+                      background: linear-gradient(0deg, #FD2E00 -8.98%, #FF7600 70.98%);
+                      box-shadow: 0px 0px 25px 2px #FFDA7C;
+
+                      &:hover {
+                          background: linear-gradient(0deg, #FF7600 -8.98%, #FD2E00 70.98%);
+                          box-shadow: 0px 0px 40px 2px #FFDA7C;
+                          outline: 1px solid #fff;
+                          transition: .2s;
+                      }
+                  }
+              }
+
+              &-received {
+                  cursor: inherit;
+                  color: #FFCD82;
+                  border: 2px solid #FFCD82;
+
+                  img {
+                      width: 20px;
+                      margin: -3px 0 0 8px;
+                  }
+              }
+          }
+
+          &-fu {
+              &-inner {
+                  height: 220px;
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                  margin-top: 12px;
+              }
+
+              &-item {
+                  margin: 0 12px;
+              }
+          }
+
+          //歷史紀錄
+          &-title {
+              font-size: 33px;
+              font-weight: 900;
+              text-align: center;
+              color: #fff;
+              text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+              text-transform: uppercase;
+              margin-bottom: 22px;
+          }
+
+          &-history {
+              margin-top: 80px;
+              width: 1240px;
+
+              &-table {
+                  border-radius: 15px;
+                  background: #C6C6C6;
+                  box-sizing: border-box;
+                  font-size: 14px;
+
+                  .content {
+                      background: #C6C6C6;
+                      overflow-y: scroll;
+                      height: 320px;
+                      border-radius: 0 0 15px 15px;
+
+                      >div {
+                          display: flex;
+                          align-items: center;
+
+                          >div {
+                              display: flex;
+                              align-items: center;
+                              background: #fff;
+                              width: 100%;
+                              padding: 12px 60px;
+                              color: #0A1B38;
+                              font-weight: 600;
+                              line-height: 1.2;
+                              height: 20px;
+
+                              &:first-child {
+                                  width: 150px;
+                                  margin: 0 1.5px 3px 0;
+                                  justify-content: center;
+                              }
+
+                              &:last-child {
+                                  margin: 0 0 3px 1.5px;
+                                  padding: 12px 60px 12px 30px
+                              }
+                          }
+                      }
+
+                  }
+
+                  .top-title {
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      background: #C6C6C6;
+                      border-radius: 10px 10px 0 0;
+
+                      >div {
+                          display: flex;
+                          align-items: center;
+                          background: #BD0213;
+                          padding: 12px 60px;
+                          color: #fff;
+                          width: 100%;
+
+                          &:first-child {
+                              width: 155px;
+                              margin: 0 1.5px 3px 0;
+                              border-radius: 10px 0 0 0;
+                          }
+
+                          &:last-child {
+                              margin: 0 0 3px 1.5px;
+                              border-radius: 0 10px 0 0;
+                          }
+                      }
+                  }
+
+              }
+          }
+
+          //T&C+Sponsor
+          &-info {
+              margin-top: 70px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              width: 100%;
+
+              // 未登入時T&C樣貌
+              &.logbefore {
+                  @media (max-width: 2560px) {
+                      margin-top: 976px;
+                  }
+
+                  @media (max-width: 1920px) {
+                      margin-top: 780px;
+                  }
+
+                  @media (max-width: 1440px) {
+                      margin-top: 630px;
+                  }
+
+                  @media (max-width: 1024px) {
+                      margin-top: 630px;
+                  }
+
+                  .event {
+                      &-info {
+                          &-tc {
+                              .text {
+                                  background: rgba(#BD0213, 0.5);
+                                  padding: 20px 28px;
+                                  border-radius: 20px;
+                              }
+                          }
+                      }
+                  }
+              }
+
+              //T&C
+              &-tc {
+                  .text {
+                      color: #fff;
+                      width: 1240px;
+                      box-sizing: border-box;
+                      word-break: break-word;
+                      margin-bottom: 12px;
+                      line-height: 1.6;
+                      font-size: 16px;
+                  }
+              }
+
+              //Sponsor
+              &-sponsor {
+                  width: 100%;
+                  margin-top: 120px;
+                  background: #FFBF75;
+                  padding: 10px 0 20px;
+                  position: relative;
+
+                  &::before {
+                      content: "";
+                      display: block;
+                      background: url(https://banner.0814media.net/desktop/img/event/dragonegg/sponsor-bg.png) no-repeat center / cover;
+                      width: 100%;
+                      height: 370px;
+                      margin-top: -356px;
+                  }
+
+                  .sponsor {
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+
+                      >div {
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+
+                          img {
+                              width: 300px;
+                              margin-right: 10px;
+                          }
+
+                          &::after {
+                              content: "";
+                              display: inline-block;
+                              width: 2px;
+                              height: 45px;
+                              background: #BD0213;
+                              margin-top: 6px;
+                          }
+
+                          &:last-child {
+                              &::after {
+                                  display: none;
+                              }
+
+                              img {
+                                  margin-left: 10px;
+                                  margin-top: -6px;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+//抽獎彈窗系列
+#popup {
+  &.active {
+
+      //大結構
+      .pop {
+          .active {
+
+              &.single,
+              &.next-try,
+              &.ten-draw {
+                  background: unset;
+                  padding-top: unset;
+                  margin: 50px auto 0 auto;
+              }
+
+              &.ten-draw {
+                  width: 600px;
+                  margin-top: 26px;
+                  margin: 26px auto 0 auto;
+              }
+
+              &.single,
+              &.next-try {
+                  width: 500px;
+              }
+
+              &.choose,
+              &.eggs {
+                  background: unset;
+                  padding-top: unset;
+              }
+          }
+
+          //抽蛋畫面
+          &.dragonegg-pop {
+              background: rgba(0, 0, 0, 0.7);
+              align-items: center;
+              justify-content: center;
+              box-sizing: border-box;
+              word-break: break-all;
+              width: 100%;
+              height: 100%;
+              max-height: unset;
+
+              .close {
+                  &-btn {
+                      position: relative;
+
+                      &::after {
+                          content: "";
+                          display: block;
+                          background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
+                          width: 28px;
+                          height: 28px;
+                          position: absolute;
+                          bottom: -540px;
+                          left: 50%;
+                          transform: translateX(-50%);
+                      }
+                  }
+              }
+
+              //抽蛋畫面基礎架構
+              .dragonegg {
+                  &-frame {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+
+                      .title {
+                          background: linear-gradient(0deg, #FD2E00 -8.98%, #FF7600 70.98%);
+                          background-clip: text;
+                          color: transparent;
+                          // text-shadow: 0px 0px 6px #FFF;
+                          text-transform: uppercase;
+                          font-size: 60px;
+                          font-weight: 900;
+                          line-height: 1.15;
+                          -webkit-text-stroke: 1px #FFDE68;
+                          text-align: center;
+                          margin-bottom: 15px;
+                      }
+
+                      .text {
+                          font-size: 24px;
+                          color: #fff;
+                          line-height: 1.2;
+                          text-align: center;
+                          padding: 0;
+                          text-transform: capitalize;
+                          font-weight: 600;
+                          word-break: break-word;
+                          text-shadow: 0 0 3px rgba(0, 0, 0, 0.55);
+                      }
+                  }
+
+                  &-draw {
+                      position: relative;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-top: 50px;
+
+                      &-bg {
+                          width: 100%;
+                          position: absolute;
+                          bottom: -75px;
+                          left: 50%;
+                          transform: translateX(-50%);
+                          z-index: 0;
+                      }
+
+                      .egg {
+                          position: relative;
+                          z-index: 1;
+                          margin: 0 6px;
+
+                          img {
+                              width: 200px;
+
+                              &:hover {
+                                  transform: scale(1.2);
+                                  filter: drop-shadow(0 0 20px #FFDE68);
+                                  transition: .2s;
+                              }
+                          }
+                      }
+                  }
+
+                  &-egg {
+                      margin-top: 40px;
+                      color: #00B2FF;
+                      font-weight: 600;
+                      font-size: 20px;
+
+                      span {
+                          font-size: 25px;
+                          background: linear-gradient(0deg, #FD0000 18.34%, #FF7600 75.64%);
+                          background-clip: text;
+                          color: transparent;
+                          font-weight: 800;
+                      }
+                  }
+              }
+
+              .active {
+
+                  //三選一出來時
+                  &.choose {
+                      margin-top: 180px;
+                      animation: choose .25s cubic-bezier(.15, .4, .88, .63);
+
+                      @keyframes choose {
+                          0% {
+                              transform: scale(0);
+                          }
+
+                          100% {
+                              transform: scale(1);
+                          }
+                      }
+                  }
+
+                  //抽蛋畫面後蛋轉動過程
+                  &.eggs {
+                      margin-top: 75px;
+
+                      .dragonegg {
+                          &-frame {
+                              position: relative;
+                              margin-top: 200px;
+
+                              img {
+                                  width: 400px;
+                              }
+
+                              //選後搖動
+                              .egg-check {
+                                  animation: egg-check .8s cubic-bezier(.15, .4, .88, .63);
+                              }
+
+                              @keyframes egg-check {
+                                  0% {
+                                      transform: scale(0);
+                                  }
+
+                                  30% {
+                                      transform: scale(1);
+                                  }
+
+                                  35% {
+                                      transform: rotate(-4deg);
+                                  }
+
+                                  40% {
+                                      transform: rotate(3deg);
+                                  }
+
+                                  45% {
+                                      transform: rotate(-3deg);
+                                  }
+
+                                  50% {
+                                      transform: rotate(6deg);
+                                  }
+
+                                  55% {
+                                      transform: rotate(-6deg);
+                                  }
+
+                                  60% {
+                                      transform: rotate(-3deg);
+                                  }
+
+                                  65% {
+                                      transform: rotate(-3deg);
+                                  }
+
+                                  70% {
+                                      transform: rotate(-4deg);
+                                  }
+
+                                  75% {
+                                      transform: rotate(4deg);
+                                  }
+
+                                  80% {
+                                      transform: rotate(-3deg);
+                                  }
+
+                                  85% {
+                                      transform: rotate(3deg);
+                                  }
+
+                                  90% {
+                                      transform: rotate(-2deg);
+                                  }
+
+                                  95% {
+                                      transform: rotate(2deg);
+                                  }
+
+                                  100% {
+                                      transform: rotate(1deg);
+                                  }
+                              }
+
+                              //破蛋
+                              .egg-broken {
+                                  position: absolute;
+                                  top: -1%;
+                                  animation: egg-broken 3s cubic-bezier(.16, .6, .51, .95) .8s;
+                                  opacity: 0;
+
+                                  @keyframes egg-broken {
+                                      0% {
+                                          opacity: 0;
+                                      }
+
+                                      30% {
+                                          opacity: 1;
+                                      }
+
+                                      100% {
+                                          opacity: 1;
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+
+          //抽獎結果系列彈窗
+          &.dragonegg-result-pop {
+              background: rgba(0, 0, 0, 0.7);
+              align-items: center;
+              box-sizing: border-box;
+              word-break: break-all;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              width: 100%;
+              height: 100%;
+              max-height: unset;
+              z-index: -1;
+              animation: dragonegg-result-pop .55s cubic-bezier(.15, .95, .55, 2);
+
+              @keyframes dragonegg-result-pop {
+                  0% {
+                      transform: scale(0);
+                  }
+
+                  100% {
+                      transform: scale(1);
+                  }
+              }
+
+              .close {
+                  &-btn {
+                      &::after {
+                          content: "";
+                          display: block;
+                          background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
+                          width: 30px;
+                          height: 30px;
+                          position: absolute;
+                          top: -35px;
+                          right: -55px;
+                      }
+                  }
+              }
+
+              .active {
+
+                  // 再接再厲 以下方single為基準
+                  &.next-try {
+                      .dragonegg-result-frame {
+                          .title {
+                              font-size: 45px;
+                              margin-top: 15px;
+                          }
+                      }
+                  }
+
+                  // 10抽 以下方single為基準
+                  &.ten-draw {
+                      .dragonegg {
+                          &-result {
+                              &-btn {
+                                  margin-top: 30px;
+
+                                  @media (max-width: 1640px) {
+                                      margin-top: 20px;
+                                  }
+
+                                  .btn {
+                                      &-receive {
+                                          filter: drop-shadow(0px 0px 18px #FFB800);
+                                      }
+                                  }
+                              }
+
+                              &-share {
+                                  margin-top: 10px;
+                              }
+                          }
+                      }
+
+                      .title {
+                          padding-bottom: 10px;
+                      }
+
+                      .close {
+                          &-btn {
+                              &::after {
+                                  top: 8px;
+                                  right: 0;
+                              }
+                          }
+                      }
+                  }
+
+                  // 福蛋+一般獎項
+                  &.single {
+                      .rewards-title {
+                          color: #FF7600;
+                          text-shadow: 0 0 3px rgba(0, 0, 0, 0.55);
+                      }
+                  }
+              }
+          }
+
+          // single 架構
+          .dragonegg {
+              &-result {
+                  &-btn {
+                      display: flex;
+                      flex-wrap: wrap;
+                      align-items: center;
+                      box-sizing: border-box;
+                      padding: 0 20px;
+                      width: 450px;
+
+                      a,
+                      button {
+                          text-transform: uppercase;
+                          padding: 16px 0px;
+                          font-weight: 800;
+                          font-size: 16px;
+                          text-align: center;
+                          border-radius: 50px;
+                          margin: 0 0 12px;
+                          color: #fff;
+                      }
+
+                      .btn {
+                          &-receive {
+                              background: linear-gradient(0deg, #FD2E00 -8.98%, #FF7600 52.34%, #FFA558 95.79%);
+                              filter: drop-shadow(0px 0px 15px #FFB800);
+                              padding: 18px 0px;
+                              font-size: 20px;
+                              letter-spacing: 0.9px;
+                              width: 100%;
+                              margin-bottom: 20px;
+
+                              &:hover {
+                                  filter: drop-shadow(0px 0px 30px #FFB800);
+                                  outline: 1px solid #fff;
+                                  transition: .2s;
+                              }
+                          }
+
+                          &-playdraw {
+                              width: 100%;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+
+                              a,
+                              button {
+                                  margin: 0 4px 12px;
+                              }
+                          }
+
+                          &-oneplay,
+                          &-tenplay {
+                              width: 100%;
+                              background: linear-gradient(0deg, #C62400 -17.65%, #FF3002 39.39%, #FFA18C 82.04%);
+
+                              &:hover {
+                                  filter: drop-shadow(0px 0px 12px #FFB800);
+                                  outline: 1px solid #fff;
+                                  transition: .2s;
+                              }
+                          }
+
+                          &-confirm {
+                              width: 100%;
+                              background: linear-gradient(180deg, #A5CDFD 16.98%, #4D94EA 51.35%, #0060D4 90.1%);
+
+                              &:hover {
+                                  filter: drop-shadow(0px 0px 12px #FFB800);
+                                  outline: 1px solid #fff;
+                                  transition: .3s;
+                              }
+                          }
+                      }
+                  }
+
+                  &-egg {
+                      margin: 10px 0 0;
+                      color: #00B2FF;
+                      font-weight: 700;
+                      font-size: 18px;
+                      text-align: center;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-direction: unset;
+
+                      @media (max-width: 1640px) {
+                          margin: -6px 0 0;
+                      }
+
+                      span {
+                          font-size: 26px;
+                          background: linear-gradient(0deg, #FD0000 18.34%, #FF7600 75.64%);
+                          background-clip: text;
+                          color: transparent;
+                          font-weight: 800;
+                          margin-left: 5px;
+                          margin-top: 1px;
+                      }
+                  }
+
+                  &-share {
+                      text-transform: uppercase;
+                      border-radius: 50px;
+                      font-weight: 800;
+                      font-size: 16px;
+                      border: 2px solid #1C67FF;
+                      color: #1C67FF;
+                      padding: 8px 30px;
+                      text-align: center;
+                      margin: 18px 0 0;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+
+                      img {
+                          margin-left: 5px;
+                          width: 16px;
+                      }
+
+                      &:hover {
+                          filter: contrast(120%) brightness(3.5);
+                          transition: .2s;
+                      }
+                  }
+
+                  &-frame {
+                      width: 100%;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+
+                      .title {
+                          text-align: center;
+                          background: linear-gradient(0deg, #FD2E00 -8.98%, #FF7600 70.98%);
+                          background-clip: text;
+                          color: transparent;
+                          // text-shadow: 0px 0px 6px #FFF;
+                          text-transform: uppercase;
+                          font-size: 48px;
+                          font-weight: 900;
+                          line-height: 1.2;
+                          -webkit-text-stroke: 1px #FFDE68;
+                      }
+
+                      .rewards-title {
+                          font-size: 22px;
+                          color: #fff;
+                          line-height: 1.2;
+                          text-align: center;
+                          padding: 0;
+                          text-transform: capitalize;
+                          font-weight: 600;
+                      }
+
+                      img {
+                          display: block;
+                          margin: 0 auto;
+                          width: 480px;
+                          margin-top: 0;
+
+                          @media (max-width:1640px) {
+                              width: 300px;
+                          }
+                      }
+                  }
+
+                  // 10抽列表
+                  &-list {
+                      background: #C6C6C6;
+                      margin: 0 10px;
+                      text-align: center;
+                      position: relative;
+                      border-radius: 25px;
+                      width: 80%;
+
+                      &::after {
+                          content: "";
+                          display: inline-block;
+                          background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-light.png)no-repeat center / cover;
+                          width: 180px;
+                          height: 180px;
+                          position: absolute;
+                          top: -60px;
+                          left: 50%;
+                          transform: translateX(-50%);
+                          z-index: -1;
+                      }
+
+                      >div {
+                          background: #fff;
+                          color: #0A1B38;
+                          font-size: 14px;
+                          font-weight: 600;
+                          padding: 12px 0;
+                          margin: 0 0 4px;
+
+                          @media (max-width: 1640px) {
+                              padding: 5px 0;
+                          }
+
+                          &.list-title {
+                              background: #BD0213;
+                              color: #fff;
+                              font-size: 16px;
+                              font-weight: 700;
+                              border-radius: 25px 25px 0 0;
+                              position: relative;
+
+                              &::before {
+                                  content: "";
+                                  display: inline-block;
+                                  width: 70px;
+                                  height: 70px;
+                                  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png)no-repeat center / cover;
+                                  position: absolute;
+                                  top: -28px;
+                                  left: 30px;
+                                  transform: scaleX(-1);
+                              }
+
+                              &::after {
+                                  content: "";
+                                  display: inline-block;
+                                  width: 70px;
+                                  height: 70px;
+                                  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png)no-repeat center / cover;
+                                  position: absolute;
+                                  top: -28px;
+                                  right: 30px;
+                              }
+                          }
+
+                          &:last-child {
+                              margin-bottom: unset;
+                              border-radius: 0 0 25px 25px;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+// 2024 新年活動入口設計
+.eventLink {
+  &.dragonegg-float {
+      bottom: 170px;
+      left: 9px;
+
+      .icon-close {
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+          top: -8px;
+          left: 6px;
+      }
+  }
+
+  .dragonegg {
+      &-egg {
+          width: 140px;
+          height: 140px;
+
+          >img {
+              animation: dragonegg-egg-img 0.4s infinite;
+              width: 100%;
+          }
+
+          @keyframes dragonegg-egg-img {
+              0% {
+                  transform: rotate(0.5deg);
+              }
+
+              20% {
+                  transform: rotate(2deg);
+              }
+
+              40% {
+                  transform: rotate(-2deg);
+              }
+
+              60% {
+                  transform: rotate(2deg);
+              }
+
+              80% {
+                  transform: rotate(-2deg);
+              }
+
+              100% {
+                  transform: rotate(0);
+              }
+          }
+      }
+  }
+}
