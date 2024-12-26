@@ -97,7 +97,7 @@ const Tag = forwardRef(
 										active: isShowSearchInput,
 									})}
 								>
-									<div className='inputBox'>
+									<div className='inputBox '>
 										<input
 											placeholder='Search'
 											value={searchText}
@@ -109,7 +109,10 @@ const Tag = forwardRef(
 												}
 											}}
 										/>
-										<i className='icon icon-close' onClick={onInputClose} />
+										<i
+											className='icon icon-close-line'
+											onClick={onInputClose}
+										/>
 									</div>
 								</div>
 							</>

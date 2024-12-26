@@ -154,9 +154,8 @@ export const HeaderContainer = styled.div`
 					border-radius: 24.27vw;
 					border: none;
 					height: 8.73vw;
-					padding: 0 2.9vw;
 					background: #232b4f;
-
+					padding: 0;
 					input {
 						padding: 0;
 						height: 6vw;
@@ -168,13 +167,20 @@ export const HeaderContainer = styled.div`
 						}
 					}
 				}
-				.icon-close {
+				.icon-close-line {
 					position: revert;
+					display: none;
 				}
 				&.active {
 					transition: 0.3s;
 					width: 83.5vw;
 					opacity: 1;
+					.inputBox {
+						padding: 0 2.9vw;
+					}
+					.icon-close-line {
+						display: block;
+					}
 				}
 			}
 		}
