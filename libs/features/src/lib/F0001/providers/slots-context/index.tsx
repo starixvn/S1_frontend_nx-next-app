@@ -35,7 +35,7 @@ import React, {
 	useContext,
 	useEffect,
 	useState,
-  useCallback
+	useCallback
 } from 'react'
 import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
@@ -54,12 +54,12 @@ export interface SlotsContextInterface {
 	activeVendorTpId: number | string | null
 	activeCategoryKey: string
 	activeGame:
-		| (IDisplayGameData & {
-				resultTpName?: string
-				resultGameImgDisplayText?: string
-				resultGameName?: string
-		  })
-		| null
+	| (IDisplayGameData & {
+		resultTpName?: string
+		resultGameImgDisplayText?: string
+		resultGameName?: string
+	})
+	| null
 	searchCategoryText: string
 	myFavorites: string
 	gameListRef: React.MutableRefObject<null>
@@ -93,10 +93,10 @@ export interface SlotsContextInterface {
 	onGameActive: (
 		targetData:
 			| (IDisplayGameData & {
-					resultTpName?: string
-					resultGameImgDisplayText?: string
-					resultGameName?: string
-			  })
+				resultTpName?: string
+				resultGameImgDisplayText?: string
+				resultGameName?: string
+			})
 			| null
 	) => void
 	onGamePlay: ({
@@ -177,10 +177,10 @@ const SlotsProvider = ({
 	const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false)
 	const [activeGame, setActiveGame] = useState<
 		| (IDisplayGameData & {
-				resultTpName?: string
-				resultGameImgDisplayText?: string
-				resultGameName?: string
-		  })
+			resultTpName?: string
+			resultGameImgDisplayText?: string
+			resultGameName?: string
+		})
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
@@ -293,8 +293,8 @@ const SlotsProvider = ({
 				const categoryData =
 					queryTpId !== undefined
 						? filter(persistSlotsCategoryData['all'], {
-								tpId: Number(queryTpId),
-						  }) || []
+							tpId: Number(queryTpId),
+						}) || []
 						: persistSlotsCategoryData['all'] || []
 				const randomGame = categoryData[random(categoryData.length)]
 				onGamePlay(randomGame)
@@ -353,9 +353,8 @@ const SlotsProvider = ({
 
 			setMyFavorites(trim(filteredMyFavoriteStr))
 		} else {
-			const newFavorite = `${
-				myFavorites === '' ? '' : '&'
-			}${newTpId}#${newGameId}`
+			const newFavorite = `${myFavorites === '' ? '' : '&'
+				}${newTpId}#${newGameId}`
 			setMyFavorites(prev => `${prev}${newFavorite}`)
 		}
 		if (isLogin && !isSetFavoriteGameLoading) {
@@ -379,10 +378,10 @@ const SlotsProvider = ({
 	const onGameActive = (
 		targetData:
 			| (IDisplayGameData & {
-					resultTpName?: string
-					resultGameImgDisplayText?: string
-					resultGameName?: string
-			  })
+				resultTpName?: string
+				resultGameImgDisplayText?: string
+				resultGameName?: string
+			})
 			| null
 	) => {
 		setActiveGame(targetData)
@@ -452,12 +451,12 @@ const SlotsProvider = ({
 		return newGamesArr
 	}
 
-  const scrollToTop = useCallback(() => {
-    const mainContent = document?.getElementById('__top')
-    if (!mainContent) return
+	const scrollToTop = useCallback(() => {
+		const mainContent = document?.getElementById('__top')
+		if (!mainContent) return
 
-    mainContent.scrollTop = 0
-  }, [])
+		mainContent.scrollTop = 0
+	}, [])
 
 	useEffect(() => {
 		// * 首次進入slots計算整理myFavorites
@@ -480,14 +479,14 @@ const SlotsProvider = ({
 			)
 			updateVendorList()
 			setActiveCategoryKey('all')
-      scrollToTop()
+			scrollToTop()
 		}
 	}, [isFirstRender])
 
 	// * 根據廠商過濾遊戲類型
 	useEffect(() => {
-      setCategoryKeys(Object.keys(persistSlotsCategoryData))
-      setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
+		setCategoryKeys(Object.keys(persistSlotsCategoryData))
+		setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
 	}, [queryTpId])
 
 	// useEffect(() => {
@@ -540,6 +539,8 @@ const SlotsProvider = ({
 				({ tpId }) => !uniqueTpIds.includes(tpId)
 			)
 		}
+		console.log('tpMaintainList', tpMaintainList)
+
 		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
@@ -569,7 +570,7 @@ const SlotsProvider = ({
 		// )
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites, tpMaintainList])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
