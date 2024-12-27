@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { prizeAmount } from '@nx-next-app/features/F0001/desktop/newYearEvent/info'
+import { prizeAmount } from '@nx-next-app/features/F0001/desktop/newYearEvent/Info'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
