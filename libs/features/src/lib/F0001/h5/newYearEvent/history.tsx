@@ -1,7 +1,7 @@
 import { ICustDrawPrizeData } from '@nx-next-app/service'
 import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { useNewYearEvent } from '../../hooks'
 
 const History = () => {
@@ -27,11 +27,11 @@ const History = () => {
 	if (history && history?.length > 0) {
 		return (
 			<div className='event-history'>
-				<div className='event-title'>{t('lbl_DragonEgg_RewardHistory')}</div>
+				<div className='event-title'>{t('Label_DragonEgg_RewardHistory')}</div>
 				<div className='event-history-table'>
 					<div className='top-title'>
 						<div>{t('Label_General_Day')}</div>
-						<div>{t('lbl_DragonEgg_EventRewards').toUpperCase()}</div>
+						<div>{t('Label_DragonEgg_EventRewards').toUpperCase()}</div>
 					</div>
 					<div className='content'>
 						{history?.map(({ drawTime, prizeName }, i) => (

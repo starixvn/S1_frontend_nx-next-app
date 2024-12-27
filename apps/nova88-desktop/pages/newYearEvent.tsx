@@ -1,5 +1,5 @@
 import { NovaAuthProvider } from '@nova88-desktop/providers'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES, EVENT_PERIOD } from '@nx-next-app/constants'
 import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, NewYearEvent } from '@nx-next-app/features/F0001/desktop'
 import {
@@ -8,6 +8,7 @@ import {
 } from '@nx-next-app/hooks'
 import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
 import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -48,7 +49,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
-	if (!includes(ALLOWED_CURRENCIES['NewYearEvent'], Number(currencyId))) {
+	if (
+		!includes(ALLOWED_CURRENCIES['NewYearEvent'], Number(currencyId)) ||
+		!isEventPeriod(EVENT_PERIOD.NEW_YEAR_EVENT)
+	) {
 		return {
 			redirect: {
 				destination: '/',

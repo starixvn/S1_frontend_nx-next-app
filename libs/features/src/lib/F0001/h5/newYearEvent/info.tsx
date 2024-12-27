@@ -1,9 +1,9 @@
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
-export const prizeAmout = [
+export const prizeAmount = [
 	{
 		currency: CurrenciesEnum.MYR,
 		min: '18',
@@ -41,7 +41,7 @@ const Info = () => {
 		userInfo: { currencyId, currencyName },
 	} = useAuth()
 
-	if (!currencyId || !Object.keys(prizeAmout).includes(String(currencyId)))
+	if (!currencyId || !Object.keys(prizeAmount).includes(String(currencyId)))
 		return null
 
 	const { getBannerUrl } = useGlobalData()
@@ -49,41 +49,43 @@ const Info = () => {
 	return (
 		<div className={classNames('event-info', { logbefore: !isLogin })}>
 			<div className='event-info-tc'>
-				<div className='event-title'>{t('lbl_DragonEgg_Terms&Conditions')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms1')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms2')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms3')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms4')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms5')}</div>
+				<div className='event-title'>
+					{t('Label_DragonEgg_Terms&Conditions')}
+				</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms1')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms2')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms3')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms4')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms5')}</div>
 				<div className='text'>
 					-
-					{t('lbl_DragonEgg_Terms6', {
+					{t('Label_DragonEgg_Terms6', {
 						currencyName,
-						min: prizeAmout.find(x => x.currency === currencyId)?.min,
-						max: prizeAmout.find(x => x.currency === currencyId)?.max,
-						APPrize: prizeAmout.find(x => x.currency === currencyId)?.APPrize,
+						min: prizeAmount.find(x => x.currency === currencyId)?.min,
+						max: prizeAmount.find(x => x.currency === currencyId)?.max,
+						APPrize: prizeAmount.find(x => x.currency === currencyId)?.APPrize,
 					})}
 				</div>
 				<div className='text'>
 					-{' '}
-					{t('lbl_DragonEgg_Terms7', {
+					{t('Label_DragonEgg_Terms7', {
 						currencyName,
-						amount: prizeAmout.find(x => x.currency === currencyId)?.blessing,
+						amount: prizeAmount.find(x => x.currency === currencyId)?.blessing,
 					})}
 				</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms8')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms9')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms10')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms11')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms12')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms13')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms14')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms15')}</div>
-				<div className='text'>- {t('lbl_DragonEgg_Terms16')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms8')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms9')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms10')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms11')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms12')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms13')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms14')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms15')}</div>
+				<div className='text'>- {t('Label_DragonEgg_Terms16')}</div>
 			</div>
 
 			<div className='event-info-sponsor'>
-				<div className='event-title'>{t('lbl_DragonEgg_Sponsor')}</div>
+				<div className='event-title'>{t('Label_DragonEgg_Sponsor')}</div>
 				<div className='sponsor'>
 					<div>
 						<img

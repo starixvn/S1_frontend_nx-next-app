@@ -1,14 +1,15 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import NewYearEventModal, {
+import {
+	DrawPopBox,
 	PrizePopBox,
 } from '@nx-next-app/features/F0001/desktop/modal/NewYearEventModal'
 import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 import {
 	CategoryIdEnum,
 	PromotionMissionTypeEnum,
@@ -57,7 +58,7 @@ const Task = () => {
 		if (isMulti) {
 			modal.open(<PrizePopBox isMulti />)
 		} else {
-			modal.open(<NewYearEventModal />)
+			modal.open(<DrawPopBox />)
 		}
 	}
 
@@ -69,7 +70,9 @@ const Task = () => {
 		<div className='event-main'>
 			<div className='event-task'>
 				{missionList.length > 0 && (
-					<div className='event-main-title'>{t('lbl_DragonEgg_DailyTask')}</div>
+					<div className='event-main-title'>
+						{t('Label_DragonEgg_DailyTask')}
+					</div>
 				)}
 				{missionList.map(
 					({
@@ -120,7 +123,10 @@ const Task = () => {
 									}}
 								>
 									<img
-										className={`event-task-${eggCount === 1 ? 'one' : 'two'}`}
+										className={classNames({
+											[eggCount === 1 ? 'event-task-one' : 'event-task-two']:
+												true,
+										})}
 										src={getBannerUrl(
 											`/desktop/img/event/dragonegg/daily-egg${
 												eggCount === 1 ? '1' : '2'
@@ -134,8 +140,8 @@ const Task = () => {
 										})}
 									>
 										{isCompleted
-											? t('lbl_DragonEgg_Received')
-											: t('lbl_DragonEgg_Go')}
+											? t('Label_DragonEgg_Received')
+											: t('Label_DragonEgg_Go')}
 									</button>
 								</div>
 							</div>
@@ -146,7 +152,7 @@ const Task = () => {
 			<div className='event-draw'>
 				<div className='event-draw-egg'>
 					<div className='event-draw-value'>
-						{t('lbl_DragonEgg_Eggs')}: <span>{eggTicket}</span>
+						{t('Label_DragonEgg_Eggs')}: <span>{eggTicket}</span>
 					</div>
 					<img
 						className='event-draw-img'
@@ -168,7 +174,7 @@ const Task = () => {
 								})
 						}}
 					>
-						{t('lbl_DragonEgg_DrawNow')}
+						{t('Label_DragonEgg_DrawNow')}
 					</button>
 					<button
 						className={classNames('draw-ten', {
@@ -181,7 +187,7 @@ const Task = () => {
 								})
 						}}
 					>
-						{t('lbl_DragonEgg_ClickFor10')}
+						{t('Label_DragonEgg_ClickFor10')}
 					</button>
 				</div>
 			</div>

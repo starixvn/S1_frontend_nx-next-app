@@ -17,7 +17,7 @@ export const DrawPopBox = () => {
 	const { getBannerUrl } = useGlobalData()
 	const { closeModal, modal } = useGlobalModal()
 
-	const openPrizePox = () => {
+	const openPrizeBox = () => {
 		modal.open(<PrizePopBox isMulti={false} />, { className: 'newyear-mask' })
 	}
 
@@ -26,7 +26,7 @@ export const DrawPopBox = () => {
 
 		// 動畫彈窗顯示 2.5 秒後再顯示獎品彈窗
 		delay(() => {
-			openPrizePox()
+			openPrizeBox()
 		}, 2500)
 	}
 
@@ -35,8 +35,8 @@ export const DrawPopBox = () => {
 			<div className='choose active'>
 				<button className='close-btn' onClick={() => closeModal()} />
 				<div className='dragonegg-frame'>
-					<div className='title'>{t('lbl_DragonEgg_DrawEggs')}</div>
-					<div className='text'>{t('lbl_DragonEgg_DrawHints')}</div>
+					<div className='title'>{t('Label_DragonEgg_DrawEggs')}</div>
+					<div className='text'>{t('Label_DragonEgg_DrawHints')}</div>
 					<div className='dragonegg-draw'>
 						{Array.from({ length: 3 }, (_, i) => i + 1).map(item => (
 							<button key={item} className='egg' onClick={onOpenPrizeBox}>
@@ -55,7 +55,7 @@ export const DrawPopBox = () => {
 						/>
 					</div>
 					<div className='dragonegg-egg'>
-						{t('lbl_DragonEgg_Eggs')}: <span>{eggTicket}</span>
+						{t('Label_DragonEgg_Eggs')}: <span>{eggTicket}</span>
 					</div>
 				</div>
 			</div>
@@ -137,12 +137,12 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 						prizeList &&
 						(prizeList[0].drawPrizeType === DrawPrizeTypeEnum.noPrize ? (
 							// 單抽無獎
-							<div className='title'>{t('lbl_DragonEgg_GoodLuck')}</div>
+							<div className='title'>{t('Label_DragonEgg_GoodLuck')}</div>
 						) : (
 							// 單抽有獎
 							<>
 								<div className='title'>
-									{t('lbl_DragonEgg_CONGRATULATIONS')}
+									{t('Label_DragonEgg_CONGRATULATIONS')}
 								</div>
 								<div className='rewards-title'>{prizeList[0].prizeName}</div>
 							</>
@@ -157,10 +157,12 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 					)}
 					{isMultiDraw && (
 						<>
-							<div className='title'>{t('lbl_DragonEgg_CONGRATULATIONS')}</div>
+							<div className='title'>
+								{t('Label_DragonEgg_CONGRATULATIONS')}
+							</div>
 							<div className='dragonegg-result-list'>
 								<div className='list-title'>
-									{t('lbl_DragonEgg_EventRewards')}
+									{t('Label_DragonEgg_EventRewards')}
 								</div>
 								{prizeList &&
 									prizeList.map(({ prizeName }, i) => (
@@ -177,7 +179,7 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 					{eggTicket === 0 && !isMultiDraw && (
 						<div className='dragonegg-result-btn'>
 							<button className='btn-confirm' onClick={() => closeModal()}>
-								{t('lbl_DragonEgg_Confirm')}
+								{t('Label_DragonEgg_Confirm')}
 							</button>
 						</div>
 					)}
@@ -187,7 +189,7 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 							prizeList[0].drawPrizeType !== DrawPrizeTypeEnum.noPrize)) &&
 						eggTicket !== 0 && (
 							<button className='btn-receive' onClick={() => closeModal()}>
-								{t('lbl_DragonEgg_Received')}
+								{t('Label_DragonEgg_Received')}
 							</button>
 						)}
 					<div className='btn-playdraw'>
@@ -202,7 +204,7 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 									getPrize({ multiDraw: false })
 								}}
 							>
-								{t('lbl_DragonEgg_DrawAgain')}
+								{t('Label_DragonEgg_DrawAgain')}
 							</button>
 						)}
 						{/* 單抽10抽且可再10抽 */}
@@ -211,13 +213,13 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 								className='btn-tenplay'
 								onClick={() => getPrize({ multiDraw: true })}
 							>
-								{t('lbl_DragonEgg_10Again')}
+								{t('Label_DragonEgg_10Again')}
 							</button>
 						)}
 					</div>
 				</div>
 				<div className='dragonegg-result-egg'>
-					{t('lbl_DragonEgg_Eggs')}: <span>{eggTicket}</span>
+					{t('Label_DragonEgg_Eggs')}: <span>{eggTicket}</span>
 				</div>
 			</div>
 		</div>

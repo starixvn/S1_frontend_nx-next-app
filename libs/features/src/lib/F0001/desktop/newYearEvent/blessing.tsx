@@ -1,9 +1,9 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { prizeAmout } from '@nx-next-app/features/F0001/desktop/newYearEvent/info'
+import { prizeAmount } from '@nx-next-app/features/F0001/desktop/newYearEvent/info'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { useNewYearEvent } from '../../hooks'
 
 const Blessing = () => {
@@ -85,10 +85,12 @@ const Blessing = () => {
 
 	return (
 		<div className='event-collection'>
-			<div className='event-main-title'>{t('lbl_DragonEgg_FiveFortunes')}</div>{' '}
+			<div className='event-main-title'>
+				{t('Label_DragonEgg_FiveFortunes')}
+			</div>{' '}
 			<div className='event-collection-text'>
-				{t('lbl_DragonEgg_BlessingHints', {
-					amount: prizeAmout.find(x => x.currency === currencyId)?.blessing,
+				{t('Label_DragonEgg_BlessingHints', {
+					amount: prizeAmount.find(x => x.currency === currencyId)?.blessing,
 					currencyName,
 				})}
 			</div>
@@ -112,9 +114,9 @@ const Blessing = () => {
 				}}
 			>
 				{stickerResult.isClaimedBigPrize
-					? t('lbl_DragonEgg_Received')
+					? t('Label_DragonEgg_Received')
 					: `${currencyName} ${
-							prizeAmout.find(x => x.currency === currencyId)?.blessing
+							prizeAmount.find(x => x.currency === currencyId)?.blessing
 					  }`}
 			</button>
 		</div>
