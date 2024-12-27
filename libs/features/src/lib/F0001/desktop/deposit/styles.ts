@@ -454,9 +454,11 @@ export const WrapperDeposit = styled.div`
 			}
 		}
 		.subModule-item {
-			display: block !important;
+			display: grid !important;
 			position: relative;
 			gap: 1.2rem !important;
+			grid-template-columns: repeat(6, 1fr);
+			align-items: center;
 			&:last-child {
 				.inputBox-blue {
 					margin-top: 0;
@@ -481,13 +483,24 @@ export const WrapperDeposit = styled.div`
 			}
 		}
 		.inputBox-blue {
-			margin-top: 1.6rem;
-			margin-bottom: 1rem;
-			width: 100%;
+			grid-column: 1 / 6;
+			margin-top: 0;
 		}
 		.btnGroup {
 			max-width: max-content;
 			margin-top: 0;
+			grid-column: 6/7;
+			display: block;
+		}
+		.group-input-chanel {
+			.inputBox-blue {
+				width: 100%;
+			}
+			.btnGroup {
+				button {
+					padding: 0 1.4rem;
+				}
+			}
 		}
 	}
 	.Promotion {
