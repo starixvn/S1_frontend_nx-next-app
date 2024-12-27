@@ -1,10 +1,10 @@
-import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
-import { useDepositRecentHistory } from '@nx-next-app/data-access'
-import { useTranslation } from 'react-i18next'
-import { useBoolean } from 'usehooks-ts'
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
+import { useDepositRecentHistory } from '@nx-next-app/data-access'
+import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useBoolean } from 'usehooks-ts'
 
 const DepositRecentHistory = () => {
 	const { t } = useTranslation()

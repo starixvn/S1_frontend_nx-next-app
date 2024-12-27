@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
+import { Loading } from '@nx-next-app/components/D0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { Loading } from '@nx-next-app/components/D0001'
 import { numberFormat } from '@nx-next-app/utils'
+import { useRouter } from 'next/router'
 
 import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import { useEffect } from 'react'
 import {
 	useRetentionLandingPage,

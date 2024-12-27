@@ -21,5 +21,5 @@ export const EVENT_PERIOD: {
 	// 2024 聖誕節
 	CHRISTMAS: { start: '2024/12/17 00:00:00', end: '2024/12/26 23:59:59' },
 	// 2025 新年活動
-	NEW_YEAR_EVENT: { start: '2025/1/20 00:00:00', end: '2025/2/12 23:59:59' },
+	NEW_YEAR_EVENT: { start: '2024/1/20 00:00:00', end: '2025/2/12 23:59:59' },
 }

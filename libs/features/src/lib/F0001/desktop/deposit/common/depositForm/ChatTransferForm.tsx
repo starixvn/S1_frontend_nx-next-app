@@ -15,13 +15,13 @@ import { IDepositChatTransferData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 interface IChatTransferFormProps {
 	dataSource: IDepositChatTransferData[]

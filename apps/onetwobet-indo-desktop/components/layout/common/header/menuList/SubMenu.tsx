@@ -4,9 +4,9 @@ import { useMenu } from '@nx-next-app/operations'
 import { MenuIconTypeEnum } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { Dispatch, ReactNode, SetStateAction } from 'react'
-import { useTranslation } from 'react-i18next'
 
 const LoginModal = dynamic(
 	() => import('@12b-indo-desktop/components/modal/LoginModal'),

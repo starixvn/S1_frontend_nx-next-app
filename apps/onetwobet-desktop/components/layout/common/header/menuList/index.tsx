@@ -13,10 +13,10 @@ import {
 } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { useDebounce } from 'usehooks-ts'
 
 const LoginModal = dynamic(

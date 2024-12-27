@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
-import { useTranslation } from 'react-i18next'
-import { PromotionPeriodType } from '@nx-next-app/types'
-import { IPromotionData } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
+import { IPromotionData } from '@nx-next-app/service'
+import { PromotionPeriodType } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import { useEffect, useState } from 'react'
 
 interface IPromotionMissionProps {
 	promotionDetail: IPromotionData

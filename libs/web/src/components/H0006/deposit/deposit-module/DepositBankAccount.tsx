@@ -1,5 +1,5 @@
 import { toLower } from 'lodash-es'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { useCopyToClipboard } from 'usehooks-ts'
 
 interface IDepositBankAccountProps {

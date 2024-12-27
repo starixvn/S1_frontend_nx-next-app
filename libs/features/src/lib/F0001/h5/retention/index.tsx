@@ -1,15 +1,15 @@
-import { includes } from 'lodash-es'
-import { useRouter } from 'next/router'
 import { Header, Loading } from '@nx-next-app/components/H0001'
-import { useTranslation } from 'react-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
-import { useEffect } from 'react'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5`
 
@@ -120,11 +120,12 @@ const RetentionContent = () => {
 					<div className='bonus-list'>
 						<div className='title'>
 							<div>{t('Label_Retention_BonusTitle')}</div>
-							<div></div>
+							<div />
 						</div>
 						{details && (
 							<div
-							style={{ width: '100%' }}
+								style={{ width: '100%' }}
+								// eslint-disable-next-line react/no-danger
 								dangerouslySetInnerHTML={{
 									__html: `<pre>${details}</pre>`,
 								}}

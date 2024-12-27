@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { UseEuropeCupProps } from '../../hooks/useEuropeCup'
-import Team from './components/Team'
 import Group from './components/Group'
+import Team from './components/Team'
 
 interface IScheduleProps {
 	europeCupProps: UseEuropeCupProps
