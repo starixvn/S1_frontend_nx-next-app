@@ -5,7 +5,7 @@ import { IImageData } from '@nx-next-app/types'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
-import { capitalize, some } from 'lodash-es'
+import { some } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 
@@ -120,6 +120,10 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 			resourceKey: 'Label_Vip_Virtual_Sport_Rebate',
 			rebateEnum: RebateCategoryEnum.VirtualSports,
 		},
+		{
+			resourceKey: 'Label_Vip_ESport_Rebate',
+			rebateEnum: RebateCategoryEnum.ESports,
+		},
 	]
 
 	return (
@@ -153,11 +157,11 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				{/* === Service support ===  */}
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
-						<li>{capitalize(t('Label_Vip_Service_Support') as string)}</li>
+						<li>{t('Label_Vip_Service_Support')}</li>
 					</ul>
 					{serviceSupport.map(x => (
 						<ul key={x.resourceKey} className='viptable-item-text'>
-							<li>{capitalize(t(x.resourceKey) as string)}</li>
+							<li>{t(x.resourceKey)}</li>
 							{x.contentFn()}
 						</ul>
 					))}
@@ -167,20 +171,18 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
 						<li>
-							{capitalize(t('Label_Vip_Exclusive_Bonus') as string)}
+							{t('Label_Vip_Exclusive_Bonus')}
 							{t(`Label_General_Currency_${currencyId}`)}
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>{capitalize(t('Label_Vip_Tier_UpGrade_Bonus') as string)}</li>
+						<li>{t('Label_Vip_Tier_UpGrade_Bonus')}</li>
 						<li>
 							{apiData?.upBonus && numberFormatExcludeString(apiData?.upBonus)}
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>
-							{capitalize(t('Label_Vip_Tier_UpGrade_RewardPoints') as string)}
-						</li>
+						<li>{t('Label_Vip_Tier_UpGrade_RewardPoints') as string}</li>
 						<li>
 							{apiData?.upRewardPoint &&
 								numberFormatExcludeString(apiData?.upRewardPoint)}
@@ -191,11 +193,11 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				{/* === Special Offer ===  */}
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
-						<li>{capitalize(t('Label_Vip_Special_Offer') as string)}</li>
+						<li>{t('Label_Vip_Special_Offer')}</li>
 					</ul>
 					{specialOffer.map(x => (
 						<ul key={x.resourceKey} className='viptable-item-text'>
-							<li>{capitalize(t(x.resourceKey) as string)}</li>
+							<li>{t(x.resourceKey)}</li>
 							{x.contentFn()}
 						</ul>
 					))}
@@ -204,11 +206,11 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				{/* === Special rebate ===  */}
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
-						<li>{capitalize(t('Label_Vip_Special_Rebate') as string)}</li>
+						<li>{t('Label_Vip_Special_Rebate')}</li>
 					</ul>
 					{speicalReate.map(x => (
 						<ul key={x.rebateEnum} className='viptable-item-text'>
-							<li>{capitalize(t(x.resourceKey) as string)}</li>
+							<li>{t(x.resourceKey)}</li>
 							<li>{apiData?.rebateCategory[x.rebateEnum]?.percentage}%</li>
 						</ul>
 					))}
@@ -217,12 +219,10 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				{/* === Referral bonus program ===  */}
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
-						<li>
-							{capitalize(t('Label_Vip_Referral_Bonus_Program') as string)}
-						</li>
+						<li>{t('Label_Vip_Referral_Bonus_Program')}</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>{capitalize(t('Label_Vip_Referral_Bonus') as string)}</li>
+						<li>{t('Label_Vip_Referral_Bonus')}</li>
 						<li className={`${referralBonus ? 'High' : null}`} />
 					</ul>
 				</div>
@@ -231,19 +231,19 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
 						<li>
-							{capitalize(t('Label_Vip_Tire_Upgrade_Requirement') as string)}
+							{t('Label_Vip_Tire_Upgrade_Requirement')}
 							{t(`Label_General_Currency_${currencyId}`)}
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>{capitalize(t('Label_Vip_Deposit_Requirement') as string)}</li>
+						<li>{t('Label_Vip_Deposit_Requirement')}</li>
 						<li>
 							{apiData?.upDeposit &&
 								numberFormatExcludeString(apiData?.upDeposit)}
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>{capitalize(t('Label_Vip_Turnover_Requirement') as string)}</li>
+						<li>{t('Label_Vip_Turnover_Requirement')}</li>
 						<li>
 							{apiData?.upTurnover &&
 								numberFormatExcludeString(apiData?.upTurnover)}
@@ -255,14 +255,12 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 				<div className='viptable-item'>
 					<ul className='viptable-item-title'>
 						<li>
-							{capitalize(
-								t('Label_Vip_Tier_Maintenance_Requirement') as string
-							)}
+							{t('Label_Vip_Tier_Maintenance_Requirement')}
 							{t(`Label_General_Currency_${currencyId}`)}
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>{capitalize(t('Label_Vip_Retain_Deposit') as string)}</li>
+						<li>{t('Label_Vip_Retain_Deposit')}</li>
 						<li>
 							{apiData?.downDeposit &&
 								Number(apiData?.downDeposit) !== 0 &&
@@ -270,7 +268,7 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>{capitalize(t('Label_Vip_Retain_Turnover') as string)}</li>
+						<li>{t('Label_Vip_Retain_Turnover')}</li>
 						<li>
 							{apiData?.downTurnover &&
 								Number(apiData?.downTurnover) !== 0 &&
@@ -278,11 +276,7 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>
-							{capitalize(
-								t('Label_Vip_Ranking_Validity_Membership_Renewal') as string
-							)}
-						</li>
+						<li>{t('Label_Vip_Ranking_Validity_Membership_Renewal')}</li>
 						<li>{t(membershipRenewal)}</li>
 					</ul>
 				</div>

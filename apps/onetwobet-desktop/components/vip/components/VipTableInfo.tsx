@@ -2,7 +2,6 @@ import { useAuth } from '@nx-next-app/data-access'
 import { RebateCategoryEnum } from '@nx-next-app/service'
 import { IOneTwoBetVipProgram } from '@nx-next-app/site/onetwobet'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
-import { capitalize } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
 interface IVipTableInfoProps {
@@ -121,6 +120,10 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 			resourceKey: 'Label_Vip_Virtual_Sport_Rebate',
 			rebateEnum: RebateCategoryEnum.VirtualSports,
 		},
+		{
+			resourceKey: 'Label_Vip_ESport_Rebate',
+			rebateEnum: RebateCategoryEnum.ESports,
+		},
 	]
 
 	return (
@@ -129,13 +132,13 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Service support ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Service_Support') || '')}
+						{t('Label_Vip_Service_Support')}
 					</td>
 					<td colSpan={6}>{t('Label_Vip_Tier')}</td>
 				</tr>
 				{serviceSupport.map(x => (
 					<tr key={x.resourceKey}>
-						<td>{capitalize(t(x.resourceKey) || '')}</td>
+						<td>{t(x.resourceKey)}</td>
 						{x.contentFn()}
 					</tr>
 				))}
@@ -143,7 +146,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Exclusive bonus(Currency) ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Exclusive_Bonus') || '')}
+						{t('Label_Vip_Exclusive_Bonus')}
 						<span className='txt-orange'>
 							({t(`Label_General_Currency_${currencyId}`)})
 						</span>
@@ -151,7 +154,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					<td colSpan={6} />
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Tier_UpGrade_Bonus') || '')}</td>
+					<td>{t('Label_Vip_Tier_UpGrade_Bonus')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item.apiData?.upBonus &&
@@ -160,7 +163,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					))}
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Tier_UpGrade_RewardPoints') || '')}</td>
+					<td>{t('Label_Vip_Tier_UpGrade_RewardPoints')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item.apiData?.upRewardPoint &&
@@ -172,13 +175,13 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Special Offer ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Special_Offer') || '')}
+						{t('Label_Vip_Special_Offer')}
 					</td>
 					<td colSpan={6} />
 				</tr>
 				{specialOffer.map(x => (
 					<tr key={x.resourceKey}>
-						<td>{capitalize(t(x.resourceKey) || '')}</td>
+						<td>{t(x.resourceKey)}</td>
 						{x.contentFn()}
 					</tr>
 				))}
@@ -186,13 +189,13 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Special rebate ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Special_Rebate') || '')}
+						{t('Label_Vip_Special_Rebate')}
 					</td>
 					<td colSpan={6} />
 				</tr>
 				{speicalReate.map(x => (
 					<tr key={x.rebateEnum}>
-						<td>{capitalize(t(x.resourceKey) || '')}</td>
+						<td>{t(x.resourceKey)}</td>
 						{settings?.map(item => (
 							<td key={item.level}>
 								{item?.apiData?.rebateCategory[x.rebateEnum]?.percentage}%
@@ -204,12 +207,12 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Referral bonus program ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Referral_Bonus_Program') || '')}
+						{t('Label_Vip_Referral_Bonus_Program')}
 					</td>
 					<td colSpan={6} />
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Referral_Bonus') || '')}</td>
+					<td>{t('Label_Vip_Referral_Bonus')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.referralBonus && <i className='icon icon-checkmark' />}
@@ -220,7 +223,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Tier upgrade requirement(Currency) ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Tire_Upgrade_Requirement') || '')}
+						{t('Label_Vip_Tire_Upgrade_Requirement')}
 						<span className='txt-orange'>
 							({t(`Label_General_Currency_${currencyId}`)})
 						</span>
@@ -228,7 +231,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					<td colSpan={6} />
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Deposit_Requirement') || '')}</td>
+					<td>{t('Label_Vip_Deposit_Requirement')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.upDeposit &&
@@ -237,7 +240,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					))}
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Turnover_Requirement') || '')}</td>
+					<td>{t('Label_Vip_Turnover_Requirement')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.upTurnover &&
@@ -249,7 +252,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				{/* === Tier maintenance requirement(Currency) ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
-						{capitalize(t('Label_Vip_Tier_Maintenance_Requirement') || '')}
+						{t('Label_Vip_Tier_Maintenance_Requirement')}
 						<span className='txt-orange'>
 							({t(`Label_General_Currency_${currencyId}`)})
 						</span>
@@ -257,7 +260,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					<td colSpan={6} />
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Retain_Deposit') || '')}</td>
+					<td>{t('Label_Vip_Retain_Deposit')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.downDeposit &&
@@ -267,7 +270,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					))}
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Retain_Turnover') || '')}</td>
+					<td>{t('Label_Vip_Retain_Turnover')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.downTurnover &&
@@ -277,11 +280,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					))}
 				</tr>
 				<tr className='lastTd'>
-					<td>
-						{capitalize(
-							t('Label_Vip_Ranking_Validity_Membership_Renewal') || ''
-						)}
-					</td>
+					<td>{t('Label_Vip_Ranking_Validity_Membership_Renewal')}</td>
 					{settings.map(item => (
 						<td key={item.level}>{t(item.membershipRenewal)}</td>
 					))}
