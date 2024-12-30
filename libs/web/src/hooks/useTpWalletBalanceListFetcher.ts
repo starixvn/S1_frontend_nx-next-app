@@ -1,7 +1,7 @@
+import { useAuth } from '@nx-next-app/data-access'
 import { sumBy } from 'lodash-es'
 import { useEffect, useState } from 'react'
 import { useInterval } from 'usehooks-ts'
-import { useAuth } from '@nx-next-app/data-access'
 import {
 	useGetCustBonusWalletListQuery,
 	useGetMainWalletInfoQuery,
@@ -32,7 +32,6 @@ const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
 	} = useGetMainWalletInfoQuery(null, {
 		skip: !isLogin,
 	})
-
 	const {
 		data: { data: custBonusWalletList } = {},
 		refetch: refetchCustBonusWallet,

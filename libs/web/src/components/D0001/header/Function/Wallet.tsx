@@ -1,18 +1,18 @@
-import Link from 'next/link'
-import dayjs from 'dayjs'
-import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
-import { Fragment, useEffect, useRef } from 'react'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { Fragment, useEffect, useRef } from 'react'
+import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
 import { SpinButton } from '../../button'
 
 interface IWalletProps {
@@ -52,7 +52,6 @@ const Wallet = ({
 		toggle: toggleHideBalance,
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
-
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
