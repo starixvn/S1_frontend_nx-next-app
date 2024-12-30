@@ -465,6 +465,10 @@ export const WrapperDeposit = styled.div`
 				}
 			}
 		}
+
+		.tip {
+			grid-column: 1 / 6;
+		}
 		.btn-check {
 			width: 3.6rem;
 			height: 3.6rem;
