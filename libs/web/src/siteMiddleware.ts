@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { NextRequest, NextResponse } from 'next/server'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { NextRequest, NextResponse } from 'next/server'
 
 interface ISiteMiddleware {
 	request: NextRequest
@@ -83,14 +83,10 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	const hasLangId = request.cookies.has(ENV_COOKIE_NAMES.LangId)
 	const cookieLang = request.cookies.get(ENV_COOKIE_NAMES.LangId)
 
-	// * 使用幣別語系權重: cookie => ip => default
-	// * 沒有 cookie 資料，且無指定語系
-	// const { isAccess = true, countryCode } =
-	// 	(await getIpCountry(request.headers)) ?? {}
-	const isAccess = true
-
+	// * Use currency language weights: cookie => ip => default
+	// * No cookie data and no specified
+	const { isAccess = true } = (await getIpCountry(request.headers)) ?? {}
 	if (!isAccess && process.env.NODE_ENV === 'production') {
-		// 只有在線上會 work
 		const url = new URL('/BLOCKIP/index.html', request.url)
 		return NextResponse.redirect(url)
 	}
