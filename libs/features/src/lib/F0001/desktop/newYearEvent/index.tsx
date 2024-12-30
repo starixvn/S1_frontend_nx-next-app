@@ -11,9 +11,11 @@ const NewYearEvent = () => {
 		userInfo: { langId },
 	} = useAuth()
 
+	const abc = isLogin
+
 	return (
 		<main className={classNames('dragonegg-event', langId)}>
-			{isLogin && (
+			{abc && isLogin && (
 				<>
 					<Task />
 					<Blessing />
