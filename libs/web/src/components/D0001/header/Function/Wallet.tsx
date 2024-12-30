@@ -52,7 +52,6 @@ const Wallet = ({
 		toggle: toggleHideBalance,
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
-
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
