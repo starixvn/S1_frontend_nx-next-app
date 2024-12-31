@@ -6,12 +6,11 @@ export const LoadingContainer = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: #ecf3fd;
 	padding: 8vw;
 	display: none;
-	z-index: 4;
+	z-index: 9;
 
-	.active {
+	&.active {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -491,7 +490,7 @@ export const LoadingContainer = styled.div`
 	h1:after {
 		font-size: 4vw;
 		font-weight: bold;
-		content: 'NOVA88';
+		content: '';
 		position: absolute;
 		color: rgb(255, 255, 255);
 		-webkit-transform: translateX(-50%) translateY(-50%);
