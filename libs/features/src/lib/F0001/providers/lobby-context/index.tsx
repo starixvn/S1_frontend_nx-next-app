@@ -24,7 +24,7 @@ import React, {
 	useContext,
 	useEffect,
 	useState,
-  useCallback
+	useCallback
 } from 'react'
 import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
@@ -43,12 +43,12 @@ export interface LobbyContextInterface {
 	activeVendorTpId: number | string | null
 	activeCategoryKey: string
 	activeGame:
-		| (IDisplayLobbyGameData & {
-				resultTpName?: string
-				resultGameImgDisplayText?: string
-				resultGameName?: string
-		  })
-		| null
+	| (IDisplayLobbyGameData & {
+		resultTpName?: string
+		resultGameImgDisplayText?: string
+		resultGameName?: string
+	})
+	| null
 	searchCategoryText: string
 	myFavorites: string
 	gameListRef: React.MutableRefObject<null>
@@ -82,10 +82,10 @@ export interface LobbyContextInterface {
 	onGameActive: (
 		targetData:
 			| (IDisplayLobbyGameData & {
-					resultTpName?: string
-					resultGameImgDisplayText?: string
-					resultGameName?: string
-			  })
+				resultTpName?: string
+				resultGameImgDisplayText?: string
+				resultGameName?: string
+			})
 			| null
 	) => void
 	onGamePlay: ({
@@ -167,10 +167,10 @@ const LobbyProvider = ({
 	const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false)
 	const [activeGame, setActiveGame] = useState<
 		| (IDisplayLobbyGameData & {
-				resultTpName?: string
-				resultGameImgDisplayText?: string
-				resultGameName?: string
-		  })
+			resultTpName?: string
+			resultGameImgDisplayText?: string
+			resultGameName?: string
+		})
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
@@ -314,9 +314,8 @@ const LobbyProvider = ({
 
 			setMyFavorites(trim(filteredMyFavoriteStr))
 		} else {
-			const newFavorite = `${
-				myFavorites === '' ? '' : '&'
-			}${newTpId}#${newGameId}`
+			const newFavorite = `${myFavorites === '' ? '' : '&'
+				}${newTpId}#${newGameId}`
 			setMyFavorites(prev => `${prev}${newFavorite}`)
 		}
 		if (isLogin && !isSetFavoriteGameLoading) {
@@ -340,10 +339,10 @@ const LobbyProvider = ({
 	const onGameActive = (
 		targetData:
 			| (IDisplayLobbyGameData & {
-					resultTpName?: string
-					resultGameImgDisplayText?: string
-					resultGameName?: string
-			  })
+				resultTpName?: string
+				resultGameImgDisplayText?: string
+				resultGameName?: string
+			})
 			| null
 	) => {
 		setActiveGame(targetData)
@@ -397,6 +396,10 @@ const LobbyProvider = ({
 			setActiveVendorTpId(tempVendorList[targetIndex].tpId)
 		} else {
 			setVendorList(tempVendorList)
+			// MaxPlay
+			if (Number(queryTpId) === ProviderEnum.MaxPlay) {
+				setActiveVendorTpId(ProviderEnum.MaxPlay)
+			}
 		}
 	}
 
@@ -409,12 +412,12 @@ const LobbyProvider = ({
 		return newGamesArr
 	}
 
-  const scrollToTop = useCallback(() => {
-    const mainContent = document?.getElementById('__top')
-    if (!mainContent) return
+	const scrollToTop = useCallback(() => {
+		const mainContent = document?.getElementById('__top')
+		if (!mainContent) return
 
-    mainContent.scrollTop = 0
-  }, [])
+		mainContent.scrollTop = 0
+	}, [])
 
 	useEffect(() => {
 		if (isFirstRender) {
@@ -436,13 +439,13 @@ const LobbyProvider = ({
 			)
 			updateVendorList()
 			setActiveCategoryKey('all')
-      scrollToTop()
+			scrollToTop()
 		}
 	}, [isFirstRender])
 
 	// * 根據廠商過濾遊戲類型
 	useEffect(() => {
-    setCategoryKeys(Object.keys(persistLobbyCategoryData))
+		setCategoryKeys(Object.keys(persistLobbyCategoryData))
 		setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
 	}, [queryTpId])
 
@@ -487,7 +490,7 @@ const LobbyProvider = ({
 			activeCategoryKey === 'myFavorite'
 				? removeDuplicates(resultList)
 				: ((persistLobbyCategoryData[activeCategoryKey] ||
-						[]) as ILobbyGameData[])
+					[]) as ILobbyGameData[])
 
 		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
 			const uniqueTpIds = Array.from(
@@ -537,7 +540,7 @@ const LobbyProvider = ({
 		// )
 		setlobbyGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites, tpMaintainList])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {

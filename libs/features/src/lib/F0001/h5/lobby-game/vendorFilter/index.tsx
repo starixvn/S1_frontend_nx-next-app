@@ -55,7 +55,7 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 							key={`slot-swiper-${tpId}`}
 							displayText={displayText}
 							imgName={imgName}
-              isActive={activeVendorTpId === tpId}
+							isActive={activeVendorTpId === tpId}
 							onClick={() =>
 								onVendorChange({
 									tpId,
@@ -67,21 +67,21 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 					)
 				}
 			)}
-      {showMaxPLay && (
-					<VendorItem
-						key={`lobby-vendor-${ProviderEnum.MaxPlay}`}
-						onClick={() =>
-							onVendorChange({
-								tpId: ProviderEnum.MaxPlay,
-								openPath: '',
-								pathRoot,
-							})
-						}
-						isActive={activeVendorTpId === ProviderEnum.MaxPlay}
-						displayText='MaxPlay'
-						imgName='maxplay'
-					/>
-				)}
+			{showMaxPLay && (
+				<VendorItem
+					key={`lobby-vendor-${ProviderEnum.MaxPlay}`}
+					onClick={() =>
+						onVendorChange({
+							tpId: ProviderEnum.MaxPlay,
+							openPath: '',
+							pathRoot,
+						})
+					}
+					isActive={activeVendorTpId === ProviderEnum.MaxPlay}
+					displayText='MaxPlay'
+					imgName='maxplay'
+				/>
+			)}
 		</VendorFilterContainer>
 	)
 }

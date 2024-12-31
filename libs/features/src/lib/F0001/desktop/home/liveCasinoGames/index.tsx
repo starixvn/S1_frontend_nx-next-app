@@ -32,7 +32,7 @@ const LiveCasinoGames = () => {
 				<GameList
 					gameData={liveCasinoGames}
 					isControlButton
-					extraClassName='two-rows'
+					extraClassName={liveCasinoGames.length < 10 ? '' : 'two-rows'}
 				/>
 			</GameGroup>
 		</LiveCasinoContainer>
