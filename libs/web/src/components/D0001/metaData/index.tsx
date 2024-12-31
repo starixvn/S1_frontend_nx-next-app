@@ -10,6 +10,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 		keyword,
 		links = [],
 	} = useMetaData(persistSEOData)
+	console.log('persistSEOData', persistSEOData)
 
 	return (
 		<Head>
@@ -26,24 +27,9 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 
 			<meta name='description' content={description} />
 			<meta name='keyword' content={keyword} />
-			<meta name='twitter:title' content={title} />
-			<meta name='twitter:description' content={description} />
-			<meta
-				name='twitter:url'
-				content={process.env['NEXT_PUBLIC_ENV_PRODUCT_HOST']}
-			/>
-			<meta
-				name='twitter:domain'
-				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}.net`}
-			/>
-			<meta name='twitter:card' content='summary_large_image' />
-			<meta
-				name='twitter:image'
-				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/thumbnail/thumbnail_001.jpg`}
-			/>
 			<meta
 				property='og:url'
-				content={process.env['NEXT_PUBLIC_ENV_PRODUCT_HOST']}
+				content={process.env['NEXT_PUBLIC_REFERER_HOST']}
 			/>
 			<meta property='og:type' content='website' />
 			<meta property='og:title' content={title} />

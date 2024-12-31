@@ -428,7 +428,7 @@ const SlotsProvider = ({
 			if (
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
 			) {
-				// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
+				// * Slice the vendor found by queryTpId into the first option and selected
 				const newVendorList = [
 					...tempVendorList.slice(targetIndex),
 					...tempVendorList.slice(0, targetIndex),
@@ -539,7 +539,6 @@ const SlotsProvider = ({
 				({ tpId }) => !uniqueTpIds.includes(tpId)
 			)
 		}
-		console.log('tpMaintainList', tpMaintainList)
 
 		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
