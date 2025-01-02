@@ -1267,6 +1267,17 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  @-webkit-keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
 	@keyframes rotate {
 		from {
 			-webkit-transform: rotate(0deg);
