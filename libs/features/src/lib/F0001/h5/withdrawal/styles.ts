@@ -214,7 +214,7 @@ export const WrapperWithdrawalH5 = styled.div`
 			}
 			&.active {
 				.icon {
-					animation: rotate 1s ease;
+					animation: reload 1s ease;
 				}
 			}
 		}
