@@ -1263,11 +1263,11 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 2rem;
     }
     &.active {
-      animation: rotate 0.5s linear 2;
+      animation: reload 1s ease;
     }
   }
 
-  @-webkit-keyframes rotate {
+  @-webkit-keyframes reload {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -1278,7 +1278,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-	@keyframes rotate {
+	@keyframes reload {
 		from {
 			-webkit-transform: rotate(0deg);
 			transform: rotate(0deg);
