@@ -85,7 +85,8 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 
 	// * Use currency language weights: cookie => ip => default
 	// * No cookie data and no specified
-	const { isAccess = true } = (await getIpCountry(request.headers)) ?? {}
+	//	const { isAccess = true } = (await getIpCountry(request.headers)) ?? {}
+	const isAccess = true
 	if (!isAccess && process.env.NODE_ENV === 'production') {
 		const url = new URL('/BLOCKIP/index.html', request.url)
 		return NextResponse.redirect(url)
