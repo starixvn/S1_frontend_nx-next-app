@@ -549,8 +549,8 @@ export const PRODUCTS = {
 	Nextspin: {
 		tpGameIdNo: 106,
 		tpId: 50,
-		tpGameType: 99,
-		gameId: -1,
+		tpGameType: 127,
+		gameId: '-1',
 	},
 	Volleyball: {
 		tpGameIdNo: 107,
