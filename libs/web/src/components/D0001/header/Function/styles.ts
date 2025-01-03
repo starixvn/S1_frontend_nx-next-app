@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeProfile = styled.div`
 	background: ${({ theme }) => theme.desktop.dropdownBg};
@@ -246,7 +246,7 @@ export const HomeBalance = styled.div`
 			font-size: 2rem;
 		}
 		&.active {
-			animation: rotate 0.5s linear 2;
+			animation: reload 1s ease;
 		}
 	}
 
