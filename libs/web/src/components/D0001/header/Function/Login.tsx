@@ -53,6 +53,7 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 									message: t('Label_General_UserNameLength'),
 								},
 							})}
+							autoComplete='off'
 						/>
 					</div>
 					<div className='inputBox-blue'>
@@ -67,6 +68,7 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 									message: t('Label_General_PasswordRequired'),
 								},
 							})}
+							autoComplete='off'
 						/>
 					</div>
 

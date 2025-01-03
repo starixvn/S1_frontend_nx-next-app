@@ -552,6 +552,7 @@ export const GlobalStyles = createGlobalStyle`
       -webkit-box-shadow: 0 0 0 1000px ${({ theme }) =>
 				theme.desktop.inputBg} inset !important;
       -webkit-text-fill-color: #ffffff;
+      font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
   }
   .rightModule {
     width: 100%;

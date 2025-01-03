@@ -583,6 +583,7 @@ export const LoginForm = styled.div`
 		text-align: left;
 		color: ${({ theme }) => theme.desktop.headerInputColor};
 		caret-color: ${({ theme }) => theme.desktop.headerInputColor};
+		font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
 	}
 
 	::selection {
