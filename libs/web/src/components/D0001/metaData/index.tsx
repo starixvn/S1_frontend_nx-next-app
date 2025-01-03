@@ -10,7 +10,6 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 		keyword,
 		links = [],
 	} = useMetaData(persistSEOData)
-	console.log('persistSEOData', persistSEOData)
 
 	return (
 		<Head>
