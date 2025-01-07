@@ -27,3 +27,6 @@ export const isValidFile = (imageFile: File) => {
 
 	return true
 }
+
+export const isValidFiles = (imageFiles: FileList) =>
+	Array.from(imageFiles).every(file => isValidFile(file))

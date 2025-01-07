@@ -1,14 +1,23 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { isValidFiles } from '@nx-next-app/utils'
 import { ChangeEvent, DragEvent, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const useKycUploader = (submitKycCallback: (file: File) => void) => {
-	// kyc 更新使用的 file 暫存
+	// The file temporary storage used by kyc update
 	const [kycFile, setKycFile] = useState<{
 		fileImg: string | ArrayBuffer | null
 		fileData: File
 	} | null>(null)
+	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 
-	// 處理上傳資料暫存
+	// Process uploaded data and temporarily store it
 	const handleUploadFile = (files: FileList) => {
+		if (!isValidFiles(files)) {
+			modal.error(t('Label_History_BankSlipHint1'))
+			return
+		}
 		if (files.length > 0) {
 			const reader = new FileReader()
 			reader.readAsDataURL(files[0])
@@ -22,7 +31,6 @@ const useKycUploader = (submitKycCallback: (file: File) => void) => {
 		}
 	}
 
-	// 事件處理切開較容易撰寫
 	const onDropDown = (e: DragEvent<HTMLLabelElement>) => {
 		e.preventDefault()
 		const { files } = e.dataTransfer

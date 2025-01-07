@@ -30,7 +30,7 @@ const KycPanel = () => {
 	const { onSubmit, kycFile, onChangeInput, onDropDown } =
 		useKycUploader(handleUploadKyc)
 
-	// pending early return , pending 狀態則不執行底下程式碼
+	// pending early return, the following code will not be executed in the pending state.
 	if (kycStatus === KycStatusEnum.KycPending) return <PendingPanel />
 
 	return (

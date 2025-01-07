@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { Header, Loading } from '@nx-next-app/components/H0001'
 import { WrapperWithdrawalH5 } from '@nx-next-app/features/F0001/h5/withdrawal/styles'
 import {
 	useKycUploader,
@@ -9,8 +9,10 @@ import { Img } from 'react-image'
 
 const Kyc = () => {
 	const { t } = useTranslation()
-	const { handleUploadKyc } = useWithdrawal()
+	const { handleUploadKyc, loading } = useWithdrawal()
 	const { onSubmit, kycFile, onChangeInput } = useKycUploader(handleUploadKyc)
+
+	if (loading) return <Loading />
 
 	return (
 		<WrapperWithdrawalH5>
