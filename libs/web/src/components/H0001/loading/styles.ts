@@ -6,9 +6,8 @@ export const LoadingContainer = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding: 8vw;
 	display: none;
-	z-index: 9;
+	z-index: 9999;
 
 	&.active {
 		display: -webkit-box;

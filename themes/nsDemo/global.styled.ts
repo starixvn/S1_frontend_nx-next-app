@@ -113,6 +113,14 @@ export const GlobalStyles = createGlobalStyle`
     display: none;
   }
 
+
+  #Loading{ 
+    width : 100%;
+    height : 100%;
+    z-index : 9999;
+    background: #0000005d;
+  }
+
   body, main {
     background: ${theme.desktop.primary};
     font-family: ${({ theme }) => theme.desktop.fontFamily};
