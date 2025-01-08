@@ -1,0 +1,159 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+html,
+body {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+}
+#root,
+div[tabindex='-1'] {
+	height: 100%;
+}
+img {
+	display: block;
+}
+body {
+	background: url(../img/bg-error.webp) no-repeat top center / cover;
+}
+.wallpaper {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	width: 100%;
+}
+.title {
+	font-size: 25px;
+	font-weight: bold;
+	margin: 20px 0 10px;
+	color: #ff813d;
+}
+.title span {
+	font-size: 36px;
+	display: block;
+	text-transform: none;
+}
+.stitle {
+	font-size: 25px;
+	font-size: 14px;
+	color: #fff;
+	font-weight: 800;
+	margin-bottom: 10px;
+}
+.time {
+	font-size: 22px;
+	font-weight: 600;
+	color: #eb801e;
+	margin: 0 0 10px;
+	/* transform: skew(-15deg); */
+}
+.txt {
+	font-size: 14px;
+}
+.txt ul {
+	margin-bottom: 1vw;
+}
+.txt li {
+	line-height: 1.5;
+}
+
+.wrapper-group {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.logo {
+	width: 100px;
+	margin-bottom: 16px;
+}
+
+a {
+	color: #1b5bff;
+}
+
+.img-button {
+	display: flex;
+	margin: 20px 0;
+	align-items: center;
+	color: #939dc5;
+	justify-content: center;
+	font-size: 14px;
+	font-weight: 600;
+	gap: 5px;
+	border-radius: 10px;
+	background: #48558b;
+	box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.5);
+	padding: 5px 10px;
+	width: max-content;
+}
+
+.img-button .icon::before {
+	color: #939dc5;
+	font-size: 20px;
+}
+
+.img-button:hover {
+	color: #fff;
+}
+
+.img-button:hover .icon::before {
+	color: #fff;
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+	body {
+		background: url(../img/bg-error.webp) no-repeat top center / cover;
+	}
+	.wrapper-group {
+		display: block;
+	}
+	.wallpaper {
+		position: unset;
+		transform: unset;
+	}
+	.logo {
+		width: 100px;
+		margin: 16px auto;
+	}
+	img {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.img-girl img {
+		width: 100%;
+		margin: 0 auto;
+		max-width: 300px;
+	}
+
+	.right-text {
+		padding: 0 20px;
+	}
+	.title {
+		font-size: 20px;
+		margin: 0 0 3vw;
+	}
+	.title span {
+		font-size: 6vw;
+	}
+	.stitle {
+		font-size: 14px;
+		margin: 0 0 1vw;
+	}
+	.txt {
+		font-size: 14px;
+		line-height: 5vw;
+	}
+	.txt ul {
+		margin-bottom: 2vw;
+	}
+	.txt li {
+		line-height: 5vw;
+	}
+	.time {
+		font-size: 3.5vw;
+		margin: 0 0 5vw;
+	}
+}

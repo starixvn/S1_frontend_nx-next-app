@@ -1,0 +1,388 @@
+@font-face {
+	font-family: 'S1NewIcons';
+	src: url('../fonts-newsite/s1-new-icons.eot?q3lvc0');
+	src: url('../fonts-newsite/s1-new-icons.eot?q3lvc0#iefix')
+			format('embedded-opentype'),
+		url('../fonts-newsite/s1-new-icons.ttf?q3lvc0') format('truetype'),
+		url('../fonts-newsite/s1-new-icons.woff?q3lvc0') format('woff'),
+		url('../fonts-newsite/s1-new-icons.svg?q3lvc0#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'S1NewIcons' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-ns-site:before {
+  content: "\e95b";
+  color: #fff;
+}
+.icon-line:before {
+  content: "\e958";
+  color: #fff;
+}
+.icon-globe-alt:before {
+  content: "\e957";
+  color: #939dc5;
+}
+.icon-chat-poll-line:before {
+  content: "\e956";
+  color: #ea6118;
+}
+.icon-help-circle-outline:before {
+  content: "\e953";
+  color: #939dc5;
+}
+.icon-file-fill-pc:before {
+  content: "\e954";
+  color: #939dc5;
+}
+.icon-chat-check-fill:before {
+  content: "\e955";
+  color: #fff;
+}
+.icon-casino:before {
+  content: "\e94b";
+  color: #fff;
+}
+.icon-finance1:before {
+  content: "\e94c";
+  color: #fff;
+}
+.icon-ranking:before {
+  content: "\e94d";
+  color: #fff;
+}
+.icon-share:before {
+  content: "\e94e";
+  color: #fff;
+}
+.icon-team-fill:before {
+  content: "\e94f";
+  color: #fff;
+}
+.icon-vip-fill:before {
+  content: "\e950";
+  color: #fff;
+}
+.icon-finance:before {
+  content: "\e951";
+  color: #fff;
+}
+.icon-edit-2-fill:before {
+  content: "\e952";
+  color: #fff;
+}
+.icon-mail-fill-mobile:before {
+  content: "\e949";
+  color: #939dc5;
+}
+.icon-user-2-fill:before {
+  content: "\e94a";
+  color: #fff;
+}
+.icon-plus_circle:before {
+	content: '\e948';
+	color: #fff;
+}
+.icon-time:before {
+	content: '\e947';
+	color: #fff;
+}
+.icon-arrow-left-line:before {
+	content: '\e946';
+	color: #fff;
+}
+.icon-loading:before {
+	content: '\e944';
+	color: #fff;
+}
+.icon-no-image:before {
+	content: '\e945';
+	color: #fff;
+}
+.icon-chat-history-fill:before {
+	content: '\e942';
+	color: #fff;
+}
+.icon-file-damage-fill:before {
+	content: '\e943';
+	color: #717fba;
+}
+.icon-user-unfollow-fill:before {
+	content: '\e93b';
+	color: #fff;
+}
+.icon-star-fill:before {
+	content: '\e93c';
+	color: #fff;
+}
+.icon-share-forward-fill:before {
+	content: '\e93d';
+	color: #fff;
+}
+.icon-notification-active:before {
+	content: '\e93e';
+	color: #fff;
+}
+.icon-bookmark-fill:before {
+	content: '\e93f';
+	color: #fff;
+}
+.icon-add-fill:before {
+	content: '\e940';
+	color: #fff;
+}
+.icon-bank-online:before {
+	content: '\e941';
+	color: #fff;
+}
+.icon-help-circle:before {
+	content: '\e93a';
+	color: #717fba;
+}
+.icon-contacts-book-upload-fill:before {
+	content: '\e933';
+	color: #fff;
+}
+.icon-crypto-wallet:before {
+	content: '\e934';
+	color: #fff;
+}
+.icon-gift-fill:before {
+	content: '\e935';
+	color: #fff;
+}
+.icon-qr-code-line:before {
+	content: '\e936';
+	color: #fff;
+}
+.icon-redo:before {
+	content: '\e937';
+	color: #fff;
+}
+.icon-service-fill:before {
+	content: '\e938';
+	color: #fff;
+}
+.icon-share-forward-fill:before {
+	content: '\e939';
+	color: #fff;
+}
+.icon-plus-add:before {
+	content: '\e92d';
+	color: #fff;
+}
+.icon-mobile-alt:before {
+	content: '\e931';
+	color: #fff;
+}
+.icon-file-text-fill:before {
+	content: '\e92b';
+	color: #fff;
+}
+.icon-Equal:before {
+	content: '\e92c';
+	color: #fff;
+}
+.icon-empty-wallet:before {
+	content: '\e92e';
+	color: #fff;
+}
+.icon-card-pos:before {
+	content: '\e92f';
+	color: #fff;
+}
+.icon-book-read-fill:before {
+	content: '\e930';
+	color: #fff;
+}
+.icon-file-user-fill:before {
+	content: '\e932';
+	color: #fff;
+}
+.icon-home:before {
+	content: '\e913';
+	color: #fff;
+}
+.icon-arrow-right-line:before {
+	content: '\e928';
+	color: #fff;
+}
+.icon-logout:before {
+	content: '\e929';
+	color: #fff;
+}
+.icon-profile-2user:before {
+	content: '\e92a';
+	color: #fff;
+}
+.icon-phone-line:before {
+	content: '\e927';
+	color: #fff;
+}
+.icon-switch-off:before {
+	content: '\e900';
+	color: #fff;
+}
+.icon-switch-on:before {
+	content: '\e901';
+	color: #fff;
+}
+.icon-u_globe:before {
+	content: '\e902';
+	color: #fff;
+}
+.icon-user-follow-line:before {
+	content: '\e903';
+	color: #fff;
+}
+.icon-user-line:before {
+	content: '\e904';
+	color: #fff;
+}
+.icon-lock-2-fill:before {
+	content: '\e905';
+	color: #fff;
+}
+.icon-lock-password-line:before {
+	content: '\e906';
+	color: #fff;
+}
+.icon-mail-fill:before {
+	content: '\e907';
+	color: #fff;
+}
+.icon-mail-line:before {
+	content: '\e908';
+	color: #fff;
+}
+.icon-money-dollar-circle-line:before {
+	content: '\e909';
+	color: #fff;
+}
+.icon-money-send:before {
+	content: '\e90a';
+	color: #fff;
+}
+.icon-refresh-fill:before {
+	content: '\e90b';
+	color: #fff;
+}
+.icon-search:before {
+	content: '\e90c';
+	color: #fff;
+}
+.icon-share-box-fill:before {
+	content: '\e90d';
+	color: #fff;
+}
+.icon-star:before {
+	content: '\e90e';
+	color: #fff;
+}
+.icon-syblings-connections:before {
+	content: '\e90f';
+	color: #fff;
+}
+.icon-information-fill:before {
+	content: '\e910';
+	color: #fff;
+}
+.icon-file-copy-line:before {
+	content: '\e911';
+	color: #fff;
+}
+.icon-fire-fill:before {
+	content: '\e912';
+	color: #fff;
+}
+.icon-eye-close-line:before {
+	content: '\e914';
+	color: #fff;
+}
+.icon-eye-fill:before {
+	content: '\e915';
+	color: #fff;
+}
+.icon-arrow-up-line:before {
+	content: '\e916';
+	color: #fff;
+}
+.icon-bank-fill:before {
+	content: '\e917';
+	color: #fff;
+}
+.icon-calendar-2-line:before {
+	content: '\e918';
+	color: #fff;
+}
+.icon-chat-smile-fill:before {
+	content: '\e919';
+	color: #fff;
+}
+.icon-check:before {
+	content: '\e91a';
+	color: #fff;
+}
+.icon-checkbox-blank-line:before {
+	content: '\e91b';
+	color: #fff;
+}
+.icon-checkbox-fill:before {
+	content: '\e91c';
+	color: #fff;
+}
+.icon-close-line:before {
+	content: '\e91d';
+	color: #fff;
+}
+.icon-delete-bin-fill:before {
+	content: '\e91e';
+	color: #fff;
+}
+.icon-alert-fill:before {
+	content: '\e91f';
+	color: #fff;
+}
+.icon-hamburger:before {
+	content: '\e920';
+	color: #fff;
+}
+.icon-minus_circle:before {
+	content: '\e921';
+	color: #fff;
+}
+.icon-help_circle:before {
+	content: '\e922';
+	color: #fff;
+}
+.icon-chevron_right:before {
+	content: '\e923';
+	color: #fff;
+}
+.icon-chevron_up:before {
+	content: '\e924';
+	color: #fff;
+}
+.icon-chevron_down:before {
+	content: '\e925';
+	color: #fff;
+}
+.icon-chevron_left:before {
+	content: '\e926';
+	color: #fff;
+}

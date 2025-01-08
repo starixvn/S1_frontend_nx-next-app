@@ -1,0 +1,345 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+	content: '';
+	content: none;
+}
+
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button {
+	background: transparent;
+	border: none;
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+}
+
+pre {
+	white-space: break-spaces;
+}
+
+a {
+	text-decoration: none;
+	color: #5574a7;
+	cursor: pointer;
+}
+
+img {
+	width: 100%;
+	display: block;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100vh;
+	color: #fff;
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body {
+	position: relative;
+	background: url(../img/bg-error.webp) no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	background-position: center;
+}
+@media (max-width: 1023px) {
+	body::before {
+		bottom: 10px;
+		width: 1030px;
+	}
+}
+@media (max-width: 550px) {
+	body::before {
+		bottom: -65px;
+		width: 560px;
+	}
+}
+
+.logo {
+	width: max-content;
+	width: 175px;
+}
+
+.logo-and-text .title {
+	font-size: 25px;
+	color: #ff813d;
+	font-weight: 700;
+	margin: 16px 0;
+}
+
+.content {
+	width: calc(100% - 40px);
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+.content-left {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 0 0 40%;
+}
+.content-left .title {
+	color: #ebebeb;
+	font-weight: 800;
+	text-align: center;
+	font-size: 80px;
+	font-weight: 900;
+	line-height: 1.2;
+	width: 500px;
+	margin-top: 40px;
+}
+.content-right {
+	display: flex;
+	flex-wrap: wrap;
+	height: auto;
+	text-align: center;
+	flex: 0 0 60%;
+	gap: 16px;
+}
+.content-right::after {
+	content: '';
+	display: none;
+	width: 94vw;
+	height: 90vw;
+	background: url(../img/character-new.png) center/cover;
+}
+
+.content-item {
+	background: #2e3965;
+	display: flex;
+	flex: 0 0 44%;
+	flex-wrap: wrap;
+	height: auto;
+	padding: 16px;
+	border-radius: 20px;
+}
+.content-item > div {
+	display: flex;
+	gap: 12px;
+}
+
+.flag::before {
+	content: '';
+	display: block;
+	line-height: 70px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.flag.en::before {
+	background: url('../img/flag-en.webp') no-repeat top left/cover;
+}
+.flag.th::before {
+	background: url('../img/flag-th.webp') no-repeat top left/cover;
+}
+
+.content-item .text {
+	text-align: left;
+	font-size: 14px;
+	color: #939dc5;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.content-item a {
+	margin-top: auto;
+}
+
+.content-item span {
+	display: block;
+	font-weight: 800;
+	color: #fff;
+}
+.content-item .live,
+.content-item .live-hover {
+	width: 106px;
+	margin-top: 8px;
+	opacity: 0.6;
+}
+.content-item .live:hover {
+	opacity: 1;
+}
+
+.img-button {
+	display: flex;
+	align-items: center;
+	color: #939dc5;
+	justify-content: center;
+	font-size: 14px;
+	font-weight: 600;
+	gap: 5px;
+	border-radius: 10px;
+	background: #48558b;
+	padding: 5px 8px;
+	width: max-content;
+}
+
+.img-button .icon::before {
+	color: #939dc5;
+	font-size: 20px;
+}
+
+.img-button:hover {
+	color: #fff;
+}
+
+.img-button:hover .icon::before {
+	color: #fff;
+}
+
+@media (max-width: 1023px) {
+	.content {
+		display: block;
+		padding: 6.1vw 0;
+	}
+	.logo-and-text {
+		text-align: center;
+	}
+	.logo {
+		margin: 0 auto;
+		width: 100px;
+	}
+	.logo-and-text .title {
+		font-size: 19px;
+	}
+	.content-item {
+		flex: 1;
+	}
+}
