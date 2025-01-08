@@ -29,8 +29,8 @@ import NextNProgress from 'nextjs-progressbar'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyles } from '../../../themes/global.styled'
-import { theme } from '../../../themes/theme'
+import { GlobalStyles } from '../../../themes/nsDemo/global.styled'
+import { theme } from '../../../themes/nsDemo/theme'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)

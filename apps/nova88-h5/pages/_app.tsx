@@ -33,8 +33,8 @@ import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from '../../../themes/global.styled'
-import { theme } from '../../../themes/theme'
+import { GlobalStyles } from '../../../themes/nsDemo/global.styled'
+import { theme } from '../../../themes/nsDemo/theme'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
