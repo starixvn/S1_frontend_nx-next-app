@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { InputBox, ISelectProps, Select } from '@nx-next-app/components/D0001'
+import { InputBox, ISelectProps, Loading, Select } from '@nx-next-app/components/D0001'
 import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import {
 	AREA_CODE,
@@ -74,7 +74,7 @@ const Form = ({ cookies }: IJoinProps) => {
 		getValues,
 		clearErrors,
 		handleSubmit,
-		getFieldState,
+		getFieldState
 	} = useForm()
 
 	const { errors, touchedFields } = formState
@@ -94,7 +94,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
 		useLazyExistsEmailQuery()
 
-	const [signUp] = useSignupMutation()
+	const [signUp, { isLoading: isSignupLoading }] = useSignupMutation()
 
 	const [formBirth, setFormBirth] = useState<Date | null>(
 		new Date('1990-01-01')
@@ -459,6 +459,8 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}, [data, isLoading, isError])
 
+	// if (isSignupLoading) return <Loading />
+
 	return (
 		<form
 			className='joinloginFunction'
@@ -636,20 +638,20 @@ const Form = ({ cookies }: IJoinProps) => {
 					ALLOWED_CURRENCIES['AFFILIATE'] as CurrenciesEnum[],
 					currencyId
 				) && (
-					<InputBox
-						register={register('affiliate', {
-							onBlur: checkAffiliate,
-						})}
-						icon='icon icon-syblings-connections'
-						placeholder={t('Label_Join_Affiliate_ID') as string}
-						errorMessage={errors['affiliate']?.message as string}
-						error={!!errors['affiliate']}
-						touched={!!touchedFields['affiliate']}
-						infoMessage={t('Label_Join_Please_Enter_Affiliate_ID') as string}
-						// If has url affiliate and has value in affiliate input, the affiliate is qualified.
-						readOnly={!!urlAffiliate && !!getValues('affiliate')}
-					/>
-				)}
+						<InputBox
+							register={register('affiliate', {
+								onBlur: checkAffiliate,
+							})}
+							icon='icon icon-syblings-connections'
+							placeholder={t('Label_Join_Affiliate_ID') as string}
+							errorMessage={errors['affiliate']?.message as string}
+							error={!!errors['affiliate']}
+							touched={!!touchedFields['affiliate']}
+							infoMessage={t('Label_Join_Please_Enter_Affiliate_ID') as string}
+							// If has url affiliate and has value in affiliate input, the affiliate is qualified.
+							readOnly={!!urlAffiliate && !!getValues('affiliate')}
+						/>
+					)}
 			</div>
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
@@ -667,7 +669,8 @@ const Form = ({ cookies }: IJoinProps) => {
 				<button type='button' className='btn-secondary' onClick={handleCancel}>
 					{t('Label_General_Cancel')}
 				</button>
-				<button className='btn-primary' type='submit'>
+				{isSignupLoading && <Loading />}
+				<button className='btn-primary' type='submit' disabled={!isSignupLoading}>
 					{t('Label_General_Submit')}
 				</button>
 			</div>

@@ -30,6 +30,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Features, Step1, Step2, Step3, StepBar } from './form'
+import { Loading } from '@nx-next-app/components/H0001'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -70,8 +71,7 @@ const Join = ({ cookies }: IJoinProps) => {
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
-	const [signUp] = useSignupMutation()
-
+	const [signUp, { isLoading: isSignupLoading }] = useSignupMutation()
 
 	const buildSiteCurrencyListWithFlag = (currencyList: number[]) => {
 		return currencyList
@@ -295,6 +295,8 @@ const Join = ({ cookies }: IJoinProps) => {
 			checkLineRegister()
 		}
 	}, [data, isLoading, isError])
+
+	if (isSignupLoading) return <Loading />
 
 	return (
 		<>
