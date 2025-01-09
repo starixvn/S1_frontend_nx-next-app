@@ -291,18 +291,17 @@ export const WithdrawalProvider = ({
 	const checkKyc = async () => {
 		try {
 			await kycCheck(null).unwrap()
-			setKycStatus(KycStatusEnum.Normal)
 		} catch (error) {
 			if ((error as IAxiosError).errorCode === 1) {
 				setKycStatus(KycStatusEnum.KycUpload)
 				if (deviceType === DeviceTypeEnum.Mobile) {
-					// 手機版要導轉至指定頁
+					// The mobile version should be directed to the kyc page
 					push(paths.kyc.root)
 				}
 			} else if ((error as IAxiosError).errorCode === 2) {
 				setKycStatus(KycStatusEnum.KycPending)
 				if (deviceType === DeviceTypeEnum.Mobile) {
-					// 手機版要導轉至指定頁
+					// The mobile version should be directed to the kycWaiting page
 					push(paths.kycWaiting.root)
 				}
 			} else {
@@ -665,14 +664,12 @@ export const WithdrawalProvider = ({
 			} else if ((error as IAxiosError).errorCode === -1) {
 				// 實測這些狀態都會在前端被擋掉，但為求完整，還是先把這些移植過來。
 				modal.error(
-					`${t('Label_Withdrawal_RolloverOverError')}: ${
-						(error as Error).message
+					`${t('Label_Withdrawal_RolloverOverError')}: ${(error as Error).message
 					}`
 				)
 			} else if ((error as IAxiosError).errorCode === -2) {
 				modal.error(
-					`${t('Label_Withdrawal_DepositOverError')}: ${
-						(error as Error).message
+					`${t('Label_Withdrawal_DepositOverError')}: ${(error as Error).message
 					}`
 				)
 			} else if ((error as IAxiosError).errorCode === -3) {

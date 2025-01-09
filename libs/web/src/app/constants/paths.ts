@@ -45,10 +45,10 @@ export const paths = {
 		root: '/crypto-withdrawal',
 	},
 	kycWaiting: {
-		root: '/kyc-waiting',
+		root: '/kyc-waiting', // kyc-waiting.tsx
 	},
 	kyc: {
-		root: '/kyc',
+		root: '/kyc', // kyc.tsx
 	},
 	message: {
 		root: '/message',
