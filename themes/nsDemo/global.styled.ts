@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { theme } from './theme'
-
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -114,7 +112,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
-  #Loading{ 
+   #Loading{ 
     width : 100%;
     height : 100%;
     z-index : 9999;
@@ -122,7 +120,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, main {
-    background: ${theme.desktop.primary};
+    background: ${({ theme }) => theme.desktop.primary};
     font-family: ${({ theme }) => theme.desktop.fontFamily};
     font-size: 1.4rem;
     color: ${({ theme }) => theme.desktop.white};
@@ -168,8 +166,8 @@ export const GlobalStyles = createGlobalStyle`
       .pop{
         border-radius: 20px;
         max-height: calc(100% - 160px);
-        box-shadow: ${theme.desktop.popupBoxShadow};
-        background : ${theme.desktop.popupBg};
+        box-shadow: ${({ theme }) => theme.desktop.popupBoxShadow};
+        background : ${({ theme }) => theme.desktop.popupBg};
         position : relative;
         .close-popup{
           position : absolute;
@@ -182,8 +180,9 @@ export const GlobalStyles = createGlobalStyle`
         }
         .icon-notifi{
           border-radius: 100px;
-          border: 6px solid ${theme.desktop.borderIconNotifiCationColor};
-          background: ${theme.desktop.bgIconNotifiCationColor};
+          border: 6px solid ${({ theme }) =>
+						theme.desktop.borderIconNotifiCationColor};
+          background: ${({ theme }) => theme.desktop.bgIconNotifiCationColor};
           width : 4.8rem;
           height : 4.8rem;
           display: flex;
@@ -192,7 +191,7 @@ export const GlobalStyles = createGlobalStyle`
           margin-bottom : 2.4rem;
           &:before{
             font-size : 3.2rem;
-            color : ${theme.desktop.iconNotifiCationColor}
+            color : ${({ theme }) => theme.desktop.iconNotifiCationColor} 
           }
         }
         .notifi-content{
@@ -327,8 +326,8 @@ export const GlobalStyles = createGlobalStyle`
   .promoInfoPop{
     max-height: calc(100% - 160px);
     overflow-y: auto;
-    box-shadow: ${theme.desktop.popupBoxShadow};
-    background : ${theme.desktop.popupBg};
+    box-shadow: ${({ theme }) => theme.desktop.popupBoxShadow};
+    background : ${({ theme }) => theme.desktop.popupBg};
     position : relative;
     width: 80rem;
     padding: 4rem 2.8rem 2.8rem 2.8rem;

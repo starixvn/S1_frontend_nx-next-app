@@ -61,6 +61,8 @@ export const theme = {
 
 		footerBg: '#232B4F',
 		copyRightBg: '#1F274C',
+		footerBorder: '#556298',
+		footerHover: '#939dc5',
 
 		primaryBtnBg: '#FF813D',
 		primaryBtnColor: '#fff',

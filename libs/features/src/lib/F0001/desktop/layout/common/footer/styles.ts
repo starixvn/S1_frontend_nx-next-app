@@ -9,12 +9,11 @@ export const FooterContainer = styled.div`
 	@media (min-width: 1200px) {
 		width: 100%;
 	}
-
 	.footer-top {
 		display: flex;
 		gap: 2.4rem;
 		padding-bottom: 2.4rem;
-		border-bottom: 1px solid #556298;
+		border-bottom: 1px solid ${({ theme }) => theme.desktop.footerBorder};
 		a {
 			color: #fff;
 			font-weight: 700;
@@ -22,10 +21,11 @@ export const FooterContainer = styled.div`
 			text-transform: uppercase;
 
 			&:hover {
-				color: #939dc5;
+				color: ${({ theme }) => theme.desktop.footerHover};
 			}
 		}
 	}
+
 	.footer-center {
 		display: flex;
 		justify-content: space-between;

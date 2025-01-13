@@ -32,6 +32,9 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../../../themes/nsDemo/global.styled'
 import { theme } from '../../../themes/nsDemo/theme'
 
+import { GlobalStylesTheme1 } from '../../../themes/themes-1/global.styled'
+import { theme1 } from '../../../themes/themes-1/theme'
+
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
@@ -48,10 +51,32 @@ const {
 } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
+	// const loadGlobalStyle = () => {
+	// 	switch (process.env['THEME_NSDEMO']) {
+	// 		case '1':
+	// 			return <GlobalStylesTheme1 />
+	// 		default:
+	// 			return <GlobalStyles />
+	// 	}
+	// }
+
+	// const loadThemeStyle = () => {
+	// 	switch (process.env['THEME_NSDEMO']) {
+	// 		case '1':
+	// 			return theme1
+	// 		default:
+	// 			return theme
+	// 	}
+	// }
+
 	return (
 		<>
-			<ThemeProvider theme={theme}>
-				<GlobalStyles />
+			<ThemeProvider
+				theme={process.env['THEME_NSDEMO'] === 'default' ? theme : theme1}
+			>
+				{process.env['THEME_NSDEMO'] === '1' && <GlobalStylesTheme1 />}
+				{process.env['THEME_NSDEMO'] === 'default' && <GlobalStyles />}
+
 				<NextNProgress showOnShallow color='#2b66e6' />
 				<Provider store={store}>
 					{/* 提供 Component 狀態管理 */}
