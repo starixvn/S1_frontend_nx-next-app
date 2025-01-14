@@ -11,7 +11,7 @@ export const HotMatchContainer = styled.div`
 		top: 0;
 		height: 100%;
 		width: 8rem;
-		background: linear-gradient(270deg, #0f1428ed 0%, rgba(15, 20, 40, 0) 100%);
+		background: ${({ theme }) => theme.desktop.hotmatchViewPort};
 		z-index: 2;
 	}
 

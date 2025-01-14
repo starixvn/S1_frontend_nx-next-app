@@ -10,13 +10,13 @@ export const WrapperServey = styled.div`
 	#survey .survey-icon-btn {
 		display: flex;
 		align-items: center;
-		background: #7883b4;
+		background: ${({ theme }) => theme.desktop.surveyBgButton};
 		border-radius: 100%;
 		align-items: center;
 		justify-content: center;
 		width: 5.2rem;
 		height: 5.2rem;
-		box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: ${({ theme }) => theme.desktop.surveyBoxShadow};
 		.icon {
 			&:before {
 				font-size: 2.8rem;
@@ -29,11 +29,11 @@ export const WrapperServey = styled.div`
 		bottom: 45px;
 		right: -60px;
 		visibility: hidden;
-		background: #0f1428;
+		background: ${({ theme }) => theme.desktop.surveyBoxBg};
 		border-radius: 10px;
 		width: 400px;
 		opacity: 0;
-		box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: ${({ theme }) => theme.desktop.surveyBoxShadow};
 	}
 	#survey .survey-box.active {
 		opacity: 1;
@@ -86,7 +86,7 @@ export const WrapperServey = styled.div`
 		width: 100%;
 		height: 150px;
 		border: none;
-		background: #232b4f;
+		background: ${({ theme }) => theme.desktop.surveyTextareaBg};
 		padding: 10px 0 10px 8px;
 		max-width: 100%;
 		resize: none;

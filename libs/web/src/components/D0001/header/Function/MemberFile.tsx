@@ -106,7 +106,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 								/>
 								{!isVipLevelHighest && (
 									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/dot-2.webp`}
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/themes/${process.env['NEXT_PUBLIC_THEME_TYPE']}/dot-2.webp`}
 										alt='img-dot'
 									/>
 								)}

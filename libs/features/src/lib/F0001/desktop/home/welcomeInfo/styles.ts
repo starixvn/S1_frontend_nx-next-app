@@ -174,13 +174,7 @@ export const WelcomeInfoContainer = styled.div`
 					font-weight: 700;
 					line-height: normal;
 					z-index: 2;
-					background: linear-gradient(
-						180deg,
-						rgba(35, 43, 79, 0) 0%,
-						rgba(35, 43, 79, 0.7) 25.5%,
-						rgba(35, 43, 79, 0.7) 75%,
-						rgba(35, 43, 79, 0) 100%
-					);
+					background: ${({ theme }) => theme.desktop.welcomeCommingSoonBg};
 				}
 				img {
 					opacity: 0.3;

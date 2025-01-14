@@ -29,11 +29,11 @@ import NextNProgress from 'nextjs-progressbar'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyles } from '../../../themes/nsDemo/global.styled'
-import { theme } from '../../../themes/nsDemo/theme'
+import { GlobalStyles } from '../../../themes/nsDemo-0/global.styled'
+import { theme } from '../../../themes/nsDemo-0/theme'
 
-import { GlobalStylesTheme1 } from '../../../themes/themes-1/global.styled'
-import { theme1 } from '../../../themes/themes-1/theme'
+import { GlobalStylesNsDemo1 } from '../../../themes/nsDemo-1/global.styled'
+import { theme1 } from '../../../themes/nsDemo-1/theme'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -52,21 +52,23 @@ const {
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	const initialTheme = (() => {
-    switch (process.env.NEXT_PUBLIC_THEME_TYPE) {
-      case '0':
-        return theme;
-      case '1':
-        return theme1;
-      default:
-        return null;
-    }
-  })();
-	
+		switch (process.env.NEXT_PUBLIC_THEME_TYPE) {
+			case 'nsDemo-0':
+				return theme
+			case 'nsDemo-1':
+				return theme1
+			default:
+				return null
+		}
+	})()
+
 	return (
 		<>
 			<ThemeProvider theme={initialTheme}>
-				{process.env.NEXT_PUBLIC_THEME_TYPE === '1' && <GlobalStylesTheme1 />}
-				{process.env.NEXT_PUBLIC_THEME_TYPE === '0' && <GlobalStyles />}
+				{process.env.NEXT_PUBLIC_THEME_TYPE === 'nsDemo-1' && (
+					<GlobalStylesNsDemo1 />
+				)}
+				{process.env.NEXT_PUBLIC_THEME_TYPE === 'nsDemo-0' && <GlobalStyles />}
 
 				<NextNProgress showOnShallow color='#2b66e6' />
 				<Provider store={store}>

@@ -274,13 +274,18 @@ export const WrapperDeposit = styled.div`
 				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 			}
 			.remark {
-				background: #232b4f;
+				background: ${({ theme }) => theme.desktop.depositRemarkBg};
 				border-radius: 5px;
 				-webkit-box-sizing: border-box;
 				box-sizing: border-box;
 			}
 			.remark + .tip {
 				padding: 0;
+			}
+			.icon {
+				&:before {
+					color: ${({ theme }) => theme.desktop.secondaryBtnBg};
+				}
 			}
 		}
 	}
@@ -293,7 +298,7 @@ export const WrapperDeposit = styled.div`
 				min-height: 2.8rem;
 				color: ${({ theme }) => theme.desktop.btnDepositAmountColor};
 				&.active {
-					background: #717fba;
+					background: ${({ theme }) => theme.desktop.btnDepositAmountBgActive};
 					color: #fff;
 				}
 			}

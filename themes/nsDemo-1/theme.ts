@@ -29,6 +29,8 @@ export const theme1 = {
 		headerLineLoginBgHover: '#009800',
 		headerForgotPasswordColor: '#A68E86',
 		headerForgotPasswordColorHover: '#fff',
+		headerMessageIconBg: '#331F1A',
+
 		countryCurrentColor: '#FFF',
 		countryCurrentBtnGroupBg: '#402B25',
 		countryCurrentBtnBg: '#66483E',
@@ -71,10 +73,10 @@ export const theme1 = {
 		primaryBtnColorHover: '#fff',
 		primaryBtnShadowHover: 'none',
 
-		secondaryBtnBg: '#694D45',
+		secondaryBtnBg: '#AD8C82',
 		secondaryBtnColor: '#fff',
-		secondaryBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
-		secondaryBtnBgHover: '#694D45',
+		secondaryBtnShadow: '0px -3px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		secondaryBtnBgHover: '#AD8C82',
 		secondaryBtnColorHover: '#fff',
 		secondaryBtnShadowHover: 'none',
 
@@ -147,6 +149,9 @@ export const theme1 = {
 		welcomeReferralBtnShadow: '0px -7px 0px 0px #b82dd0 inset',
 		welcomeReferralBtnShadowHover: '0px -7px 0px 0px #B82DD0 inset',
 
+		welcomeCommingSoonBg:
+			'linear-gradient(180deg, rgba(41, 41, 41, 0.00) 0%, rgba(64, 43, 37, 0.70) 25.5%, rgba(64, 43, 37, 0.70) 75%, rgba(41, 41, 41, 0.00) 100%)',
+
 		homePageTitleColor: '#fff',
 		homePageLoadMoreColor: '#694D45',
 		homePageLoadMoreColorHover: '#fff',
@@ -174,19 +179,27 @@ export const theme1 = {
 		gameIconFavoriteColorActive: '#fbc208',
 
 		hotMatchBg: '#66483E',
-		hotMatchShadow: '0px -5px 0px 0px #323c6a inset',
+		hotMatchShadow: '0px -5px 0px 0px rgba(0, 0, 0, 0.10) inset',
 		hotMatchHeaderBg: '#402B25',
 		hotMatchHeaderColor: '#fff',
 		hotMatchLogoBg: '#dfdfdf',
 		hotMatchOddsBg: '#402B25',
 		hotMatchOddsColor: '#fff',
 		hotMatchAwayOddsColor: '#3b7bf0',
-		hotMatchDateColor: '#fff',
+		hotMatchDateColor: '#AD8C82',
 		hotMatchBtnBg: '#FF813D',
 		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
 		hotMatchBtnColor: '#fff',
 		hotMatchBtnBgHover: '#f76b20',
 		hotMatchBtnShadowHover: '0px -5px 0px 0px #d35716 inset',
+		hotmatchViewPort:
+			'linear-gradient(270deg, #241713 7.98%, rgba(0, 0, 0, 0.00) 79.79%)',
+
+		providerBg: '#402B25',
+		providerCommingSoonBg:
+			'linear-gradient(180deg, rgba(41, 41, 41, 0.00) 0%, rgba(64, 43, 37, 0.70) 25.5%, rgba(64, 43, 37, 0.70) 75%, rgba(41, 41, 41, 0.00) 100%)',
+		providerViewPort:
+			'linear-gradient(270deg, #241713 7.59%, rgba(0, 0, 0, 0.00) 100%)',
 
 		swiperBtnBg: '#FF813D',
 		swiperBtnBorder: '2px solid #1A100D',
@@ -197,11 +210,11 @@ export const theme1 = {
 		filterFormInputPlaceHolderColor: '#A68E86',
 		filterFormProviderBg: '#66483E',
 		filterFormProviderBgHover:
-			'linear-gradient(0deg, #694D45 0%, #a2afe5 100%)',
+			'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
 		filterFormProviderColor: '#fff',
 		filterFormProviderLogoBg: '#dcdee9',
 
-		gameTabBorder: '1px solid #556298',
+		gameTabBorder: '1px solid #694D45',
 		gameTabItemColor: '#694D45',
 		gameTabItemColorHover: '#fff',
 		gameTabItemBorderHover: '2px solid var(--Color-5, #FF813D)',
@@ -297,12 +310,12 @@ export const theme1 = {
 
 		promotionTabsBodyBg: '#402B25',
 		promotionNavBg: '#66483E',
-		promotionNavActiveBg: 'linear-gradient(0deg, #694D45 0%, #A2AFE5 100%)',
+		promotionNavActiveBg: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
 		promotionItemsBg: '#573C34',
 		promotionItemBgHover: '#66483E',
-		promotionBorderItems: '#694D45',
+		promotionBorderItems: '#AD8C82',
 		promotionTimeBg: '#66483E',
-		promotionTimeBgHover: '#414F86',
+		promotionTimeBgHover: '#694D45',
 
 		vipDiamonBtnBg: '#DEF2FF',
 		vipDiamonBtnColor: '#6DBDF2',
@@ -327,11 +340,38 @@ export const theme1 = {
 		vipGoldBtnBg: '#F8EDD1',
 		vipGoldBtnColor: '#E8BB4A',
 		vipGoldTitleBgColor: '#E8BB4A',
+
+		vipTableHover: '#694D45',
+		newVipInfoBg: '#331F1A',
+		vipRewardinfoBg: '#66483E',
+		vipRewardinfoColor: '#AD8C82',
+
+		surveyBgButton: '#A68E86',
+		surveyBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
+		surveyBoxBg: '#1A100D',
+		surveyTextareaBg: '#402B25',
+		refreshColorIcon: '#AD8C82',
+		nodataIconColor: '#AD8C82',
+		proDataBodyBg: '#331F1A',
+
+		menuTabLeaderBoard: '#1A100D',
+		menuTabLeaderBoardActive: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
+		bgLeaderBoard: '#1A100D',
+		rankListLeaderBoardBg: '#331F1A',
+
+		customTableTdColor: '#B5A6A1',
+
+		depositRemarkBg: '#402B25',
+		btnDepositAmountBgActive: '#AD8C82',
 	},
 	mobile: {
+		btnDepositAmountBgActive: '#AD8C82',
+		depositRemarkBg: '#402B25',
+		customTableTdColor: '#B5A6A1',
+		proDataBodyBg: '#331F1A',
 		headerBg: '#1A100D',
 		headerColor: '#fff',
-
+		refreshColorIcon: '#AD8C82',
 		menuContainerBg: '#402B25',
 		menuItemColor: '#fff',
 		menuItemBgHover: '#331F1A',
@@ -371,7 +411,7 @@ export const theme1 = {
 		gameIconFavoriteColorActive: '#fbc208',
 
 		hotMatchBg: '#66483E',
-		hotMatchShadow: '0px -5px 0px 0px #323c6a inset',
+		hotMatchShadow: '0px -5px 0px 0px rgba(0, 0, 0, 0.10) inset',
 		hotMatchHeaderBg: '#402B25',
 		hotMatchHeaderColor: '#fff',
 		hotMatchLogoBg: '#dfdfdf',
@@ -382,6 +422,12 @@ export const theme1 = {
 		hotMatchBtnBg: '#FF813D',
 		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
 		hotMatchBtnColor: '#fff',
+
+		providerBg: '#402B25',
+		providerCommingSoonBg:
+			'linear-gradient(180deg, rgba(41, 41, 41, 0.00) 0%, rgba(64, 43, 37, 0.70) 25.5%, rgba(64, 43, 37, 0.70) 75%, rgba(41, 41, 41, 0.00) 100%)',
+		providerViewPort:
+			'linear-gradient(270deg, #241713 7.59%, rgba(0, 0, 0, 0.00) 100%)',
 
 		breadcrumbTextColor: '#B5A6A1',
 		breadcrumbLineColor: '#66483E',

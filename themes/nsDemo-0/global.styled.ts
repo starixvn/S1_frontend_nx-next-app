@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const GlobalStylesTheme1 = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -984,7 +984,7 @@ export const GlobalStylesTheme1 = createGlobalStyle`
       font-size: 1.4rem;
       font-weight: 600;
       line-height: normal;
-      color : #939DC5;
+      color : ${({ theme }) => theme.desktop.customTableTdColor};
       .custom-td{
         display: flex;
         &:last-child{
@@ -1459,13 +1459,14 @@ export const GlobalStylesTheme1 = createGlobalStyle`
 
 
   .proDataBody {
-    background-color : #182043 !important;
+    background-color : ${({ theme }) => theme.mobile.proDataBodyBg} !important;
     line-height: 3rem;
     padding : 1.6rem;
     border-radius: 20px;
     margin-top : 1.6rem;
       > * {
-      background-color : #182043 !important;
+      background-color : ${({ theme }) =>
+				theme.mobile.proDataBodyBg} !important;
     }
     colgroup col {
         width: 100% !important;
@@ -1490,12 +1491,14 @@ export const GlobalStylesTheme1 = createGlobalStyle`
     }
   }
   .backstage{
-    background-color : #182043 !important;
+    background-color : ${({ theme }) => theme.mobile.proDataBodyBg} !important;
       > * {
-      background-color : #182043 !important;
+      background-color : ${({ theme }) =>
+				theme.mobile.proDataBodyBg} !important;
     }
     span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li{
-      background-color : #182043 !important;
+      background-color : ${({ theme }) =>
+				theme.mobile.proDataBodyBg} !important;
       padding : 0 !important;
       margin-bottom : 1.2rem !important;
 
@@ -2581,6 +2584,11 @@ export const GlobalStylesTheme1 = createGlobalStyle`
       100% {
         -webkit-transform: rotate(359deg);
         transform: rotate(359deg);
+      }
+    }
+    .icon-file-damage-fill,.icon-refresh-fill{
+      &:before{
+        color : ${({ theme }) => theme.desktop.nodataIconColor} !important;
       }
     }
 `

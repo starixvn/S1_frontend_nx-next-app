@@ -29,6 +29,8 @@ export const theme = {
 		headerLineLoginBgHover: '#009800',
 		headerForgotPasswordColor: '#7883B4',
 		headerForgotPasswordColorHover: '#fff',
+		headerMessageIconBg: '#182043',
+
 		countryCurrentColor: '#FFF',
 		countryCurrentBtnGroupBg: '#232B4F',
 		countryCurrentBtnBg: '#374375',
@@ -146,6 +148,8 @@ export const theme = {
 		welcomeReferralBtnColorHover: '#fff',
 		welcomeReferralBtnShadow: '0px -7px 0px 0px #b82dd0 inset',
 		welcomeReferralBtnShadowHover: '0px -7px 0px 0px #B82DD0 inset',
+		welcomeCommingSoonBg:
+			'linear-gradient(180deg,rgba(35, 43, 79, 0) 0%,rgba(35, 43, 79, 0.7) 25.5%,rgba(35, 43, 79, 0.7) 75%,rgba(35, 43, 79, 0) 100%)',
 
 		homePageTitleColor: '#fff',
 		homePageLoadMoreColor: '#717FBA',
@@ -187,6 +191,13 @@ export const theme = {
 		hotMatchBtnColor: '#fff',
 		hotMatchBtnBgHover: '#f76b20',
 		hotMatchBtnShadowHover: '0px -5px 0px 0px #d35716 inset',
+		hotmatchViewPort:
+			'linear-gradient(270deg, #0f1428ed 0%, rgba(15, 20, 40, 0) 100%)',
+
+		providerBg: '#232b4f',
+		providerCommingSoonBg: 'rgba(55, 67, 117, 0.7)',
+		providerViewPort:
+			'linear-gradient(270deg,#0f1428ed 0%,rgba(15, 20, 40, 0) 100%)',
 
 		swiperBtnBg: '#FF813D',
 		swiperBtnBorder: '2px solid #0f1428',
@@ -327,11 +338,36 @@ export const theme = {
 		vipGoldBtnBg: '#F8EDD1',
 		vipGoldBtnColor: '#E8BB4A',
 		vipGoldTitleBgColor: '#E8BB4A',
+		vipTableHover: '#48558b',
+		newVipInfoBg: '#182043',
+		vipRewardinfoBg: '#66483E',
+		vipRewardinfoColor: '#AD8C82',
+
+		surveyBgButton: '#7883b4',
+		surveyBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.5)',
+		surveyBoxBg: '#0f1428',
+		surveyTextareaBg: '#232b4f',
+		refreshColorIcon: '#717fba',
+		nodataIconColor: '#717fba',
+		proDataBodyBg: '#182043',
+
+		menuTabLeaderBoard: '#0F1428',
+		menuTabLeaderBoardActive: 'linear-gradient(0deg, #717FBA 0%, #A2AFE5 100%)',
+		bgLeaderBoard: '#0F1428',
+		rankListLeaderBoardBg: '#182043',
+		customTableTdColor: '#939DC5',
+		depositRemarkBg: '#232b4f',
+
+		btnDepositAmountBgActive: '#717fba',
 	},
 	mobile: {
+		btnDepositAmountBgActive: '#717fba',
+		depositRemarkBg: '#232b4f',
+		customTableTdColor: '#939DC5',
+		proDataBodyBg: '#182043',
 		headerBg: '#0F1428',
 		headerColor: '#fff',
-
+		refreshColorIcon: '#717fba',
 		menuContainerBg: '#232B4F',
 		menuItemColor: '#fff',
 		menuItemBgHover: '#182043',
@@ -382,6 +418,11 @@ export const theme = {
 		hotMatchBtnBg: '#FF813D',
 		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
 		hotMatchBtnColor: '#fff',
+
+		providerBg: '#232b4f',
+		providerCommingSoonBg: 'rgba(55, 67, 117, 0.7)',
+		providerViewPort:
+			'linear-gradient(270deg,#0f1428ed 0%,rgba(15, 20, 40, 0) 100%)',
 
 		breadcrumbTextColor: '#939dc5',
 		breadcrumbLineColor: '#374375',

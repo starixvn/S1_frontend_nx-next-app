@@ -29,10 +29,11 @@ export const Message = styled.div`
 		align-items: center;
 		gap: 1rem;
 		border-radius: 1rem;
-		background: #182043;
+		background: ${({ theme }) => theme.desktop.headerMessageIconBg};
 		height: 4rem;
 		width: 4rem;
 		font-size: 2.4rem;
+		cursor: pointer;
 	}
 
 	.message-text {

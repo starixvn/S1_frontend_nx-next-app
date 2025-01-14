@@ -5,7 +5,9 @@ export const HomePage = styled.div`
 		height: ${({ theme }) => theme.desktop.smallBannerContainerHeight};
 		padding-top: 2rem;
 		background: url(${({ theme }) =>
-			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
+			theme.assetUrl}/desktop/img/themes/${process.env[
+			'NEXT_PUBLIC_THEME_TYPE'
+		]}/banner-bg.webp);
 
 		@media (min-width: 1450px) {
 			height: ${({ theme }) => theme.desktop.largeBannerContainerHeight};
@@ -126,11 +128,7 @@ export const GameGroup = styled.div`
 			top: 0;
 			height: 100%;
 			width: 8rem;
-			background: linear-gradient(
-				270deg,
-				#0f1428ed 0%,
-				rgba(15, 20, 40, 0) 100%
-			);
+			background: ${({ theme }) => theme.desktop.providerViewPort};
 		}
 	}
 

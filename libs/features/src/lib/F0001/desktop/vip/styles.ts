@@ -146,7 +146,7 @@ export const WrapperVipPage = styled.div`
 		}
 		.newvipinfo {
 			margin-top: 16rem;
-			background: #182043;
+			background: ${({ theme }) => theme.desktop.newVipInfoBg};
 			display: flex;
 			padding: 4rem 1.6rem 1.6rem 1.6rem;
 			border-radius: 20px;
@@ -278,11 +278,11 @@ export const WrapperVipPage = styled.div`
 			color: white;
 		}
 		.eventList tr:not(.title):not(.lastTd):hover td {
-			background: #48558b;
+			background: ${({ theme }) => theme.desktop.vipTableHover};
 			color: white;
 		}
 		.eventList tr:not(.title):not(.lastTd):hover td:first-child {
-			background: #48558b;
+			background: ${({ theme }) => theme.desktop.vipTableHover};
 			color: white;
 		}
 
@@ -326,13 +326,13 @@ export const WrapperVipPage = styled.div`
 			}
 		}
 		.rewardinfo {
-			background: #374375;
+			background: ${({ theme }) => theme.desktop.vipRewardinfoBg};
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			border-radius: 50px;
 			font-size: 1.4rem;
-			color: #717fba;
+			color: ${({ theme }) => theme.desktop.vipRewardinfoColor};
 			font-weight: 400;
 			padding: 1rem 1.2rem;
 			width: 100%;

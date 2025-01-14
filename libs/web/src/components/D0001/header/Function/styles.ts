@@ -294,7 +294,7 @@ export const HomeBalance = styled.div`
 			}
 
 			.icon:before {
-				color: #717fba;
+				color: ${({ theme }) => theme.desktop.refreshColorIcon};
 				font-size: 2rem;
 			}
 		}

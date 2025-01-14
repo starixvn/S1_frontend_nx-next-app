@@ -29,10 +29,11 @@ export const WrapperLeaderBoardPage = styled.div`
                 width: min-content;
                 min-height : 4.8rem;
                 flex: auto;
-                background : #0F1428;
+                background : ${({ theme }) => theme.desktop.menuTabLeaderBoard};
                 border-radius : 0;
                 &.active{
-                    background: linear-gradient(0deg, #717FBA 0%, #A2AFE5 100%);
+                    background: ${({ theme }) =>
+											theme.desktop.menuTabLeaderBoardActive};
                 }
             }
         }
@@ -113,7 +114,8 @@ export const WrapperLeaderBoardPage = styled.div`
                 margin-bottom: 10px;
                 min-height: 4.2rem;
                 color :  ${({ theme }) => theme.desktop.white};
-                background : #182043;
+                background : ${({ theme }) =>
+									theme.desktop.rankListLeaderBoardBg};
                 &:first-child {
                     align-items: flex-end;
                     height: 30px;
@@ -180,7 +182,7 @@ export const WrapperLeaderBoardPage = styled.div`
 	}
 	.rankingNew section > .btnGroup ~ div {
 		display: none;
-		background: #0F1428;
+		background: ${({ theme }) => theme.desktop.bgLeaderBoard};
 		min-height: 80rem;
 	}
 	.rankingNew section > .btnGroup ~ div.active {

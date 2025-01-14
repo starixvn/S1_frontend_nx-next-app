@@ -1,5 +1,5 @@
-import { GameGroup } from "@nx-next-app/features/F0001/desktop/home/styles";
-import styled from "styled-components";
+import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
+import styled from 'styled-components'
 
 export const GameContainer = styled.div`
 	display: grid;
@@ -28,7 +28,7 @@ export const ProviderGroup = styled(GameGroup)`
 		align-items: center;
 		justify-content: center;
 		border-radius: 1rem;
-		background: #232b4f;
+		background: ${({ theme }) => theme.desktop.providerBg};
 		width: var(--slide-size);
 
 		.coming-soon {
@@ -41,7 +41,7 @@ export const ProviderGroup = styled(GameGroup)`
 			width: 100%;
 			height: 100%;
 			border-radius: 1rem;
-			background: rgba(55, 67, 117, 0.7);
+			background: ${({ theme }) => theme.desktop.providerCommingSoonBg};
 			font-size: 1.2rem;
 			font-weight: 700;
 		}
