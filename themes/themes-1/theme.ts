@@ -157,7 +157,7 @@ export const theme1 = {
 		carouselBtnBgHover: '#694D45',
 		carouselBtnBorderHover: '#1A100D',
 		carouselBtnColorHover: '#fff',
-		carouselBtnColorDisabled: '#694D45',
+		carouselBtnColorDisabled: '#AD8C82',
 
 		gameIconBg: '#38241E',
 		gameIconBgHover: 'rgba(0, 0, 0, 0.5)',
@@ -355,7 +355,7 @@ export const theme1 = {
 		carouselBtnBg: '#66483E',
 		carouselBtnBorder: '#1A100D',
 		carouselBtnColor: '#fff',
-		carouselBtnColorDisabled: '#694D45',
+		carouselBtnColorDisabled: '#AD8C82',
 
 		gameIconBg: '#38241E',
 		gameIconLoadingColor: '#fff',

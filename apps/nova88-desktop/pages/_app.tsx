@@ -32,6 +32,7 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../../../themes/nsDemo/global.styled'
 import { theme } from '../../../themes/nsDemo/theme'
 
+import { useEffect, useState } from 'react'
 import { GlobalStylesTheme1 } from '../../../themes/themes-1/global.styled'
 import { theme1 } from '../../../themes/themes-1/theme'
 
@@ -51,31 +52,25 @@ const {
 } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
-	// const loadGlobalStyle = () => {
-	// 	switch (process.env['THEME_NSDEMO']) {
-	// 		case '1':
-	// 			return <GlobalStylesTheme1 />
-	// 		default:
-	// 			return <GlobalStyles />
-	// 	}
-	// }
-
-	// const loadThemeStyle = () => {
-	// 	switch (process.env['THEME_NSDEMO']) {
-	// 		case '1':
-	// 			return theme1
-	// 		default:
-	// 			return theme
-	// 	}
-	// }
+	const [currentTheme, setCurrentTheme] = useState(theme)
+	useEffect(() => {
+		switch (process.env['THEME_TYPE']) {
+			case 'default':
+				setCurrentTheme(theme)
+				break
+			case '1':
+				setCurrentTheme(theme1)
+				break
+			default:
+				setCurrentTheme(theme)
+		}
+	}, [])
 
 	return (
 		<>
-			<ThemeProvider
-				theme={process.env['THEME_NSDEMO'] === 'default' ? theme : theme1}
-			>
-				{process.env['THEME_NSDEMO'] === '1' && <GlobalStylesTheme1 />}
-				{process.env['THEME_NSDEMO'] === 'default' && <GlobalStyles />}
+			<ThemeProvider theme={currentTheme}>
+				{process.env['THEME_TYPE'] === '1' && <GlobalStylesTheme1 />}
+				{process.env['THEME_TYPE'] === 'default' && <GlobalStyles />}
 
 				<NextNProgress showOnShallow color='#2b66e6' />
 				<Provider store={store}>
