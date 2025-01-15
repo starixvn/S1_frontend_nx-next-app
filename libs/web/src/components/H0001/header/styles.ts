@@ -106,8 +106,8 @@ export const HeaderContainer = styled.div`
 	.title {
 		width: 100%;
 		height: 15.05vw;
-		border-bottom: 1px solid #374375;
-		background: #0f1428;
+		border-bottom: 1px solid ${({ theme }) => theme.mobile.headerTitleBorder};
+		background: ${({ theme }) => theme.mobile.headerTitleBg};
 		display: flex;
 		align-items: center;
 		font-size: 4.26vw;
@@ -154,7 +154,7 @@ export const HeaderContainer = styled.div`
 					border-radius: 24.27vw;
 					border: none;
 					height: 8.73vw;
-					background: #232b4f;
+					background: ${({ theme }) => theme.mobile.headerInputBg};
 					padding: 0;
 					input {
 						padding: 0;
@@ -162,7 +162,7 @@ export const HeaderContainer = styled.div`
 						color: #fff;
 
 						&::placeholder {
-							color: #7883b4;
+							color: ${({ theme }) => theme.mobile.headerInputPlaceHolderColor};
 							text-align: left;
 						}
 					}

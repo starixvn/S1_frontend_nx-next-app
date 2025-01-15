@@ -112,13 +112,19 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
   }
 
 
-   #Loading{ 
+  #Loading{ 
     width : 100%;
     height : 100%;
     z-index : 9999;
     background: #0000005d;
+    .cube .sides * {
+      border : 1px solid ${({ theme }) => theme.desktop.loadingBorder};
+      background : ${({ theme }) => theme.desktop.loadingBg};
+    }
+    .text{
+      color : ${({ theme }) => theme.desktop.loadingText};
+    }
   }
-
   body, main {
     background: ${({ theme }) => theme.desktop.primary};
     font-family: ${({ theme }) => theme.desktop.fontFamily};
@@ -1358,7 +1364,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
 
   }
   .progressBarModule {
-		background: #232b4f;
+		background: ${({ theme }) => theme.desktop.progressBarModuleBg};
 		padding: 0.8rem;
 		border-radius: 10px;
 		max-width: 30rem;
@@ -1397,7 +1403,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
 		.progressBar .bar {
 			height: 0.6rem;
 			border-radius: 10px;
-			background: #374375;
+			background: ${({ theme }) => theme.desktop.progressBarBg};
 			margin-right: 10px;
 			flex: auto;
 			overflow: hidden;

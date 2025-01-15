@@ -28,7 +28,7 @@ export const LobbyGamePage = styled.div<{ $isLogin: boolean | undefined }>`
 export const CategoryFilterTabs = styled.div`
 	display: flex;
 	height: 11.65vw;
-	border-bottom: 1px solid #556298;
+	border-bottom: ${({ theme }) => theme.mobile.gameTabBorder};
 	margin: 3.88vw 1.94vw;
 	gap: 3.88vw;
 	width: 92vw;
@@ -44,7 +44,7 @@ export const CategoryFilterTabs = styled.div`
 		padding: 0 1.94vw;
 		margin-top: 1vw;
 		white-space: nowrap;
-		color: #717fba;
+		color: ${({ theme }) => theme.mobile.gameTabItemColor};
 		font-size: 3.39vw;
 		font-weight: 600;
 

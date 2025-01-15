@@ -117,6 +117,13 @@ export const GlobalStyles = createGlobalStyle`
     height : 100%;
     z-index : 9999;
     background: #0000005d;
+    .cube{
+      .slides {
+        > *{
+          border: 1px solid red;
+        }
+      }
+    }
   }
 
   body, main {
@@ -1358,7 +1365,7 @@ export const GlobalStyles = createGlobalStyle`
 
   }
   .progressBarModule {
-		background: #232b4f;
+		background: ${({ theme }) => theme.desktop.progressBarModuleBg} ;
 		padding: 0.8rem;
 		border-radius: 10px;
 		max-width: 30rem;

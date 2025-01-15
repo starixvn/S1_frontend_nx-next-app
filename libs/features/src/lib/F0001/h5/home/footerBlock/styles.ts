@@ -14,7 +14,7 @@ export const WrapperFooter = styled.div`
 		gap: 2.4rem;
 		margin-bottom: 2.4rem;
 		padding-bottom: 2.4rem;
-		border-bottom: 1px solid #556298;
+		border-bottom: 1px solid ${({ theme }) => theme.mobile.borderFooterTop};
 		a {
 			color: ${({ theme }) => theme.mobile.white};
 			font-size: 3.1vw;
@@ -58,6 +58,6 @@ export const WrapperFooter = styled.div`
 		font-weight: 400;
 		line-height: normal;
 		letter-spacing: 1.44px;
-		background: #1d2447;
+		background: ${({ theme }) => theme.mobile.copyRightBg};
 	}
 `

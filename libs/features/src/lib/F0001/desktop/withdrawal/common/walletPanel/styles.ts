@@ -188,7 +188,7 @@ export const WrapperCardAddBank = styled.div`
 		margin-top: 1.6rem;
 		font-size: 1.4rem;
 		font-weight: 700;
-		border: 1px solid #374375;
+		border: 1px solid ${({ theme }) => theme.desktop.borderConfirm};
 		border-radius: 10px;
 		padding: 1.2rem;
 		.title {

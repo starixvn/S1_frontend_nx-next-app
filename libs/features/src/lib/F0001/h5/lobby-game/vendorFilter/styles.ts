@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const VendorFilterContainer = styled.div`
 	display: flex;
@@ -14,7 +14,7 @@ export const VendorFilterContainer = styled.div`
 		gap: 1.8vw;
 		flex: 0 0 calc((100% - 7.76vw) / 3);
 		height: 18.92vw;
-		background: #1d2447;
+		background: ${({ theme }) => theme.mobile.providerBg};
 		border-radius: 2.42vw;
 		color: #fff;
 		font-size: 2.9vw;
@@ -28,7 +28,7 @@ export const VendorFilterContainer = styled.div`
 		}
 
 		&.active {
-			background: linear-gradient(0deg, #717fba 0%, #a2afe5 100%);
+			background: ${({ theme }) => theme.mobile.filterFormProviderBgHover};
 			color: white;
 		}
 	}

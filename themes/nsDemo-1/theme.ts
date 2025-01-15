@@ -30,6 +30,7 @@ export const theme1 = {
 		headerForgotPasswordColor: '#A68E86',
 		headerForgotPasswordColorHover: '#fff',
 		headerMessageIconBg: '#331F1A',
+		headerLineBorderRight: '#66483E',
 
 		countryCurrentColor: '#FFF',
 		countryCurrentBtnGroupBg: '#402B25',
@@ -86,9 +87,9 @@ export const theme1 = {
 		tabsBtnHoverBg: '#694D45',
 		tabsBtnHoverColor: '#fff',
 
-		disabledBtnBg: '#505667',
-		disabledBtnColor: '#6F7689',
-		disabledBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset;',
+		disabledBtnBg: '#676767',
+		disabledBtnColor: '#898989',
+		disabledBtnShadow: '0px -3px 0px 0px rgba(255, 255, 255, 0.40) inset',
 
 		dropdownBg: '#331F1A',
 		dropdownTextColor: '#B5A6A1',
@@ -216,7 +217,7 @@ export const theme1 = {
 		filterFormProviderLogoBg: '#dcdee9',
 
 		gameTabBorder: '1px solid #694D45',
-		gameTabItemColor: '#694D45',
+		gameTabItemColor: '#AD8C82',
 		gameTabItemColorHover: '#fff',
 		gameTabItemBorderHover: '2px solid var(--Color-5, #FF813D)',
 
@@ -279,7 +280,7 @@ export const theme1 = {
 		bgOutLine: '#38241E',
 		labelOutLineColor: '#B5A6A1',
 
-		switchBgOff: '#505667',
+		switchBgOff: '#676767',
 		switchBgOn: '#01B901',
 
 		customTableTheadBg: '#402B25',
@@ -388,14 +389,29 @@ export const theme1 = {
 		functionMenuListHeaderBgActibe: '#331F1A',
 		functionMenuReadBodyBg: '#331F1A',
 		functionMenuHaveReadBg: '#331F1A',
+		borderConfirm: '#66483E',
+		loadingBorder: '#66483E',
+		loadingBg: 'rgba(102, 72, 62, 0.1)',
+		loadingText: '#66483E',
+		specialBonusBg: '#331F1A',
+		progressBarModuleBg: '#402B25',
+		progressBarBg: '#66483E',
 	},
 	mobile: {
+		progressBarModuleBg: '#402B25',
+		progressBarBg: '#66483E',
+		specialBonusBg: '#331F1A',
+		loadingBorder: '#66483E',
+		loadingBg: 'rgba(102, 72, 62, 0.1)',
+		loadingText: '#66483E',
+		borderConfirm: '#66483E',
 		functionMenuBg: '#402B25',
 		functionMenuListHeaderBg: '#331F1A',
 		functionMenuListHeaderBgActibe: '#331F1A',
 		functionMenuReadBodyBg: '#331F1A',
 		functionMenuHaveReadBg: '#331F1A',
-
+		gameTabBorder: '1px solid #694D45',
+		gameTabItemColor: '#AD8C82',
 		menuTabListBg: '#331F1A',
 		colorListRegister: '#B5A6A1',
 		bgUserRank: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
@@ -536,5 +552,31 @@ export const theme1 = {
 		promotionGroupColor: '#B5A6A1',
 		promotionGroupBorder: '#66483E',
 		promotionLinkColor: '#694D45',
+
+		borderFooterTop: '#66483E',
+		copyRightBg: '#38241E',
+
+		filterFormBg: '#402B25',
+		filterFormInputBg: '#66483E',
+		filterFormInputColor: '#fff',
+		filterFormInputPlaceHolderColor: '#A68E86',
+		filterFormProviderBg: '#66483E',
+		filterFormProviderBgHover:
+			'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
+
+		headerTitleBg: '#1A100D',
+		headerTitleBorder: '#66483E',
+
+		headerInputBg: '#402B25',
+		headerInputPlaceHolderColor: '#A68E86',
+		headerInputColor: '#fff',
+		headerLineLoginBtnBg: '#01B901',
+		headerLineLoginBtnColor: '#fff',
+		headerLineLoginBtnShadow:
+			'0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		headerLineLoginBgHover: '#009800',
+		headerForgotPasswordColor: '#A68E86',
+		headerForgotPasswordColorHover: '#fff',
+		headerMessageIconBg: '#331F1A',
 	},
 }

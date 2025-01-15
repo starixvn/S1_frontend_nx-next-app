@@ -547,7 +547,8 @@ export const FunctionContainer = styled.div`
 	}
 
 	.line {
-		border-right: 1px solid #374375;
+		border-right: 1px solid
+			${({ theme }) => theme.desktop.headerLineBorderRight};
 		height: 4.4rem;
 	}
 

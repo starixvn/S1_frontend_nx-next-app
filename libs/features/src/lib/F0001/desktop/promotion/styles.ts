@@ -159,11 +159,11 @@ export const WrapperPromotion = styled.div`
 	.specialBonus {
 		display: inline-flex;
 		padding: 2rem;
-		background: #182043;
+		background: ${({ theme }) => theme.desktop.specialBonusBg};
 		width: 100%;
 		.inputBox-blue {
 			margin-top: 0;
-			background: #232b4f;
+			background: ${({ theme }) => theme.desktop.inputBg};
 		}
 		.form {
 			gap: 1.6rem;

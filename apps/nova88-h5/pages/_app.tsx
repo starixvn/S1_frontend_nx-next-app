@@ -33,8 +33,11 @@ import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from '../../../themes/nsDemo/global.styled'
-import { theme } from '../../../themes/nsDemo/theme'
+import { GlobalStyles } from '../../../themes/nsDemo-0/global.styled'
+import { theme } from '../../../themes/nsDemo-0/theme'
+
+import { GlobalStylesNsDemo1 } from '../../../themes/nsDemo-1/global.styled'
+import { theme1 } from '../../../themes/nsDemo-1/theme'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -51,9 +54,22 @@ const {
 } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
+	const initialTheme = (() => {
+		switch (process.env.NEXT_PUBLIC_THEME_TYPE) {
+			case 'nsDemo-0':
+				return theme
+			case 'nsDemo-1':
+				return theme1
+			default:
+				return null
+		}
+	})()
 	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyles />
+		<ThemeProvider theme={initialTheme}>
+			{process.env.NEXT_PUBLIC_THEME_TYPE === 'nsDemo-1' && (
+				<GlobalStylesNsDemo1 />
+			)}
+			{process.env.NEXT_PUBLIC_THEME_TYPE === 'nsDemo-0' && <GlobalStyles />}
 			<Head>
 				<meta
 					name='viewport'
@@ -61,7 +77,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				/>
 				<meta name='apple-mobile-web-app-capable' content='no' />
 			</Head>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={initialTheme}>
 				<Provider store={store}>
 					<UIProvider>
 						<StaticDataProvider

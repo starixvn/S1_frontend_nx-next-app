@@ -1,5 +1,5 @@
-import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
-import styled from "styled-components";
+import { GameGroup } from '@nx-next-app/features/F0001/h5/home/styles'
+import styled from 'styled-components'
 
 export const ProviderGroup = styled(GameGroup)`
 	.embla__container {
@@ -15,7 +15,7 @@ export const ProviderGroup = styled(GameGroup)`
 		align-items: center;
 		justify-content: center;
 		border-radius: 2.42vw;
-		background: #232b4f;
+		background: ${({ theme }) => theme.mobile.providerBg};
 		width: var(--slide-size);
 
 		.coming-soon {
@@ -28,7 +28,7 @@ export const ProviderGroup = styled(GameGroup)`
 			width: 100%;
 			height: 100%;
 			border-radius: 2.4vw;
-			background: rgba(55, 67, 117, 0.7);
+			background: ${({ theme }) => theme.mobile.providerCommingSoonBg};
 			font-size: 2.9vw;
 			font-weight: 700;
 		}
