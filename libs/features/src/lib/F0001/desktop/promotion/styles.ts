@@ -28,7 +28,7 @@ export const WrapperPromotion = styled.div`
 			}
 		}
 		&-body {
-			background: #182043;
+			background: ${({ theme }) => theme.desktop.menuTabListBg};
 			padding: 2rem;
 			.proListNew {
 				&-item {

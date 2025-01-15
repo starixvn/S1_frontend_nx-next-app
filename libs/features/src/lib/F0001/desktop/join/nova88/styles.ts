@@ -41,7 +41,7 @@ export const WrapperRegister = styled.div`
 					}
 					.list {
 						margin-bottom: 0.8rem;
-						color: #939dc5;
+						color: ${({ theme }) => theme.desktop.colorListRegister};
 					}
 				}
 			}

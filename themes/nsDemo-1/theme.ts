@@ -77,7 +77,7 @@ export const theme1 = {
 		secondaryBtnBg: '#AD8C82',
 		secondaryBtnColor: '#fff',
 		secondaryBtnShadow: '0px -3px 0px 0px rgba(255, 255, 255, 0.40) inset',
-		secondaryBtnBgHover: '#AD8C82',
+		secondaryBtnBgHover: '#94786F',
 		secondaryBtnColorHover: '#fff',
 		secondaryBtnShadowHover: 'none',
 
@@ -377,8 +377,16 @@ export const theme1 = {
 		totalTableBg: '#402B25',
 		totalLineColor: '#66483E',
 		stepBarBg: '#66483E',
+
+		menuTabListBg: '#331F1A',
+
+		bgUserRank: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
+		colorListRegister: '#B5A6A1',
 	},
 	mobile: {
+		menuTabListBg: '#331F1A',
+		colorListRegister: '#B5A6A1',
+		bgUserRank: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
 		stepBarBg: '#66483E',
 		totalLineColor: '#66483E',
 		totalTableBg: '#402B25',

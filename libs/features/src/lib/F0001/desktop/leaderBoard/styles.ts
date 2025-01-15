@@ -139,7 +139,7 @@ export const WrapperLeaderBoardPage = styled.div`
                     }
                 }
 				&.userRank{
-					background : #374375;
+					background : ${({ theme }) => theme.desktop.bgUserRank};
 					> div{	
 					 	color : #fff;
 					 }

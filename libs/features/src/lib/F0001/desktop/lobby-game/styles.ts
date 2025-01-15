@@ -6,7 +6,9 @@ export const LobbyGamePage = styled.div`
 		padding-top: 2rem;
 		padding-bottom: 6rem;
 		background: url(${({ theme }) =>
-				theme.assetUrl}/desktop/img/new-ui/banner-bg.webp)
+				theme.assetUrl}/desktop/img/themes/${process.env[
+				'NEXT_PUBLIC_THEME_TYPE'
+			]}/banner-bg.webp)
 			no-repeat;
 
 		.img {
