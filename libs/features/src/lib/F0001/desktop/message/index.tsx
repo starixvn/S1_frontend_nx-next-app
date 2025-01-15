@@ -51,7 +51,9 @@ const PersonalMessage = () => {
 														type='checkbox'
 														id='message-selectAll'
 														onChange={onToggleCheckedAll}
-														checked={msgList.length === selectedMessage.length}
+														checked={msgList.every(msg =>
+															selectedMessage.some(sel => sel.msgId === msg.id)
+														)}
 													/>
 													<label
 														htmlFor='message-selectAll'
