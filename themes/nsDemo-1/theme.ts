@@ -170,7 +170,7 @@ export const theme1 = {
 		gameIconLoadingColor: '#fff',
 		gameIconProviderNameColor: '#fff',
 		gameIconMaintainBg:
-			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
+			'linear-gradient(180deg, rgba(41, 41, 41, 0.00) 0%, rgba(64, 43, 37, 0.70) 25.5%, rgba(64, 43, 37, 0.70) 75%, rgba(41, 41, 41, 0.00) 100%)',
 		gameIconMaintainColor: '#fff',
 		gameIconNoGameIconColor: '#66483E',
 		gameIconNewBg: '#FF4040',
@@ -447,7 +447,7 @@ export const theme1 = {
 		gameIconLoadingColor: '#fff',
 		gameIconProviderNameColor: '#fff',
 		gameIconMaintainBg:
-			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
+			'linear-gradient(180deg, rgba(41, 41, 41, 0.00) 0%, rgba(64, 43, 37, 0.70) 25.5%, rgba(64, 43, 37, 0.70) 75%, rgba(41, 41, 41, 0.00) 100%)',
 		gameIconMaintainColor: '#fff',
 		gameIconNoGameIconColor: '#66483E',
 		gameIconNewBg: '#FF4040',
