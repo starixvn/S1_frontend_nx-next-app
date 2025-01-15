@@ -299,7 +299,7 @@ export const WrapperProfileAfterLogin = styled.div`
 					position: absolute;
 					top: 10px;
 					left: 20px;
-					color: #7883b4;
+					color: ${({ theme }) => theme.desktop.txtThemeColor};
 					z-index: 1;
 				}
 			}

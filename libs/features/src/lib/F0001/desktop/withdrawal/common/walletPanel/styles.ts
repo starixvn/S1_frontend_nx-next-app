@@ -26,27 +26,28 @@ export const WrapperCardAddBank = styled.div`
 					font-size: 1.4rem;
 					font-weight: 400;
 					line-height: normal;
-					color: #939dc5;
+					color: ${({ theme }) => theme.desktop.addBankNameColorButton};
 				}
 
 				.icon {
 					width: 4.8rem;
 					height: 4.8rem;
 					border-radius: 10px;
-					background: #1d2447;
+					background: ${({ theme }) => theme.desktop.addBankNameBgButton};
 					display: flex;
 					align-items: center;
 					justify-content: center;
 					&:before {
 						margin: 0;
 						font-size: 3.2rem;
-						color: #939dc5;
+						color: ${({ theme }) => theme.desktop.addBankNameColorButton};
 					}
 				}
 				&:hover {
 					background: ${({ theme }) => theme.desktop.hoverAddBankName};
 					.icon {
-						background: #374375;
+						background: ${({ theme }) =>
+							theme.desktop.addBankNameBgHoverButton};
 					}
 				}
 			}
@@ -56,7 +57,8 @@ export const WrapperCardAddBank = styled.div`
 					position: absolute;
 					top: 0;
 					left: 0;
-					background: rgba(55, 67, 117, 0.7);
+					background: ${({ theme }) =>
+						theme.desktop.withDrawalUnderMaintenanceBg};
 					width: 100%;
 					height: 100%;
 					z-index: 1;
@@ -158,7 +160,7 @@ export const WrapperCardAddBank = styled.div`
 					}
 					&:nth-child(even) {
 						margin: 0 10px;
-						color: #5574a7;
+						color: ${({ theme }) => theme.desktop.withDrawalColor};
 						font-size: 4.8rem;
 						flex: 0.1;
 					}

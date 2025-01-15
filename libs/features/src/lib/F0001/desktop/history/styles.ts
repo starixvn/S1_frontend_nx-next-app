@@ -17,7 +17,8 @@ export const WrapperHistory = styled.div`
 	.table-history {
 		padding-top: 1.6rem;
 		margin-top: 1.6rem;
-		border-top: 1px solid #374375;
+		border-top: 1px solid
+			${({ theme }) => theme.desktop.customNodataBorderColor};
 		.custom-th {
 			padding: 1.8rem 0;
 			&:nth-child(6) {

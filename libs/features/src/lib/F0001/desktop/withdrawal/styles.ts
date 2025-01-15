@@ -60,7 +60,7 @@ export const WrapperWithdrawl = styled.div`
 				&.icon-information-fill,
 				&.icon-refresh-fill {
 					&:before {
-						color: #717fba;
+						color: ${({ theme }) => theme.desktop.nodataIconColor} !important;
 					}
 				}
 				&.active {

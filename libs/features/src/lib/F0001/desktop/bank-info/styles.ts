@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const WrapperBankInFo = styled.div`
 	.stepBar {
-		background: #374375;
+		background: ${({ theme }) => theme.desktop.stepBarBg};
 		height: 0.6rem;
 		display: flex;
 		border-radius: 30px;

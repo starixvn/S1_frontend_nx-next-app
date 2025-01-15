@@ -263,6 +263,10 @@ export const HomeBalance = styled.div`
 		.icon {
 			cursor: pointer;
 			font-size: 2rem;
+			&:before {
+				color: ${({ theme }) =>
+					theme.desktop.headerBalanceIconColor} !important;
+			}
 		}
 	}
 

@@ -33,19 +33,21 @@ const Vip = ({
 						<div className='newvipinfo-content-items'>
 							<div className='heading'>VIP Program</div>
 							<div className='content'>
-								{process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} has launched its VIP rewards program so that members
-								could indulge in good services, more rewards, and a better
-								experience. Discover greater perks and entitlements when your
-								tier upgraded. We're waiting for you!
+								{process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} has launched its
+								VIP rewards program so that members could indulge in good
+								services, more rewards, and a better experience. Discover
+								greater perks and entitlements when your tier upgraded. We're
+								waiting for you!
 							</div>
 						</div>
 						<div className='newvipinfo-content-items'>
 							<div className='heading'>VIP Program</div>
 							<div className='content'>
-              {process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} has launched its VIP rewards program so that members
-								could indulge in good services, more rewards, and a better
-								experience. Discover greater perks and entitlements when your
-								tier upgraded. We're waiting for you!
+								{process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} has launched its
+								VIP rewards program so that members could indulge in good
+								services, more rewards, and a better experience. Discover
+								greater perks and entitlements when your tier upgraded. We're
+								waiting for you!
 							</div>
 						</div>
 						<div className='last-items'>

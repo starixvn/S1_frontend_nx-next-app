@@ -603,7 +603,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
           padding : 2.4rem 1.6rem;
           .txt-blue {
             white-space: nowrap;
-            color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+            color: ${({ theme }) => theme.desktop.txtThemeColor};
             font-weight : 400;
           }
         }
@@ -685,7 +685,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
     justify-content: center;
     padding-top: 1.6rem;
 		margin-top: 1.6rem;
-		border-top: 1px solid #374375;
+		border-top: 1px solid ${({ theme }) => theme.desktop.customNodataBorderColor};
     .icon {
       border-radius: 100px;
       border: 6px solid ${({ theme }) => theme.desktop.bgIconNotifiCationColor};
@@ -1078,7 +1078,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
       }
     }
     .txt-blue{
-      color: ${({ theme }) => theme.desktop.rightModuleSloganColor} !ỉmportant;
+      color: ${({ theme }) => theme.desktop.txtThemeColor} !ỉmportant;
       font-size: 1.4rem;
       font-weight: 600 !important;
       line-height: normal;
@@ -1087,12 +1087,12 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
     .total{
       padding : 2rem 1.6rem;
       color :  ${({ theme }) => theme.desktop.white};
-      background : #232B4F;
+      background : ${({ theme }) => theme.desktop.totalTableBg};
       font-size: 1.4rem;
       font-weight: 700;
       line-height: normal;
       .line{
-        color : #374375;
+        color : ${({ theme }) => theme.desktop.totalLineColor};
         margin : 0 1.6rem;
       }
     }
@@ -1181,7 +1181,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
 			width: 100%;
 		}
 		.txt-blue {
-			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			color: ${({ theme }) => theme.desktop.txtThemeColor};
 			font-size: 1.4rem;
 			font-weight: 400;
 			line-height: 2rem;
@@ -2468,7 +2468,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
       padding: 0 !important;
       .txt-blue {
         white-space: nowrap;
-        color : #7883B4;
+        color : ${({ theme }) => theme.mobile.txtThemeColor};
       }
       .title-pass{
         text-align : center;
@@ -2586,9 +2586,14 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
         transform: rotate(359deg);
       }
     }
-    .icon-file-damage-fill,.icon-refresh-fill{
+    .icon-file-damage-fill,.icon-refresh-fill,.icon-share-box-fill{
       &:before{
         color : ${({ theme }) => theme.desktop.nodataIconColor} !important;
+      }
+    }
+    .icon-share-box-fill{
+      &:before{
+        color : ${({ theme }) => theme.desktop.iconColorWithThemes} !important;
       }
     }
 `

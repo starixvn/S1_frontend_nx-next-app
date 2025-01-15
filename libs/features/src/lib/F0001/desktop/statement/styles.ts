@@ -4,7 +4,8 @@ export const WrapperStament = styled.div`
 	.quickSelect {
 		margin-bottom: 1.6rem;
 		padding-bottom: 1.6rem;
-		border-bottom: 1px solid #374375;
+		border-bottom: 1px solid
+			${({ theme }) => theme.desktop.customNodataBorderColor};
 		.inputBox-blue {
 			max-width: 30rem;
 		}
@@ -31,7 +32,7 @@ export const WrapperStament = styled.div`
 				}
 			}
 			&:nth-child(even) {
-				background: #1d2447;
+				background: ${({ theme }) => theme.desktop.stataMentTableEvenBg};
 			}
 		}
 	}

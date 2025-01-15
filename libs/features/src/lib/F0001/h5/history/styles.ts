@@ -5,7 +5,8 @@ export const WrapperDepositPageHistoryH5 = styled.div`
 		display: flex;
 		padding: 0 8vw;
 		width: calc(100% - 7vw);
-		border-bottom: 1px solid #374375;
+		border-bottom: 1px solid
+			${({ theme }) => theme.mobiile.customNodataBorderColor};
 		overflow: scroll;
 		align-items: center;
 		margin-top: 0;
