@@ -382,8 +382,20 @@ export const theme1 = {
 
 		bgUserRank: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',
 		colorListRegister: '#B5A6A1',
+
+		functionMenuBg: '#402B25',
+		functionMenuListHeaderBg: '#331F1A',
+		functionMenuListHeaderBgActibe: '#331F1A',
+		functionMenuReadBodyBg: '#331F1A',
+		functionMenuHaveReadBg: '#331F1A',
 	},
 	mobile: {
+		functionMenuBg: '#402B25',
+		functionMenuListHeaderBg: '#331F1A',
+		functionMenuListHeaderBgActibe: '#331F1A',
+		functionMenuReadBodyBg: '#331F1A',
+		functionMenuHaveReadBg: '#331F1A',
+
 		menuTabListBg: '#331F1A',
 		colorListRegister: '#B5A6A1',
 		bgUserRank: 'linear-gradient(0deg, #AD8C82 0%, #B5A6A1 100%)',

@@ -20,7 +20,7 @@ export const WrapperMessage = styled.div`
 				margin-right: 0.5rem;
 			}
 			.functionMenu {
-				background: #232b4f;
+				background: ${({ theme }) => theme.desktop.functionMenuBg};
 				display: flex;
 				align-items: center;
 				.group-btn-message {
@@ -47,10 +47,11 @@ export const WrapperMessage = styled.div`
 			.haveRead,
 			.readBody {
 				.listHeader {
-					background: #182043;
+					background: ${({ theme }) => theme.desktop.functionMenuListHeaderBg};
 					display: flex;
 					&.active {
-						background: #232b4f;
+						background: ${({ theme }) =>
+							theme.desktop.functionMenuListHeaderBgActibe};
 					}
 					> div {
 						padding: 1.5rem 1.6rem;
@@ -80,13 +81,13 @@ export const WrapperMessage = styled.div`
 			.readBody {
 				.listHeader {
 					color: ${({ theme }) => theme.desktop.white};
-					background: #232b4f;
+					background: ${({ theme }) => theme.desktop.functionMenuReadBodyBg};
 				}
 			}
 			.haveRead {
 				.listHeader {
 					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-					background: #182043;
+					background: ${({ theme }) => theme.desktop.functionMenuHaveReadBg};
 				}
 			}
 			.icon {
