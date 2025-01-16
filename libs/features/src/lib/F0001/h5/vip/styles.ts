@@ -9,10 +9,11 @@ export const WrapperVipPageH5 = styled.div`
 			height: 100%;
 			margin-left: auto;
 			margin-right: auto;
-
+			border-radius: 0 0 5vw 5vw;
+			background: ${({ theme }) => theme.mobile.vipSwiperBg};
 			> .swiper-wrapper {
 				margin-bottom: 3.88vw;
-				background: #232b4f;
+				background: ${({ theme }) => theme.mobile.vipSwiperBg};
 				border-radius: 0 0 5vw 5vw;
 			}
 		}
@@ -43,8 +44,8 @@ export const WrapperVipPageH5 = styled.div`
 				}
 				.rewardinfo {
 					width: 90%;
-					background: #374375;
-					color: #717fba;
+					background: ${({ theme }) => theme.mobile.vipRewardinfoBg};
+					color: ${({ theme }) => theme.mobile.vipRewardinfoColor};
 					border-radius: 10vw;
 					padding: 2vw 2vw;
 					margin-top: 1vw;
@@ -231,7 +232,7 @@ export const WrapperVipPageH5 = styled.div`
 	.vipprogram {
 		color: #fff;
 		text-align: left;
-		background: #182043;
+		background: ${({ theme }) => theme.mobile.newVipInfoBg};
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -286,15 +287,16 @@ export const WrapperVipPageH5 = styled.div`
 
 	.vipPage {
 		margin: 0 3vw;
-		border: 1px solid #374375;
+		border: 1px solid ${({ theme }) => theme.mobile.rightModuleBorderColor};
 		border-radius: 20px;
 		overflow: hidden;
 		.viptable {
 			display: block;
 			.viptable-item-title {
 				padding: 4vw 2vw;
-				background: #232b4f;
-				border-top: 0.02rem solid #374375;
+				background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
+				border-top: 0.02rem solid
+					${({ theme }) => theme.mobile.rightModuleBorderColor};
 				font-weight: 700;
 				font-size: 3.4vw;
 			}
@@ -383,13 +385,15 @@ export const WrapperVipPageH5 = styled.div`
 			}
 		}
 		.viptable-item-text {
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 			display: flex;
 			padding-left: 2vw;
-			border-top: 0.02rem solid #374375;
-			background: #182043;
+			border-top: 0.02rem solid
+				${({ theme }) => theme.mobile.rightModuleBorderColor};
+			background: ${({ theme }) => theme.mobile.rightModuleBg};
 			li {
-				border-right: 0.02rem solid #374375;
+				border-right: 0.02rem solid
+					${({ theme }) => theme.mobile.rightModuleBorderColor};
 				height: 11vw;
 				flex: 0 0 70%;
 				width: 100%;
@@ -407,16 +411,17 @@ export const WrapperVipPageH5 = styled.div`
 			}
 		}
 		.medal-item {
-			color: #717fba;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 			font-weight: 700;
-			background: #232b4f;
+			background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
 			flex: 1;
 			text-align: center;
 			padding: 1vw 0;
 			display: flex;
 			flex-flow: column;
 			align-items: center;
-			border-right: 0.02rem solid #374375;
+			border-right: 0.02rem solid
+				${({ theme }) => theme.mobile.rightModuleBorderColor};
 			&:last-child {
 				border-right: none;
 			}

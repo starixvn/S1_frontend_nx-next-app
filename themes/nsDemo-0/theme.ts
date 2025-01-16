@@ -542,6 +542,12 @@ export const theme = {
 		vipGoldBtnColor: '#E8BB4A',
 		vipGoldTitleBgColor: '#E8BB4A',
 
+		vipTableHover: '#48558b',
+		newVipInfoBg: '#182043',
+		vipRewardinfoBg: '#66483E',
+		vipRewardinfoColor: '#AD8C82',
+		vipSwiperBg: '#232b4f',
+
 		promotionHeaderGroupBg: '#232b4f',
 		promotionHeaderGroupColor: '#fff',
 		promotionGroupBg: '#182043',
@@ -567,5 +573,12 @@ export const theme = {
 		headerMessageIconBg: '#182043',
 		gameTabBorder: '1px solid #556298',
 		gameTabItemColor: '#717fba',
+		menuQuickSlectBg: '#0f1428',
+		menuQuickSlectBorder: '#374375',
+		promotionItemsBg: '#573C34',
+		rankListLeaderBoardBg: '#182043',
+
+		menuTabLeaderBoard: '#374375',
+		menuTabLeaderBoardActive: '#717fba',
 	},
 }

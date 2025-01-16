@@ -1,5 +1,4 @@
 import { Header, TagOptionType } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
 import { useLeaderBoard } from '@nx-next-app/data-access'
 import { WrapperCustomTitleBack } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
 import LeaderBoardContent from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardContent'
@@ -35,7 +34,7 @@ const LeaderBoard = () => {
 			</Header>
 			<WrapperLeaderBoard>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/leaderboard.webp`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${process.env['NEXT_PUBLIC_THEME_TYPE']}/leaderboard.webp`}
 					alt='event'
 				/>
 				<main className='main rankingNew'>

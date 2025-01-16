@@ -85,7 +85,7 @@ export const PromotionPage = styled.div`
 		line-height: 5.82vw;
 		border: none;
 		border-radius: 4.85vw;
-		background: #2e3965;
+		background: ${({ theme }) => theme.mobile.promotionItemsBg};
 
 		.btn-group {
 			display: flex;
@@ -171,7 +171,7 @@ export const ClaimAmountContainer = styled.div`
 export const PromotionProgressBarContainer = styled.div`
 	position: relative;
 	border-radius: 2.42vw;
-	background: #232b4f;
+	background: ${({ theme }) => theme.mobile.progressBarModuleBg};
 	line-height: initial;
 	margin-top: 2.94vw;
 	padding: 1.94vw;
@@ -181,7 +181,7 @@ export const PromotionProgressBarContainer = styled.div`
 		flex-direction: column;
 		gap: 1.94vw;
 		font-size: 2.91vw;
-		color: var(--Color-9, #939dc5);
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 
 		.info-title {
 			font-weight: 600;
@@ -201,7 +201,7 @@ export const PromotionProgressBarContainer = styled.div`
 		height: 7vw;
 
 		&:before {
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		}
 	}
 
@@ -225,7 +225,7 @@ export const PromotionProgressBarContainer = styled.div`
 
 		.bar {
 			height: 2vw;
-			background: #374375;
+			background: ${({ theme }) => theme.mobile.progressBarBg};
 			border-radius: 10px;
 			overflow: hidden;
 			flex: auto;
@@ -242,7 +242,7 @@ export const PromotionProgressBarContainer = styled.div`
 			font-weight: 400;
 			flex: 0 0 auto;
 			min-width: 6vw;
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		}
 	}
 `

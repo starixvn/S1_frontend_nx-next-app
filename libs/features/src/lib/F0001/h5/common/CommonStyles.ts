@@ -140,7 +140,7 @@ export const WrapperCustomTitleBack = styled.div`
 	.title {
 		&.custom-title-back {
 			padding: 0;
-			background: #0f1428;
+			background: ${({ theme }) => theme.mobile.headerBg};
 			font-weight: 700;
 			justify-content: flex-start;
 			gap: 4vw;

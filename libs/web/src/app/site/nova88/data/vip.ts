@@ -47,44 +47,44 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	langId: string | number
 ): IBannerByCurrencyData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/vintage${
-			langId === 'en' ? '' : `-${langId}`
-		}.webp`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${
+			process.env['NEXT_PUBLIC_THEME_TYPE']
+		}/vip/vintage${langId === 'en' ? '' : `-${langId}`}.webp`,
 		level: VipLevelEnum.VINTAGE,
 		levelText: 'vintage',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/silver${
-			langId === 'en' ? '' : `-${langId}`
-		}.webp`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${
+			process.env['NEXT_PUBLIC_THEME_TYPE']
+		}/vip/silver${langId === 'en' ? '' : `-${langId}`}.webp`,
 		level: VipLevelEnum.SILVER,
 		levelText: 'silver',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/gold${
-			langId === 'en' ? '' : `-${langId}`
-		}.webp`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${
+			process.env['NEXT_PUBLIC_THEME_TYPE']
+		}/vip/gold${langId === 'en' ? '' : `-${langId}`}.webp`,
 		level: VipLevelEnum.GOLD,
 		levelText: 'gold',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/titanium${
-			langId === 'en' ? '' : `-${langId}`
-		}.webp`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${
+			process.env['NEXT_PUBLIC_THEME_TYPE']
+		}/vip/titanium${langId === 'en' ? '' : `-${langId}`}.webp`,
 		level: VipLevelEnum.TITANIUM,
 		levelText: 'titanium',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/diamond${
-			langId === 'en' ? '' : `-${langId}`
-		}.webp`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${
+			process.env['NEXT_PUBLIC_THEME_TYPE']
+		}/vip/diamond${langId === 'en' ? '' : `-${langId}`}.webp`,
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/infinity${
-			langId === 'en' ? '' : `-${langId}`
-		}.webp`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/themes/${
+			process.env['NEXT_PUBLIC_THEME_TYPE']
+		}/vip/infinity${langId === 'en' ? '' : `-${langId}`}.webp`,
 		level: VipLevelEnum.Highest,
 		levelText: 'infinity',
 	},

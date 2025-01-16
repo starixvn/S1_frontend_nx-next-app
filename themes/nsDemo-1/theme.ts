@@ -547,6 +547,12 @@ export const theme1 = {
 		vipGoldBtnColor: '#E8BB4A',
 		vipGoldTitleBgColor: '#E8BB4A',
 
+		vipTableHover: '#694D45',
+		newVipInfoBg: '#331F1A',
+		vipRewardinfoBg: '#66483E',
+		vipRewardinfoColor: '#AD8C82',
+		vipSwiperBg: '#402B25',
+
 		promotionHeaderGroupBg: '#402B25',
 		promotionHeaderGroupColor: '#fff',
 		promotionGroupBg: '#331F1A',
@@ -579,5 +585,13 @@ export const theme1 = {
 		headerForgotPasswordColor: '#A68E86',
 		headerForgotPasswordColorHover: '#fff',
 		headerMessageIconBg: '#331F1A',
+
+		menuQuickSlectBg: '#1A100D',
+		menuQuickSlectBorder: '#66483E',
+		rankListLeaderBoardBg: '#331F1A',
+		promotionItemsBg: '#573C34',
+
+		menuTabLeaderBoard: '#66483E',
+		menuTabLeaderBoardActive: '#AD8C82',
 	},
 }

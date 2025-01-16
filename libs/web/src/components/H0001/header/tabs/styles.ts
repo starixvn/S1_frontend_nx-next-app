@@ -5,8 +5,8 @@ export const QuickSelectContainer = styled.div`
 	align-items: center;
 	width: 100%;
 	margin-top: 0;
-	border-bottom: 1px solid #374375;
-	background: #0f1428;
+	border-bottom: 1px solid ${({ theme }) => theme.mobile.menuQuickSlectBorder};
+	background: ${({ theme }) => theme.mobile.menuQuickSlectBg};
 
 	.embla {
 		position: relative;

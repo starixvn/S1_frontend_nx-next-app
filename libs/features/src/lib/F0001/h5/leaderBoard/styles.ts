@@ -31,7 +31,7 @@ export const WrapperLeaderBoard = styled.div`
 				li {
 					display: flex;
 					align-items: center;
-					background: #182043;
+					background: ${({ theme }) => theme.mobile.rankListLeaderBoardBg};
 					border-radius: 50px;
 					margin: 2vw 0;
 					padding: 2vw 3vw;
@@ -73,7 +73,7 @@ export const WrapperLeaderBoard = styled.div`
 						}
 					}
 					&.userRank {
-						background: #374375;
+						background: ${({ theme }) => theme.mobile.menuTabLeaderBoardActive};
 						> div {
 							color: #fff;
 						}
@@ -98,14 +98,14 @@ export const WrapperLeaderBoard = styled.div`
 		gap: 2vw;
 		button {
 			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
-			background: #374375;
+			background: ${({ theme }) => theme.mobile.menuTabLeaderBoard};
 			font-size: 2.9vw;
 			width: 100%;
 			padding: 1.5vw 1vw;
 			font-weight: 600;
 			border-radius: 100px;
 			&.active {
-				background: #717fba;
+				background: ${({ theme }) => theme.mobile.menuTabLeaderBoardActive};
 				color: ${({ theme }) => theme.mobile.white};
 			}
 		}
