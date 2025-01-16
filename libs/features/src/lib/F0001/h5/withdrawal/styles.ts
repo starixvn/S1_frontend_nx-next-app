@@ -201,7 +201,7 @@ export const WrapperWithdrawalH5 = styled.div`
 			align-items: center;
 			width: 100%;
 			justify-content: space-between;
-			background: #232b4f;
+			background: ${({ theme }) => theme.mobile.bgSpinButton};
 			border-radius: 5px;
 			padding: 1vw 2vw;
 			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
@@ -240,7 +240,7 @@ export const WrapperWithdrawalH5 = styled.div`
 			flex-direction: column;
 			.btn-add-bank{
 				width : 100%;
-				background : #374375;
+				background : ${({ theme }) => theme.mobile.btnAddBnkBg};
 				margin-top : 2.9vw;
 				border-radius: 10px;
 				display: flex;
@@ -269,12 +269,12 @@ export const WrapperWithdrawalH5 = styled.div`
 			border-radius: 10px;
 			.mask{
 				position: absolute;
-				background: rgba(55, 67, 117, 0.70);
+				background: ${({ theme }) => theme.mobile.maskBg};
 				width: 100%;
 				height: 100%;
 				left: 0;
 				top: 0;
-				z-index: 9;
+				z-index: 8;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -356,10 +356,9 @@ export const WrapperWithdrawalH5 = styled.div`
 		margin-top: 0;
 	}
 	.formula {
-		border-radius: 3px;
 		color: #5574a7;
 		padding: 3.4vw 0;
-		border-top: 1px solid #374375;
+		border-top: 1px solid ${({ theme }) => theme.mobile.borderFooterTop};
 		margin-top: 3.4vw;
 	}
 	.formula > div {
@@ -375,12 +374,12 @@ export const WrapperWithdrawalH5 = styled.div`
 		font-weight: bold;
 		font-size: 6vw;
 		text-align: center;
-		color: #939dc5;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 	}
 	.formula > div > div:nth-child(2) {
 		font-size: 3vw;
 		flex: 19;
-		background: #232b4f;
+		background: ${({ theme }) => theme.mobile.withDrawalBalanceBg};
 		text-align: left;
 		border-radius: 3px;
 		margin-bottom: 2vw;
@@ -390,7 +389,7 @@ export const WrapperWithdrawalH5 = styled.div`
 		font-weight: normal;
 	}
 	.formula > div > div:nth-child(2) > div:nth-child(2) {
-		color: #939dc5;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 	}
 	.formula > div > div:nth-child(2) > div:nth-child(2) span {
 		color: ${({ theme }) => theme.desktop.hrefColorPrimary};
@@ -400,7 +399,7 @@ export const WrapperWithdrawalH5 = styled.div`
 	.text-org,.text {
 		font-size: 2.9vw;
 		margin-top: 1vw;
-		color: #7883b4;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		span {
 			color: #FF4040;
 			margin-right: 1vw;

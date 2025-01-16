@@ -7,8 +7,9 @@ export const WrapperSettingPage = styled.div`
 			font-size: 5vw !important;
 		}
 		.menu-top {
-			background: url(${({ theme }) =>
-				theme.assetUrl}/h5/img/new-ui/menu-after-bg.webp);
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/themes/${
+	process.env['NEXT_PUBLIC_THEME_TYPE']
+}/menu-after-bg.webp);
 				no-repeat center/cover;
 			height: 42vw;
 			border-radius: 0 0 20px 20px;
@@ -41,7 +42,7 @@ export const WrapperSettingPage = styled.div`
 					width: 10vw;
 					height: 10vw;
 					border-radius: 10px;
-					background: #717fba;
+					background: ${({ theme }) => theme.mobile.boxMessageBgAffterLogin};
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -157,7 +158,7 @@ export const WrapperSettingPage = styled.div`
 			.casino-wallet {
 				padding : 0 4vw 4vw;
 				&-item {
-					background: #232B4F;
+					background: ${({ theme }) => theme.mobile.casinoWalletBg};
 					border-radius: 10px;
 					padding : 2vw;
 					.money{
@@ -175,7 +176,7 @@ export const WrapperSettingPage = styled.div`
 							align-items: center;
 							gap: 3vw;
 						.progress{
-							background: #374375;
+							background: ${({ theme }) => theme.mobile.casinoWalletProgressBg};
 							height: 2vw;
 							border-radius: 20px;
 							width: 100%;
@@ -354,7 +355,7 @@ export const WrapperSettingPage = styled.div`
 			bottom: 0;
 			right: 0;
 			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-			background : #48558B;
+			background : ${({ theme }) => theme.mobile.vipTextBg};
 			font-size: 3.1vw;
 			font-weight: 600;
 			line-height: normal;

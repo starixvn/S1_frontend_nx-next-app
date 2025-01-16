@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import { numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const BalanceInfo = () => {
 	const { t } = useTranslation()

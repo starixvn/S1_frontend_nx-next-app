@@ -394,6 +394,7 @@ export const theme = {
 		specialBonusBg: '#182043',
 		progressBarModuleBg: '#232b4f',
 		progressBarBg: '#374375',
+		popupColor: '#fff',
 	},
 	mobile: {
 		bgMenuBottom: '#182043',
@@ -425,6 +426,10 @@ export const theme = {
 		customNodataBorderColor: '#374375',
 		withDrawalColor: '#5574a7',
 		btnDepositAmountBgActive: '#717fba',
+		btnDepositAmountBg: '#374375',
+		btnDepositAmountColor: '#939DC5',
+		btnDepositAmountBgDisabled: '#232B4F',
+		btnDepositAmountColorDisabled: '#374375',
 		depositRemarkBg: '#232b4f',
 		customTableTdColor: '#939DC5',
 		proDataBodyBg: '#182043',
@@ -575,10 +580,37 @@ export const theme = {
 		gameTabItemColor: '#717fba',
 		menuQuickSlectBg: '#0f1428',
 		menuQuickSlectBorder: '#374375',
-		promotionItemsBg: '#573C34',
+		promotionItemsBg: 'rgb(46, 57, 101)',
 		rankListLeaderBoardBg: '#182043',
 
 		menuTabLeaderBoard: '#374375',
 		menuTabLeaderBoardActive: '#717fba',
+		menuLangsButtonBg: '#374375',
+
+		footerPopupBg: '#182043',
+		footerPopupBoxShaDown: '0px -6px 30px 0px rgba(0, 0, 0, 0.5)',
+		fotterPlusBg:
+			'radial-gradient(76.92% 76.92% at 50% 23.08%,#ea9218 0%, #FF813D 100% )',
+
+		boxMessageBgAffterLogin: '#717fba',
+		casinoWalletBg: '#232B4F',
+		casinoWalletProgressBg: '#374375',
+		vipTextBg: '#48558B',
+
+		headerTagBg: '#0F1428',
+		headerTagBorderBottom: '#374375',
+		headerTagButtonColor: '#939DC5',
+		headerTagButtonActive: 'linear-gradient(0deg, #717FBA 0%, #A2AFE5 100%)',
+
+		groupTooltipIconColor: '#717fba',
+
+		btnRecenterHistoryBg: '#374375',
+		btnRecenterHistoryColor: '#939dc5',
+		bgUploadFileButton: '#1D2447',
+		popupColor: '#fff',
+		bgSpinButton: '#232b4f',
+		btnAddBnkBg: '#374375',
+		withDrawalBalanceBg: '#232b4f',
+		maskBg: 'rgba(55, 67, 117, 0.70)',
 	},
 }

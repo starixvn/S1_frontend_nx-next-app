@@ -159,6 +159,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
       display: none;
       align-items: center;
       justify-content: center;
+      color : ${({ theme }) => theme.desktop.popupColor};
       &::-webkit-scrollbar-track{
           background: rgba(0, 0, 0, 0.2);
       }
@@ -2010,7 +2011,8 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
                     color: ${({ theme }) =>
 											theme.desktop.rightModuleSloganColor};
                     font-size: 3vw;
-                    background : #374375;
+                    background : ${({ theme }) =>
+											theme.mobile.menuLangsButtonBg};
                     padding : 1vw 2vw;
 
                     &.active{
@@ -2077,6 +2079,9 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
       color : #fff;
       font-weight : 700;
     }
+    .menu-bottom-item .info{
+       border-bottom: 4px solid ${({ theme }) => theme.mobile.headerBg};
+    }
 		.menu-bottom-item .option a,.langs {
 			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 			display: flex;
@@ -2134,11 +2139,12 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
       flex-flow: column;
       background: transparent;
       .headerTag {
-        background: #0F1428;
+        background: ${({ theme }) => theme.mobile.headerTagBg};
         display: flex;
         width: 100%;
         height: 12.3vw;
-        border-bottom: 1px solid #374375;
+        border-bottom: 1px solid ${({ theme }) =>
+					theme.mobile.headerTagBorderBottom};
         a,button{
           flex: 1;
           justify-content: center;
@@ -2151,7 +2157,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
           text-align: center;
           &.active{
             color: ${({ theme }) => theme.desktop.white};
-            background: linear-gradient(0deg, #717FBA 0%, #A2AFE5 100%);
+            background: ${({ theme }) => theme.mobile.headerTagButtonActive};
           }
         }
       }
@@ -2378,7 +2384,7 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
       .tag {
         width: 100%;
         display: flex;
-        background: #0F1428;
+        background: ${({ theme }) => theme.mobile.headerBg};
       }
       .tag a,
       .tag button {
@@ -2387,8 +2393,9 @@ export const GlobalStylesNsDemo1 = createGlobalStyle`
         display: flex;
         justify-content: center;
         height: 12vw;
-        border-bottom: 1px solid #939DC5;
-        color: #939DC5;
+        border-bottom: 1px solid ${({ theme }) =>
+					theme.mobile.headerTagBorderBottom};
+        color: ${({ theme }) => theme.mobile.headerTagButtonColor};
         font-size: 3.5vw;
         text-align: center;
       }

@@ -1096,10 +1096,6 @@ main .gameList .icon-new {
 	animation: fire1 3.6s 2s infinite;
 }
 
-#popup.statuspop {
-	color: #5574a7;
-}
-
 #popup.noticepop .checkbox {
 	width: -webkit-max-content;
 	width: -moz-max-content;

@@ -46,14 +46,16 @@ export const WrapperDepositModalBankSlipH5 = styled.div`
 	}
 	.upload_img {
 		display: flex;
-		background: #1d2447;
+		background: ${({ theme }) => theme.mobile.bgUploadFileButton};
 		width: 24vw;
 		height: 13.6vw;
 		border-radius: 10px;
 		justify-content: center;
 		align-items: center;
 		overflow: hidden;
-		gap img {
+		gap: 10px;
+		margin: 10px 0;
+		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;

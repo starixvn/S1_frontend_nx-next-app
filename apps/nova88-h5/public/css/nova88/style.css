@@ -1658,9 +1658,6 @@ main .gameList .icon-new {
 	width: 100%;
 	overflow: scroll;
 }
-#popup.statuspop {
-	color: #5574a7;
-}
 
 #popup.noticepop .checkbox {
 	width: -webkit-max-content;

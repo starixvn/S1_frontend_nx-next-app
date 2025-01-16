@@ -63,6 +63,7 @@ export const WrapperDepositH5 = styled.div`
 			.icon {
 				&:before {
 					font-size: 5vw;
+					color: ${({ theme }) => theme.mobile.groupTooltipIconColor};
 				}
 			}
 			.inputInfo {
@@ -158,7 +159,7 @@ export const WrapperDepositH5 = styled.div`
 			}
 			.subinfo {
 				font-size: 2.9vw;
-				color: #939dc5;
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 				span {
 					display: block;
 				}
@@ -217,19 +218,21 @@ export const WrapperDepositH5 = styled.div`
 		gap: 3.1vw;
 		button {
 			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
-			background: #374375;
+			background: ${({ theme }) => theme.mobile.btnDepositAmountBg};
 			padding: 2vw 3vw;
 			border-radius: 100px;
 			font-size: 3.2vw;
 			&.active {
-				background: #717fba;
+				background: ${({ theme }) => theme.mobile.btnDepositAmountBgActive};
 				color: ${({ theme }) => theme.mobile.white};
 			}
 		}
 	}
 	.buttonBox button[disabled] {
-		background: #232b4f !important;
-		color: #374375 !important;
+		background: ${({ theme }) =>
+			theme.mobile.btnDepositAmountBgDisabled} !important;
+		color: ${({ theme }) =>
+			theme.mobile.btnDepositAmountColorDisabled} !important;
 	}
 	.group-dropdown {
 		width: 100%;

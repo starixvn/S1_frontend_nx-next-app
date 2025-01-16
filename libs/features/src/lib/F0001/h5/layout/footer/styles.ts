@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const WrapperFooterDock = styled.div`
 	.footer {
-		background: url(${({ theme }) =>
-				theme.assetUrl}/h5/img/new-ui/footer-bg.webp)
+		background: url(${({ theme }) => theme.assetUrl}/h5/img/themes/${process
+				.env['NEXT_PUBLIC_THEME_TYPE']}/footer-bg.webp)
 			no-repeat center/cover;
 		height: 28vw;
 		width: 100%;
@@ -63,11 +63,7 @@ export const WrapperFooterDock = styled.div`
 	}
 	.footer .plus {
 		position: relative;
-		background: radial-gradient(
-			76.92% 76.92% at 50% 23.08%,
-			#ea9218 0%,
-			${({ theme }) => theme.desktop.hrefColorPrimary} 100%
-		);
+		background: ${({ theme }) => theme.mobile.fotterPlusBg};
 		box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.47);
 		border-radius: 50px;
 		height: 12vw;
@@ -133,7 +129,7 @@ export const WrapperFooterDock = styled.div`
 		animation: 1.5s ease 0s infinite normal none move;
 	}
 	.footer-popup {
-		background: #182043;
+		background: ${({ theme }) => theme.mobile.footerPopupBg};
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -145,7 +141,7 @@ export const WrapperFooterDock = styled.div`
 		position: fixed;
 		transform: translateY(50vw);
 		width: 100%;
-		box-shadow: 0px -6px 30px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: ${({ theme }) => theme.mobile.footerPopupBoxShaDown};
 	}
 	.footer-popup img {
 		width: 8vw;
@@ -157,7 +153,7 @@ export const WrapperFooterDock = styled.div`
 		align-items: center;
 	}
 	.footer-popup-title {
-		color: #939dc5;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		font-weight: 500;
 		margin-top: 1.5vw;
 		font-size: 1.4rem;
@@ -172,7 +168,7 @@ export const WrapperFooterDock = styled.div`
 		.icon {
 			&:before {
 				font-size: 5.8vw;
-				color: #939dc5;
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 			}
 		}
 	}

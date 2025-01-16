@@ -118,12 +118,12 @@ export const WrapperInfoList = styled.div`
 		}
 	}
 	.btn-recent-history {
-		color: #939dc5;
-		background: #374375;
+		color: ${({ theme }) => theme.mobile.btnRecenterHistoryColor};
+		background: ${({ theme }) => theme.mobile.btnRecenterHistoryBg};
 		.icon {
 			&:before {
 				font-size: 5vw;
-				color: #939dc5;
+				color: ${({ theme }) => theme.mobile.btnRecenterHistoryColor};
 			}
 		}
 	}

@@ -6,7 +6,7 @@ export const WrapperDepositPageHistoryH5 = styled.div`
 		padding: 0 8vw;
 		width: calc(100% - 7vw);
 		border-bottom: 1px solid
-			${({ theme }) => theme.mobiile.customNodataBorderColor};
+			${({ theme }) => theme.mobile.customNodataBorderColor};
 		overflow: scroll;
 		align-items: center;
 		margin-top: 0;
@@ -61,8 +61,8 @@ export const WrapperDepositPageHistoryH5 = styled.div`
 		left: -3vw;
 		z-index: 2;
 		top: 25vw;
-		border-bottom: 1px solid #374375;
-		background: #0f1428;
+		border-bottom: 1px solid ${({ theme }) => theme.mobile.menuQuickSlectBorder};
+		background: ${({ theme }) => theme.mobile.menuQuickSlectBg};
 
 		.infoModule {
 			display: flex;
