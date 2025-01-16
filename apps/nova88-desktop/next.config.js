@@ -78,6 +78,13 @@ const nextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
+	productionBrowserSourceMaps: false,
+	webpack: (config, { isServer }) => {
+		if (!isServer) {
+			config.devtool = false
+		}
+		return config
+	},
 }
 
 module.exports = withSentryConfig(withNx(nextConfig), sentryOptions)
