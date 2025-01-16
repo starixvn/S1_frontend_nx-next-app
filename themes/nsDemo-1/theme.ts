@@ -386,7 +386,7 @@ export const theme1 = {
 
 		functionMenuBg: '#402B25',
 		functionMenuListHeaderBg: '#331F1A',
-		functionMenuListHeaderBgActibe: '#331F1A',
+		functionMenuListHeaderBgActibe: '#402B25',
 		functionMenuReadBodyBg: '#331F1A',
 		functionMenuHaveReadBg: '#331F1A',
 		borderConfirm: '#66483E',
@@ -398,6 +398,7 @@ export const theme1 = {
 		progressBarBg: '#66483E',
 	},
 	mobile: {
+		bgMenuBottom: '#331F1A',
 		progressBarModuleBg: '#402B25',
 		progressBarBg: '#66483E',
 		specialBonusBg: '#331F1A',
@@ -407,7 +408,7 @@ export const theme1 = {
 		borderConfirm: '#66483E',
 		functionMenuBg: '#402B25',
 		functionMenuListHeaderBg: '#331F1A',
-		functionMenuListHeaderBgActibe: '#331F1A',
+		functionMenuListHeaderBgActibe: '#402B25',
 		functionMenuReadBodyBg: '#331F1A',
 		functionMenuHaveReadBg: '#331F1A',
 		gameTabBorder: '1px solid #694D45',

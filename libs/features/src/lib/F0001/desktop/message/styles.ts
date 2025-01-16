@@ -81,7 +81,8 @@ export const WrapperMessage = styled.div`
 			.readBody {
 				.listHeader {
 					color: ${({ theme }) => theme.desktop.white};
-					background: ${({ theme }) => theme.desktop.functionMenuReadBodyBg};
+					background: ${({ theme }) =>
+						theme.desktop.functionMenuListHeaderBgActibe};
 				}
 			}
 			.haveRead {

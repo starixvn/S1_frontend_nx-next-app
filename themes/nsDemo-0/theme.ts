@@ -396,6 +396,7 @@ export const theme = {
 		progressBarBg: '#374375',
 	},
 	mobile: {
+		bgMenuBottom: '#182043',
 		progressBarModuleBg: '#232b4f',
 		progressBarBg: '#374375',
 		specialBonusBg: '#182043',

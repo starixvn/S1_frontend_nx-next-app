@@ -1990,6 +1990,7 @@ export const GlobalStyles = createGlobalStyle`
               margin : 3vw 3.5vw;
               border-radius : 20px;
               overflow: hidden;
+              background: ${({ theme }) => theme.mobile.headerBg};
               .country-item{
                 background-color: ${({ theme }) =>
 									theme.desktop.rightModuleTitleBg};
@@ -1997,7 +1998,6 @@ export const GlobalStyles = createGlobalStyle`
                 display: flex;
                 align-items: center;
                 padding : 3.5vw 3vw;
-                border-bottom : 1px solid #374375;
                 &:last-child{
                   border-bottom : none;
                 }
@@ -2084,12 +2084,13 @@ export const GlobalStyles = createGlobalStyle`
 			flex-direction: column;
 			align-items: flex-start;
       padding: 3vw 13vw;
-      background : #182043;
+      background : ${({ theme }) => theme.mobile.bgMenuBottom};
       font-size: 3.6vw;
       font-weight: 600;
       line-height: normal;
 		}
     .menu-bottom-item .option {
+      border-bottom: 4px solid ${({ theme }) => theme.mobile.headerBg};
       .langs{
         flex-direction: row;
         align-items: center;
