@@ -101,11 +101,11 @@ export const WrapperBankInfoH5 = styled.div`
 		}
 		.subinfo {
 			text-align: left;
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.bankAccountSubInfoColor};
 		}
 		.code {
 			text-align: left;
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.bankAccountSubInfoColor};
 		}
 	}
 	.account {
@@ -114,7 +114,7 @@ export const WrapperBankInfoH5 = styled.div`
 		margin-bottom: 2vw;
 		padding: 2vw;
 		border-radius: 10px;
-		border: 1px solid #374375;
+		border: 1px solid ${({ theme }) => theme.mobile.bankAccountBoderColor};
 		.icon {
 			&:before {
 				font-size: 5vw;

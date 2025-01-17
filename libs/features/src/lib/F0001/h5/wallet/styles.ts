@@ -5,10 +5,10 @@ export const WrapperMyWalletH5 = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		color: #939dc5;
+		color: ${({ theme }) => theme.mobile.myWalletColor};
 		border-radius: 100px;
-		border: 1px solid #232b4f;
-		background: #1d2447;
+		border: 1px solid ${({ theme }) => theme.mobile.myWalletBorder};
+		background: ${({ theme }) => theme.mobile.myWalletBg};
 		padding: 1.8vw 3vw;
 	}
 	.icon {
@@ -23,7 +23,7 @@ export const WrapperMyWalletH5 = styled.div`
 	}
 	.walletTotal {
 		span {
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.myWalletColor};
 			&:last-child {
 				color: #fff;
 			}
@@ -46,10 +46,10 @@ export const WrapperMyWalletH5 = styled.div`
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				color: #939dc5;
+				color: ${({ theme }) => theme.mobile.myWalletColor};
 				border-radius: 100px;
-				border: 1px solid #232b4f;
-				background: #1d2447;
+				border: 1px solid ${({ theme }) => theme.mobile.myWalletBorder};
+				background: ${({ theme }) => theme.mobile.myWalletBg};
 				padding: 1.8vw 3vw;
 				color: #fff;
 			}
@@ -70,7 +70,7 @@ export const WrapperMyWalletH5 = styled.div`
 	}
 	.progressBarModule .bar {
 		height: 2vw;
-		background: #374375;
+		background: ${({ theme }) => theme.mobile.progressBarBg};
 		border-radius: 10px;
 		overflow: hidden;
 		flex: auto;
@@ -81,7 +81,7 @@ export const WrapperMyWalletH5 = styled.div`
 		border-radius: 10px;
 	}
 	.progressBarModule .icon-spinner11 {
-		background: #5574a7;
+		background: ${({ theme }) => theme.mobile.progressBarBg};
 		color: white;
 		border-radius: 100%;
 		margin: 0 0 0 2vw;

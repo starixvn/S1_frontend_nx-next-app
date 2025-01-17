@@ -23,7 +23,7 @@ export const WrapperSurvayH5 = styled.div`
 			margin-bottom: 3vw;
 		}
 		.slogan-survey {
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.txtThemeColor};
 			font-weight: 400;
 			font-size: 3.6vw;
 		}
@@ -60,13 +60,13 @@ export const WrapperSurvayH5 = styled.div`
 		max-width: 100%;
 		resize: none;
 		border-radius: 2vw;
-		background: #232b4f;
+		background: ${({ theme }) => theme.mobile.surveyTextareaBg};
 		border: none;
-		color: #939dc5;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		font-family: 'Montserrat', sans-serif;
 	}
 	.survey-before fieldset textarea::placeholder {
-		color: #7883b4;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		font-size: 3.5vw;
 		font-family: 'Montserrat', sans-serif;
 	}
@@ -105,12 +105,13 @@ export const WrapperSurvayH5 = styled.div`
 		align-items: center;
 		justify-content: center;
 		border-radius: 100px;
-		border: 6px solid #1d2447;
-		background: #232b4f;
+		border: 6px solid ${({ theme }) => theme.mobile.surveyBorderIcon};
+		background: ${({ theme }) => theme.mobile.surveyBorderIcon};
 		margin: auto;
 		.icon {
 			&:before {
 				font-size: 8vw;
+				color: ${({ theme }) => theme.mobile.surveyColorIcon};
 			}
 		}
 	}

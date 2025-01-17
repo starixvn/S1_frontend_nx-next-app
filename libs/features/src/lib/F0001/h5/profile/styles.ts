@@ -95,7 +95,7 @@ export const WrapperVerificationH5 = styled.div`
 		span {
 			width: 7vw;
 			height: 1.5vw;
-			background: #374375;
+			background: ${({ theme }) => theme.mobile.safetyLvBg};
 			margin: 0 3px;
 			border-radius: 50px;
 			&:nth-child(1) {
@@ -131,7 +131,8 @@ export const WrapperVerificationH5 = styled.div`
 			> div {
 				width: 8.6vw;
 				height: 8.6vw;
-				background: #374375;
+				background: ${({ theme }) =>
+					theme.mobile.userVertificationDefaultBgIcon};
 				border-radius: 100%;
 				color: white;
 				display: flex;
@@ -157,6 +158,8 @@ export const WrapperVerificationH5 = styled.div`
 				&.icon {
 					&:before {
 						font-size: 4vw;
+						color: ${({ theme }) =>
+							theme.mobile.userVertificationDefaultColorIcon};
 					}
 				}
 			}
@@ -184,7 +187,12 @@ export const WrapperVerificationH5 = styled.div`
 		left: 53vw;
 	}
 	.userVerification > div:last-child > div.active {
-		background: #717fba;
+		background: ${({ theme }) => theme.mobile.userVertificationActiveBgIcon};
+		&.icon {
+			&:before {
+				color: ${({ theme }) => theme.mobile.white};
+			}
+		}
 	}
 	.userVerification > div:last-child > div.active:after {
 		font-family: 'S1NewIcons';
@@ -270,8 +278,9 @@ export const WrapperEditAddressH5 = styled.div`
 		.group-sub-title {
 			.heading-box {
 				padding: 2.7vw 5vw;
-				background: #232b4f;
-				// border-bottom: 1px solid #374375;
+				background: ${({ theme }) => theme.mobile.bgHeadingProfile};
+				border-bottom: 1px solid
+					${({ theme }) => theme.mobile.borderHeadingProfile};
 			}
 			.body-box {
 				// padding-bottom: 5vw;
@@ -290,12 +299,15 @@ export const WrapperEditAddressH5 = styled.div`
 				right: 0;
 				z-index: 9;
 			}
+			.subtitle {
+				color: ${({ theme }) => theme.mobile.profileSubtitleColor};
+			}
 		}
 	}
 `
 
 export const WrapperParentProfileH5 = styled.div`
-	background: #182043;
+	background: ${({ theme }) => theme.mobile.bgParentProfile};
 	border-radius: 20px;
 	overflow: hidden;
 	padding-bottom: 5vw;
@@ -308,8 +320,8 @@ export const WrapperProfileH5 = styled.div`
 	}
 	.title {
 		padding: 2.7vw 5vw;
-		background: #232b4f;
-		border-bottom: 1px solid #374375;
+		background: ${({ theme }) => theme.mobile.bgHeadingProfile};
+		border-bottom: 1px solid ${({ theme }) => theme.mobile.borderHeadingProfile};
 		margin-bottom: 3.1vw;
 	}
 

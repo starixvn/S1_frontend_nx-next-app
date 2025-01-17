@@ -270,7 +270,7 @@ export const WrapperDepositH5 = styled.div`
 			a {
 				width: 9vw;
 				height: 9vw;
-				background: #374375;
+				background: ${({ theme }) => theme.mobile.btnAddBnkBg};
 				padding: 0;
 				.icon {
 					&:before {

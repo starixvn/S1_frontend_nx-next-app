@@ -118,7 +118,7 @@ export const WrapperReferFrendsH5 = styled.div`
 		position: absolute;
 		top: 10vw;
 		left: calc(50% - 0vw);
-		border: 1px dashed #374375;
+		border: 1px dashed ${({ theme }) => theme.mobile.rightModuleSloganColor};
 	}
 	.referinfo-step:last-child .icon::after {
 		display: none;

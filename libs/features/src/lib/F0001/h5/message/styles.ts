@@ -13,7 +13,7 @@ export const WrapperMessageH5 = styled.div`
 		.functionList {
 			display: flex;
 			justify-content: space-between;
-			background: #232b4f;
+			background: ${({ theme }) => theme.mobile.functionMenuBg};
 			align-items: center;
 			padding: 3.4vw 4vw;
 		}
@@ -61,12 +61,20 @@ export const WrapperMessageH5 = styled.div`
 			.content {
 				display: block;
 			}
+			.info {
+				background: ${({ theme }) =>
+					theme.mobile.functionMenuListHeaderBgActibe};
+			}
 		}
 		&.noread {
 			.introduction {
 				span {
 					color: ${({ theme }) => theme.desktop.white};
 				}
+			}
+			.info {
+				background: ${({ theme }) =>
+					theme.mobile.functionMenuListHeaderBgActibe};
 			}
 		}
 	}

@@ -33,10 +33,9 @@ import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from '../../../themes/nsDemo-0/global.styled'
+import { GlobalStyles } from '../../../themes/global.styled'
 import { theme } from '../../../themes/nsDemo-0/theme'
 
-import { GlobalStylesNsDemo1 } from '../../../themes/nsDemo-1/global.styled'
 import { theme1 } from '../../../themes/nsDemo-1/theme'
 
 dayjs.extend(localizedFormat)
@@ -66,10 +65,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 	})()
 	return (
 		<ThemeProvider theme={initialTheme}>
-			{process.env.NEXT_PUBLIC_THEME_TYPE === 'nsDemo-1' && (
-				<GlobalStylesNsDemo1 />
-			)}
-			{process.env.NEXT_PUBLIC_THEME_TYPE === 'nsDemo-0' && <GlobalStyles />}
+			<GlobalStyles />
 			<Head>
 				<meta
 					name='viewport'

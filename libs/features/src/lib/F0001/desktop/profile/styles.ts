@@ -65,7 +65,7 @@ export const WrapperProfileAfterLogin = styled.div`
 				span {
 					width: 2.8rem;
 					height: 0.6rem;
-					background: #cacaca;
+					background: ${({ theme }) => theme.desktop.safetyLvBg};
 					border-radius: 50px;
 					&:nth-child(1) {
 						&.active {

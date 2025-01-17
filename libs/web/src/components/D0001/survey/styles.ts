@@ -140,8 +140,8 @@ export const WrapperServey = styled.div`
 		padding: 8rem 3rem;
 	}
 	#survey .survey-after .icon-like {
-		border: 6px solid #1d2447;
-		background: #232b4f;
+		border: 6px solid ${({ theme }) => theme.desktop.surveyBorderIcon};
+		background: ${({ theme }) => theme.desktop.surveyBgIcon};
 		border-radius: 100px;
 		height: 52px;
 		width: 52px;
@@ -150,6 +150,7 @@ export const WrapperServey = styled.div`
 		justify-content: center;
 		&:before {
 			font-size: 3.2rem;
+			color: ${({ theme }) => theme.desktop.surveyColorIcon};
 		}
 	}
 	#survey .survey-after .icon-close {
