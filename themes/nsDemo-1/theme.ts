@@ -528,7 +528,7 @@ export const theme1 = {
 		stepBg: '#66483E',
 		stepBorderActive: 'rgba(234, 97, 24, 0.5)',
 		stepBgActive: '#FF813D',
-		stepBgItem: '#694D45',
+		stepBgItem: '#AD8C82',
 		stepBoder: '#66483E',
 
 		tooltipBorderColor: '#FF813D',
@@ -646,5 +646,6 @@ export const theme1 = {
 		surveyBgIcon: '#402B25',
 		surveyBorderIcon: '#38241E',
 		surveyColorIcon: '#AD8C82',
+		profileItemUserBg: '#CFCDCC',
 	},
 }

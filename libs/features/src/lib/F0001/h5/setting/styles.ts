@@ -25,7 +25,7 @@ export const WrapperSettingPage = styled.div`
 					gap: 1.2rem;
 				}
 				&-user {
-					background: #d7dcef;
+					background: ${({ theme }) => theme.mobile.profileItemUserBg};
 					width: 10vw;
 					height: 10vw;
 					display: flex;

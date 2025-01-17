@@ -360,7 +360,7 @@ export const WrapperDepositH5 = styled.div`
 	}
 
 	.infoAccount {
-		border-top: 1px solid #374375;
+		border-top: 1px solid ${({ theme }) => theme.mobile.rightModuleBorderColor};
 		padding-top: 3.5vw;
 		width: 100%;
 		.selected-bank {
@@ -384,7 +384,7 @@ export const WrapperDepositH5 = styled.div`
 		.input-type {
 			display: flex;
 			align-items: center;
-			background: #232b4f;
+			background: ${({ theme }) => theme.mobile.depositRemarkBg};
 			margin-bottom: 2.9vw;
 			padding: 1.5vw 2vw;
 			border-radius: 5px;
@@ -420,7 +420,8 @@ export const WrapperDepositH5 = styled.div`
 					background: none;
 					padding: 0;
 					border: none;
-					border-top: 1px solid #374375;
+					border-top: 1px solid
+						${({ theme }) => theme.mobile.rightModuleBorderColor};
 					padding-top: 3.5vw;
 					border-radius: 0;
 					margin-bottom: 3.5vw;

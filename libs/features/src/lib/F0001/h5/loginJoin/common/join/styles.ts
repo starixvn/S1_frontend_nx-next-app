@@ -69,7 +69,7 @@ export const WrapperCongrats = styled.div`
 		position: relative;
 		font-size: 3.4vw;
 		font-weight: 400;
-		color: #939dc5;
+		color: ${({ theme }) => theme.mobile.txtThemeColor};
 		text-align: center;
 		p {
 			font-weight: 700;

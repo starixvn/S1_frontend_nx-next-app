@@ -636,5 +636,6 @@ export const theme = {
 		surveyBgIcon: '#232b4f',
 		surveyBorderIcon: '#1d2447',
 		surveyColorIcon: '#717fba',
+		profileItemUserBg: '#d7dcef',
 	},
 }

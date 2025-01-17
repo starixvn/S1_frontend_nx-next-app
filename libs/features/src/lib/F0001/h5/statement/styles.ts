@@ -7,7 +7,7 @@ export const StatementContainer = styled.div`
 	.header {
 		position: sticky;
 		top: 0;
-		background: #0f1428;
+		background: ${({ theme }) => theme.mobile.headerTagBg};
 		z-index: 2;
 	}
 `

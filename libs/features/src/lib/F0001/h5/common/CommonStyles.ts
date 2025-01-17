@@ -41,7 +41,7 @@ export const WrapperInfoList = styled.div`
 					}
 					.value {
 						font-weight: 400;
-						color: #939dc5;
+						color: ${({ theme }) => theme.mobile.txtThemeColor};
 						overflow-wrap: break-word;
 					}
 					.body {
