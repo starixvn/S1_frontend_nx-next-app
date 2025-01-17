@@ -55,13 +55,13 @@ export const HeaderContainer = styled.div`
 		margin-right: 3.89vw;
 
 		.user-info {
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.txtThemeColor};
 			font-size: 2.91vw;
 			font-weight: 600;
 		}
 
 		.member-id {
-			color: #939dc5;
+			color: ${({ theme }) => theme.mobile.txtThemeColor};
 		}
 	}
 
