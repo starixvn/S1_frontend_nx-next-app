@@ -452,7 +452,7 @@ export const WrapperWithdrawalH5 = styled.div`
 			overflow: hidden;
 			.icon {
 				&:before{
-					color: #939DC5;
+					color: ${({ theme }) => theme.mobile.txtThemeColor};
 					font-size: 6.1vw;
 				}
 			}
@@ -479,7 +479,7 @@ export const WrapperWithdrawalH5 = styled.div`
 				list-style : none;
 				margin-left: 4vw;
 				li{
-					color: #939DC5;
+					color: ${({ theme }) => theme.mobile.txtThemeColor};
 					position: relative;
 					&:after{
 						content: '';
@@ -489,7 +489,7 @@ export const WrapperWithdrawalH5 = styled.div`
 						position: absolute;
 						left: -10px;
 						top: 8px;
-						background: #939DC5;
+						background: ${({ theme }) => theme.mobile.txtThemeColor};
 					}
 				}
 			}
