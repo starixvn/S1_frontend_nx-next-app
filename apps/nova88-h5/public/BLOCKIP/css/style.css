@@ -180,11 +180,17 @@ body {
 		bottom: 10px;
 		width: 1030px;
 	}
+	body {
+		background: url(../img/bg-error-mobile.webp) no-repeat;
+	}
 }
 @media (max-width: 550px) {
 	body::before {
 		bottom: -65px;
 		width: 560px;
+	}
+	body {
+		background: url(../img/bg-error-mobile.webp) no-repeat;
 	}
 }
 
